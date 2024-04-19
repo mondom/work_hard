@@ -1,12 +1,10 @@
 'use strict'
-const btn = document.querySelector('.btn-start')
+const tempInFahrenheit = 86
+let tempInCelsius = 0
 
-const start = () => {
-	const liczbaPierwsza = 10
-	const liczbaDruga = 20
+const conversionFactor = 5/9
+const conversionCelsius = -32
 
-    const suma = liczbaPierwsza + liczbaDruga
-    alert(suma)
-}
+tempInCelsius = (tempInFahrenheit + conversionCelsius) *conversionFactor
 
-start()
+console.log(tempInCelsius);
