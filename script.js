@@ -1,10 +1,11 @@
 'use strict'
-const tempInFahrenheit = 86
-let tempInCelsius = 0
 
-const conversionFactor = 5/9
-const conversionCelsius = -32
+const taxRate = 23
+const price = parseFloat((100).toFixed(2))
+const taxAmount = parseFloat((price * taxRate / 100).toFixed(2))
 
-tempInCelsius = (tempInFahrenheit + conversionCelsius) *conversionFactor
 
-console.log(tempInCelsius);
+const finalPrice = price + taxAmount
+
+console.log(`Podatek VAT: ${taxAmount} PLN`);
+console.log(`Cena z podatkiem VAT: ${finalPrice} PLN`);
