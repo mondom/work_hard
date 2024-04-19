@@ -1,11 +1,55 @@
 'use strict'
 
-const taxRate = 23
-const price = parseFloat((100).toFixed(2))
-const taxAmount = parseFloat((price * taxRate / 100).toFixed(2))
+const students = [
+	{
+		name: 'Jan',
+		surname: 'Kowalski',
+		age: 21,
+		index: '12345',
+		grades: [4, 5, 3, 2],
+	},
+	{
+		name: 'Anna',
+		surname: 'Nowak',
+		age: 22,
+		index: '23456',
+		grades: [5, 5, 5, 4],
+	},
+	{
+		name: 'Piotr',
+		surname: 'Wisniewski',
+		age: 20,
+		index: '34567',
+		grades: [3, 3, 2, 2],
+	},
+]
 
+const calculateAverageGrade = students => {
+	let averageGrades = {}
 
-const finalPrice = price + taxAmount
+	for (const studentGrades of students) {
+		const average =
+			studentGrades.grades.reduce(function (a, b) {
+				return a + b
+			}, 0) / studentGrades.grades.length
+		const surname = studentGrades.surname
+		averageGrades[surname] = average
+	}
+	const sumAll = parseFloat(
+		Object.values(averageGrades).reduce((a, b) => a + b, 0) / Object.keys(averageGrades).length
+	).toFixed(2)
 
-console.log(`Podatek VAT: ${taxAmount} PLN`);
-console.log(`Cena z podatkiem VAT: ${finalPrice} PLN`);
+	console.log(typeof sumAll)
+
+	// students.map(obj => {
+	// 	const studentName = obj.name
+	// 	const value =
+	// 		obj.grades.reduce(function (accumulator, currentValue) {
+	// 			return accumulator + currentValue
+	// 		}, 0) / obj.grades.length
+
+	//         averageGrades[studentName] = value
+	// })
+}
+
+calculateAverageGrade(students)
