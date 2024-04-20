@@ -35,11 +35,10 @@ const calculateAverageGrade = students => {
 		const surname = studentGrades.surname
 		averageGrades[surname] = average
 	}
-	const sumAll = parseFloat(
-		Object.values(averageGrades).reduce((a, b) => a + b, 0) / Object.keys(averageGrades).length
-	).toFixed(2)
+	const sumAll = Number((Object.values(averageGrades).reduce((a, b) => a + b, 0) / Object.keys(averageGrades).length).toFixed(2))
 
-	console.log(typeof sumAll)
+
+	console.log(sumAll)
 
 	// students.map(obj => {
 	// 	const studentName = obj.name
