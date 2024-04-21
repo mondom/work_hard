@@ -2,14 +2,14 @@
 
 const btn = document.querySelector('.btn')
 
-const greetUser = () => {
-	const name = prompt('jak masz na imię?')
+const askConfirmation = () => {
+    const decisionConfim = confirm('Czy na pewno chcesz wykonać tą akcję?')
 
-	if (name) {
-		alert(`Witaj ${name}, miło Cię widzieć!`)
-	} else {
-		alert('Nie podałeś swojego imienia, spróbuj jeszcze raz.')
-	}
+    if(decisionConfim){
+        alert('Twoja decyzja została potwierdzona.')
+    }else{
+        alert('Twoja decyzja została anulowana.')
+    }
 }
 
-btn.addEventListener('click', greetUser)
+btn.addEventListener('click', askConfirmation)
