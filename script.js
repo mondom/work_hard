@@ -1,17 +1,15 @@
-const favAnimal = 'Kot'
+'use strict'
 
-let isAvaliable = false
+const btn = document.querySelector('.btn')
 
-const avaliableAnimals = ['Pies', 'Biedronka', 'Małpa', 'Kot', 'Królik']
+const greetUser = () => {
+	const name = prompt('jak masz na imię?')
 
-if (avaliableAnimals.includes(favAnimal)) {
-	isAvaliable = true
+	if (name) {
+		alert(`Witaj ${name}, miło Cię widzieć!`)
+	} else {
+		alert('Nie podałeś swojego imienia, spróbuj jeszcze raz.')
+	}
 }
 
-if (isAvaliable) {
-	console.log('Twoje ulubione zwierzę jest dostępne :)')
-} else if (!favAnimal) {
-	console.log('Podaj, jakie jest Twoje ulubione zwierze...')
-} else {
-	console.log('Nie ma Twojego ulubionego zwierza :(')
-}
+btn.addEventListener('click', greetUser)
