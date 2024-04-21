@@ -1,24 +1,17 @@
-const favoritePlace = 'Góry'
-let isAvailable = false
+const favAnimal = 'Kot'
 
-const availablePlace = 'Góry'
+let isAvaliable = false
 
-if(favoritePlace === availablePlace){
-    isAvailable = true;
+const avaliableAnimals = ['Pies', 'Biedronka', 'Małpa', 'Kot', 'Królik']
+
+if (avaliableAnimals.includes(favAnimal)) {
+	isAvaliable = true
 }
 
-if(isAvailable) {
-    console.log(`Moje ulubione miejsce wypoczynkowe jest dostępne!`);
-}else{
-    console.log(`Moje ulubione miejsce wypoczynkowe nie jest dostępne!`);
-}
-
-if(!favoritePlace){
-    console.log(`Błąd! Nie podano ulubionego miejsca!`);
-}
-
-const secretKey = Symbol('klucz dostępu')
-
-if(favoritePlace === secretKey){
-    console.log(`Błąd! Nie masz dostepu!`);
+if (isAvaliable) {
+	console.log('Twoje ulubione zwierzę jest dostępne :)')
+} else if (!favAnimal) {
+	console.log('Podaj, jakie jest Twoje ulubione zwierze...')
+} else {
+	console.log('Nie ma Twojego ulubionego zwierza :(')
 }
