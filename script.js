@@ -1,15 +1,15 @@
 'use strict'
 
-const btn = document.querySelector('.btn')
+let cost = '19.50'
 
-const askConfirmation = () => {
-    const decisionConfim = confirm('Czy na pewno chcesz wykonać tą akcję?')
+const numCost = Number(cost)
+console.log(numCost)
 
-    if(decisionConfim){
-        alert('Twoja decyzja została potwierdzona.')
-    }else{
-        alert('Twoja decyzja została anulowana.')
-    }
+const bool = Boolean(numCost > 20)
+console.log(bool)
+
+if (bool) {
+	console.log(`zamówienie zostało przyjęte`)
+} else {
+	console.log(`koszt musi przekroczyć 20zł`)
 }
-
-btn.addEventListener('click', askConfirmation)
