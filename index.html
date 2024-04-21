@@ -11,10 +11,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             background-color: #333;
         }
         .btn{
            padding: 10px 15px; 
+           margin: 10px;
            cursor: pointer;
         }
 
@@ -22,7 +24,9 @@
 </head>
 
 <body>
-    <button class="btn">Kliknij, aby zadać pytanie</button>
+    <button class="btn btn-inc">Zwiększ licznik</button>
+    <button class="btn btn-dec">Zmniejsz licznik</button>
+    <p>Wynik: <span class="result"></span></p>
     <script src="script.js"></script>
 </body>
 

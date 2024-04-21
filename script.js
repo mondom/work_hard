@@ -1,15 +1,23 @@
 'use strict'
 
-let cost = '19.50'
+const addBtn = document.querySelector('.btn-inc')
+const subBtn = document.querySelector('.btn-dec')
+const result = document.querySelector('.result')
 
-const numCost = Number(cost)
-console.log(numCost)
+let counter = 0
 
-const bool = Boolean(numCost > 20)
-console.log(bool)
-
-if (bool) {
-	console.log(`zamówienie zostało przyjęte`)
-} else {
-	console.log(`koszt musi przekroczyć 20zł`)
+const zwiększLicznik = () => {
+	counter++
+	aktualizujWynik()
 }
+const zmiejszLicznik = () => {
+	counter--
+	aktualizujWynik()
+}
+
+const aktualizujWynik = () => {
+	result.textContent = counter
+}
+
+addBtn.addEventListener('click', zwiększLicznik)
+subBtn.addEventListener('click', zmiejszLicznik)
