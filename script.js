@@ -20,4 +20,4 @@ const aktualizujWynik = () => {
 }
 
 addBtn.addEventListener('click', zwiększLicznik)
-subBtn.addEventListener('click', zmiejszLicznik)
+subBtn.addEventListener('click', zmiejszLicznik) 
