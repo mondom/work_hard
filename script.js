@@ -1,15 +1,14 @@
 'use strict'
-const test = (number) => {
+const test = () => {
 
-	if(isNaN(number)){
-		console.log('Podana wartość nie jest liczbą');
-	}else if(!isFinite(number)){
-		console.log('Podana wartość jest nieskończona');
-	} else{
-		console.log('Podana wartość jest prawidłową liczbą');
-	}
-	
+const sentence = 'to jest przykladowe zdanie.'
+console.log(sentence.length);
+console.log(sentence[0]);
+console.log(sentence[sentence.length -1]);
+console.log(sentence.includes('to'));
+const modify = sentence[0].toUpperCase() + sentence.slice(1)
+console.log(modify);
 }
-test(null)
 
-console.log(null);
+test()
+
