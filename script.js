@@ -1,14 +1,15 @@
 'use strict'
-const test = () => {
-	const number = 8.4
+const test = (number) => {
 
-	const floorResult = Math.floor(number)
-	console.log(floorResult);
-
-	const ceilResult = Math.ceil(number)
-	console.log(ceilResult);
-
-	const roundResult = Math.round(number)
-	console.log(roundResult);
+	if(isNaN(number)){
+		console.log('Podana wartość nie jest liczbą');
+	}else if(!isFinite(number)){
+		console.log('Podana wartość jest nieskończona');
+	} else{
+		console.log('Podana wartość jest prawidłową liczbą');
+	}
+	
 }
-test()
+test(null)
+
+console.log(null);
