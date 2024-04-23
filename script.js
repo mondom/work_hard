@@ -1,16 +1,14 @@
 'use strict'
 const test = () => {
-	const age = parseInt(prompt('Podaj swój wiek:'))
-	console.log(age)
-	const minAge = 25
+	const number = 8.4
 
-	const hasLicense = prompt('Czy posiadasz prawo jazdy Tak/Nie?').toLowerCase() === 'tak'
-	console.log(hasLicense)
+	const floorResult = Math.floor(number)
+	console.log(floorResult);
 
-	if (age >= minAge && hasLicense) {
-		alert('Możesz wypożyczyć samochód')
-	} else {
-		alert('Musisz mieć ukończone 25 lat i posiadać prawo jazdy!')
-	}
+	const ceilResult = Math.ceil(number)
+	console.log(ceilResult);
+
+	const roundResult = Math.round(number)
+	console.log(roundResult);
 }
 test()
