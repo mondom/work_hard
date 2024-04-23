@@ -1,23 +1,16 @@
 'use strict'
+const test = () => {
+	const age = parseInt(prompt('Podaj swój wiek:'))
+	console.log(age)
+	const minAge = 25
 
-const addBtn = document.querySelector('.btn-inc')
-const subBtn = document.querySelector('.btn-dec')
-const result = document.querySelector('.result')
+	const hasLicense = prompt('Czy posiadasz prawo jazdy Tak/Nie?').toLowerCase() === 'tak'
+	console.log(hasLicense)
 
-let counter = 0
-
-const zwiększLicznik = () => {
-	counter++
-	aktualizujWynik()
+	if (age >= minAge && hasLicense) {
+		alert('Możesz wypożyczyć samochód')
+	} else {
+		alert('Musisz mieć ukończone 25 lat i posiadać prawo jazdy!')
+	}
 }
-const zmiejszLicznik = () => {
-	counter--
-	aktualizujWynik()
-}
-
-const aktualizujWynik = () => {
-	result.textContent = counter
-}
-
-addBtn.addEventListener('click', zwiększLicznik)
-subBtn.addEventListener('click', zmiejszLicznik) 
+test()
