@@ -1,22 +1,15 @@
 'use strict'
 const test = () => {
-	const temp = parseFloat(prompt('Podaj temperaturę w stopniach Celsjusza'))
-	// console.log(temp)
+	const year = parseInt(prompt('Podaj który mamy rok'))
+	let isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
 
-	if(temp < -10){
-		alert('jest bardzo zimno');
-	}else if(temp > -10 && temp <= 0){
-		alert('jest zimno');
-	}else if (temp >0 && temp <=10){
-		alert('jest chłodno');
-	}else if(temp > 10 && temp <=20){
-		alert('jest ciepło');
-	}else if(temp > 20){
-		alert('jest gorąco');
+	if (year <= 2001 || year >= 2100) {
+		console.log(`${year} nie należy do XXI wieku`)
+	} else if (!isLeapYear && (year >= 2001 && year <= 2100)) {
+		console.log(`${year} nie jest przestepny i należy do XXI wieku.`)
+	} else if (isLeapYear && (year >= 2001 && year <= 2100)) {
+		console.log(`${year} jest przestepny i należy do XXI wieku.`)
 	}
-	
 }
-
-
 
 test()
