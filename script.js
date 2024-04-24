@@ -1,12 +1,15 @@
 'use strict'
 const test = () => {
 
-	let youWannaPizza = true
+	const age = 18
+	const adult = 18
+	const status = age >= adult ? true : false
+	// console.log(status);
 
-	if(youWannaPizza){
-		console.log('super! jedziemy po pizze!');
-	}else if(!youWannaPizza){
-		console.log('ok, może następnym razem...');
+	if(status){
+		console.log('Jesteś pełnoletni!');
+	}else {
+		console.log('Nie jesteś pełnoletni');
 	}
 } 
 
