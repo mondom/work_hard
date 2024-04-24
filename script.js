@@ -1,14 +1,12 @@
 'use strict'
 const test = () => {
-	const minHeight = 150
-	const userHeight = prompt('Podaj swój wzrost w cm')
 
-	if (userHeight === '' || isNaN(userHeight)) {
-		console.log('podaj wzrost wpisując liczbę')
-	} else if (userHeight >= minHeight) {
-		console.log('Możesz skorzystać z karuzeli')
-	} else {
-		console.log('Jesteś za niski');
+	let youWannaPizza = true
+
+	if(youWannaPizza){
+		console.log('super! jedziemy po pizze!');
+	}else if(!youWannaPizza){
+		console.log('ok, może następnym razem...');
 	}
 } 
 
