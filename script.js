@@ -2,23 +2,15 @@
 const input = document.querySelector('input')
 const btn = document.querySelector('.btn')
 
-const szukanaLiczba = Math.floor(Math.random() * 10) + 1
-let liczbaPrób = 5
+const temperatures = [25, 30, 28, 22, 27]
 
-const slowa = 'Kot jest najlepszy na świecie'.split(' ')
-
-
-let dlugosci = []
-
-function test(slowa) {
-	for (let i = 0; i < slowa.length; i++) {
-        const dlugosc = slowa[i].length
-        dlugosci.push(dlugosc)
-    }
-    console.log(`Długości słów to: ${dlugosci}`);
-
-
+function test() {
+	const sum = temperatures.reduce(function (accum, current) {
+	return accum = (accum + current) 
+	}, 0)
+	const average = sum / temperatures.length
+    console.log(average);
 }
-test(slowa)
+test()
 
 btn.addEventListener('click', test)
