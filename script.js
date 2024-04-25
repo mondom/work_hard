@@ -2,15 +2,29 @@
 const input = document.querySelector('input')
 const btn = document.querySelector('.btn')
 
-const temperatures = [25, 30, 28, 22, 27]
+const numbers = [10, 7, 4, 12, 11, 20, 9, 13]
 
 function test() {
-	const sum = temperatures.reduce(function (accum, current) {
-	return accum = (accum + current) 
-	}, 0)
-	const average = sum / temperatures.length
-    console.log(average);
+	for (let i = 0; i < numbers.length; i++) {
+        if(isPrime(numbers[i])){
+            console.log(`Liczba pierwsza znaleziona: ${numbers[i]}`);
+            break
+        }
+    }
 }
 test()
+
+function isPrime(number) {
+	if (number < 2) {
+		return false
+	}
+
+	for (let i = 2; i < number; i++) {
+		if (number % i === 0) {
+			return false
+		}
+	}
+	return true
+}
 
 btn.addEventListener('click', test)
