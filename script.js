@@ -2,29 +2,24 @@
 const input = document.querySelector('input')
 const btn = document.querySelector('.btn')
 
-const numbers = [10, 7, 4, 12, 11, 20, 9, 13]
+const grades = [3, 4, 5, 2, 3, 5, 4, 2, 4, 5]
+// suma ocen
+let sum = 0
+// liczba ocen branych pod uwagę
+let count = 0
 
 function test() {
-	for (let i = 0; i < numbers.length; i++) {
-        if(isPrime(numbers[i])){
-            console.log(`Liczba pierwsza znaleziona: ${numbers[i]}`);
-            break
-        }
-    }
-}
-test()
-
-function isPrime(number) {
-	if (number < 2) {
-		return false
-	}
-
-	for (let i = 2; i < number; i++) {
-		if (number % i === 0) {
-			return false
+	for (let i = 0; i < grades.length; i++) {
+		if (grades[i] < 3) {
+			continue
+		} else {
+			sum = sum + grades[i]
+			count++
 		}
 	}
-	return true
+    const average = sum /count
+    console.log(`Średnia ocen to: ${average.toFixed(2)}`);
 }
+test()
 
 btn.addEventListener('click', test)
