@@ -2,9 +2,11 @@
 const input = document.querySelector('input')
 const btn = document.querySelector('.btn')
 
-function calculateBMI(height, weight) {
-	return weight / (height * height)
+const calculateTax = value => {
+	const taxRate = 0.23
+
+	const score = value * taxRate
+	console.log(score);
 }
 
-const bmiResult = calculateBMI(1.8, 66)
-console.log(bmiResult.toFixed(2))
+calculateTax(1000)
