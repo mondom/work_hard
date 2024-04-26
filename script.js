@@ -2,16 +2,19 @@
 const input = document.querySelector('input')
 const btn = document.querySelector('.btn')
 
-const numbers = [1, 2, 3, 4, 5]
+const kwotaTransakcji = 1000
+const typ = 'przelew'
 
-const calculateSum = numbers => {
-	let sum = 0
-	numbers.forEach(num => {
-		sum = sum + num
-	});
+const calculateBankFee = (kwota, typTransakcji, oprocentowanie = 0.05) => {
+	let oplata = 0
+	if (typTransakcji === 'przelew') {
+		oplata = oplata + 1.5
+	} else if (typTransakcji === 'wplata') {
+		oplata = oplata + 0.5
+	}
 
-	return sum
+	oplata = oplata + kwota * oprocentowanie
+	console.log(oplata)
 }
-const result = calculateSum(numbers)
 
-console.log(result);
+const oplataBankowa = calculateBankFee(kwotaTransakcji, typ)
