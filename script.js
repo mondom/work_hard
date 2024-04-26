@@ -2,14 +2,20 @@
 const input = document.querySelector('input')
 const btn = document.querySelector('.btn')
 
-const oceny = [4, 3.5, 5, 4.5, 3, 4]
+const arr = [23, 24, 22, 25, 21]
+let sum = 0
 
-const obliczSrednia = oceny => {
-	let sum = 0
-	for (let i = 0; i < oceny.length; i++) {
-		sum = sum + oceny[i]
+const calculateAverageTemperature = (tempData, callback) => {
+	for (let i = 0; i < tempData.length; i++) {
+	 	sum = sum + tempData[i]
 	}
-	const average = sum / oceny.length
-	return average
+	const average = sum / tempData.length
+	callback(average)
 }
-console.log(obliczSrednia(oceny))
+
+const displayAverageTemperature = (average) => {
+	console.log(`Średnia temperatura to: ${average}`);
+}
+calculateAverageTemperature(arr, displayAverageTemperature)
+
+
