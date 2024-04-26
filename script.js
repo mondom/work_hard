@@ -2,11 +2,11 @@
 const input = document.querySelector('input')
 const btn = document.querySelector('.btn')
 
-const calculateTax = value => {
-	const taxRate = 0.23
+let taxRate = .50
 
+const calculateTax = (value, taxRate = 0.15) => {
 	const score = value * taxRate
-	console.log(score);
+	return score
 }
 
-calculateTax(1000)
+console.log(calculateTax(100, taxRate));
