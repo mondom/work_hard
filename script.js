@@ -2,19 +2,20 @@
 const input = document.querySelector('input')
 const btn = document.querySelector('.btn')
 
-const kwotaTransakcji = 1000
-const typ = 'przelew'
+const products = [
+	{ name: 'Koszula', price: 49.99 },
+	{ name: 'Spodnie', price: 79.99 },
+	{ name: 'Buty', price: 129.99 },
+	{ name: 'Kurtka', price: 149.99 },
+]
 
-const calculateBankFee = (kwota, typTransakcji, oprocentowanie = 0.05) => {
-	let oplata = 0
-	if (typTransakcji === 'przelew') {
-		oplata = oplata + 1.5
-	} else if (typTransakcji === 'wplata') {
-		oplata = oplata + 0.5
-	}
-
-	oplata = oplata + kwota * oprocentowanie
-	console.log(oplata)
+const filterProducts = filterFunction => {
+	const filteredProducts = products.filter(filterFunction)
+	return filteredProducts
 }
 
-const oplataBankowa = calculateBankFee(kwotaTransakcji, typ)
+const filteredProducts = filterProducts(product => {
+	product.price < 100
+})
+
+console.log(filteredProducts[0]);
