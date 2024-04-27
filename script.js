@@ -10,12 +10,10 @@ const products = [
 ]
 
 const filterProducts = filterFunction => {
-	const filteredProducts = products.filter(filterFunction)
-	return filteredProducts
+	const productsFilter = products.filter(filterFunction)
+	return productsFilter
 }
 
-const filteredProducts = filterProducts(product => {
-	product.price < 100
-})
+const filteredProducts = filterProducts(product => product.price < 100)
 
-console.log(filteredProducts[0]);
+console.log(filteredProducts)
