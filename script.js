@@ -7,21 +7,11 @@ const products = [
 	{ name: "Kurtka", price: 149.99 }
 ]
 
-const filterProducts = filterFunction => {
-	const filteredProducts = products.filter(filterFunction)
-	 return filteredProducts
+const filterProducts = () => {
+	const result = products.filter(product => {
+		return product.price < 100;
+	})
+	console.log(result);	
 }
 
-const result = filterProducts((product) => {
-	product.price < 100
-})
-console.log(result[0].name + ": " + result[0].price);
-console.log(result[1].name + ": " + result[1].price);
-console.log(result);
-
-// const filterFunction = () => {
-// 	const test = products.price < 100 
-// 	return test
-// }
-// filterProducts(filterFunction)
-// filterFunction()
+filterProducts()
