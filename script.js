@@ -12,6 +12,6 @@ const filterProducts = filterFunction => {
 }
 
 const filterFunction = () => {
-	products.price < 100
+	products.price < 100 
 }
 filterProducts(filterFunction)
