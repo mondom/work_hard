@@ -13,6 +13,10 @@ const filterProducts = filterFunction => {
 }
 
 const filteredProducts = filterProducts(product => product.price > 100)
-console.log(filteredProducts[0].name + ' : ' + filteredProducts[0].price);
-// console.log(filteredProducts[0].name + ': ' + filteredProducts[0].price)
-// console.log(filteredProducts[1].name + ': ' + filteredProducts[1].price)
+
+const numberof = filteredProducts.length
+console.log(numberof)
+
+for (let i = 0; i < numberof; i++) {
+	console.log(filteredProducts[i].name + ' : ' + filteredProducts[i].price);
+}
