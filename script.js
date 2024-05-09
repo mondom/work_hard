@@ -15,4 +15,4 @@ Player.prototype.moveRight = () => console.log('Idę w prawo!')
 const Player1 = new Player('Dragon', 'janek@example.com')
 const Player2 = new Player('Fenix', 'john@example.com')
 const Player3 = new Player('Kmaikadze', 'tom@example.com')
-Player1.login()
+console.log(Player1);
