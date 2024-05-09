@@ -1,13 +1,22 @@
 'use strict'
-function calculateArea(width, height) {
-	let area = width * height
-	const printArea = () => {
-		console.log(this);
-		let result = `wynik to : ${area}`
-		console.log(result)
-	}
 
-	printArea()
+function Person(name, age, hobby) {
+	this.name = name
+	this.age = age
+	this.hobby = hobby
 }
 
-calculateArea(5, 10)
+Person.prototype.hello = function(){
+	console.log(`hello ${this.name}`);
+}
+
+const person1 = new Person('Monika', 34, 'siatkówka')
+const person2 = new Person('Łukasz', 42, 'zarządzanie')
+const person3 = new Person('Lucjan', 6, 'spanko')
+
+console.log(person1)
+console.log(person2)
+console.log(person3)
+person1.hello()
+person2.hello()
+person3.hello()
