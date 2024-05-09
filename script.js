@@ -1,13 +1,15 @@
 'use strict'
 
-function Person() {
-	let self = this
-	self.name = ''
-	self.setName = function (name) {
-		self.name = name
-	}
+function Task(title,description){
+	this.title = title
+	this.description = description
 }
 
-const person = new Person()
-person.setName('Antoni')
-console.log(person.name);
+Task.prototype.printTask = function(){
+	console.log(`Zadanie: ${this.title}`);
+	console.log(`Opis: ${this.description}`);
+}
+
+const task1 = new Task('Zakupy spożywcze', 'Kupić jajka, mleko i chleb')
+
+task1.printTask();
