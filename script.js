@@ -1,19 +1,23 @@
 'use strict'
 
-let PlayerProto = {
-	login: () => console.log("Jestem zalogowany!"),
-	logout: () => console.log("Jestem wylogowany!"),
-  };
+class Person {
+	constructor(name, email) {
+	  // property są tworzone tutaj - wewnątrz metody 'constructor'
+	  // są one bezpośrednio dołączone do instancji klasy
+	  this.name = name;
+	  this.email = email;
+	}
    
-  // tylko prototyp
-  let Player4 = Object.create(PlayerProto);
-  Player4.nick = "AngryBird";
-  Player4.mail = "max@example.com";
+	// metody są tworzone tutaj - bezpośrednio w ciele klasy
+	// są one dostępne jako 'prototype'
+	login() {
+	  console.log(this.name, "własnie się zalogował");
+	}
    
-  // prototyp plus property - musimy podawać to w sposób { property: {value: "wartość property"} }
-  let Player5 = Object.create(PlayerProto, {
-	nick: { value: "Joker" },
-	email: { value: "andrew@example.com" },
-  });
-  console.log(Player4);
-  console.log(Player5);
+	logout() {
+	  console.log(this.name, "własnie się wylogował");
+	}
+  }
+   
+  const Mario = new Person("Mario", "mario@example.com");
+  const Luigi = new Person("Luigi", "luigi@example.com");
