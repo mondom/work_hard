@@ -1,23 +1,48 @@
 'use strict'
 
-class Person {
-	constructor(name, email) {
-	  // property są tworzone tutaj - wewnątrz metody 'constructor'
-	  // są one bezpośrednio dołączone do instancji klasy
-	  this.name = name;
-	  this.email = email;
+class Person2 {
+    constructor(name, age) {
+        this.name = name
+        this.age = age
+    }
+
+    sayHi() {
+        console.log(`Hi, I'm ${this.name}`)
+    } 
+
+    showAge() {
+        console.log(`I'm ${this.age} years old`)
+    }
+}
+
+// =================================
+
+
+const person2 = new Person2('Łukasz', 42)
+
+console.log(person2);
+
+person2.sayHi()
+person2.showAge()
+
+
+class Cat {
+	constructor(name,age){
+		this.name = name
+		this.age = age
 	}
-   
-	// metody są tworzone tutaj - bezpośrednio w ciele klasy
-	// są one dostępne jako 'prototype'
-	login() {
-	  console.log(this.name, "własnie się zalogował");
+
+	sayHi(){
+		console.log(`Hello ${this.name}`);
 	}
-   
-	logout() {
-	  console.log(this.name, "własnie się wylogował");
+	sayYears(){
+		console.log(`You are ${this.age} years old`);
 	}
-  }
-   
-  const Mario = new Person("Mario", "mario@example.com");
-  const Luigi = new Person("Luigi", "luigi@example.com");
+}
+
+const Lucjan = new Cat('Lucjan', 6)
+
+console.log(Lucjan);
+
+Lucjan.sayHi()
+Lucjan.sayYears()
