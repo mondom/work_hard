@@ -1,30 +1,49 @@
 'use strict'
 
-class Vegetable {
-	constructor(name, color) {
-		this.name = name
-		this.color = color
+class Player {
+	constructor(nick, mail) {
+		this.nick = nick
+		this.mail = mail
 	}
-
-	description() {
-		console.log(`${this.name} have ${this.color} color`)
+	shoot() {
+		console.log('SHOOT!!!')
 	}
-}
-
-const potato = new Vegetable('Potato', 'red')
-console.log(potato)
-potato.description()
-
-class Fruit extends Vegetable {
-	constructor(name, color, size) {
-		super(name, color)
-		this.size = size
+	login() {
+		console.log('Jestem zalogowany!')
 	}
-	description(){
-		console.log(`${this.name} have ${this.color} color and is very ${this.size}`)
+	logout() {
+		console.log('Jestem wylogowany!')
+	}
+	moveLeft() {
+		console.log('Idę w lewo!')
+	}
+	moveRight() {
+		console.log('Idę w prawo!')
 	}
 }
 
-const apple = new Fruit('Apple', 'green', 'small')
-console.log(apple)
-apple.description()
+const Player1 = new Player('Dragon', 'janek@example.com')
+const Player2 = new Player('Fenix', 'john@example.com')
+const Player3 = new Player('Kmaikadze', 'tom@example.com')
+
+console.log(Player1);
+Player1.shoot()
+
+class Leader extends Player{
+	constructor(nick,mail,team){
+		super(nick,mail)
+		this.team = team
+	}
+	jump(){
+		console.log('Mogę skakać!');
+	}
+	invite(nick){
+		console.log(`${nick}, zapraszam Cię do mojego zespołu`);
+	}
+}
+
+const vip = new Leader('Pablo','pablo@vp.pl','gladiators')
+
+console.log(vip);
+vip.invite('Boo')
+vip.jump()
