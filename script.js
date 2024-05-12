@@ -12,7 +12,8 @@ products.forEach(product => {
 	console.log(`Product quantity: ${product.quantity}`)
 })
 
-
+const product2 = products.find(product => product.name === "Product 2")
+console.log(`Price of product 2: ${product2.price}`);
 
 const product3 = products.find(product => product.name === 'Product 3')
 product3.quantity = 5 + product3.quantity
