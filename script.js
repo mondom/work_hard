@@ -1,20 +1,13 @@
 'use strict'
 
-let PlayerProto = {
-	login: () => console.log("Jestem zalogowany!"),
-	logout: () => console.log("Jestem wylogowany!"),
-  };
-   
-  // tylko prototyp
-  let Player4 = Object.create(PlayerProto);
-  Player4.nick = "AngryBird";
-  Player4.mail = "max@example.com";
+let products = [
+	{ name: 'Product 1', price: 10.99, quantity: 50 },
+	{ name: 'Product 2', price: 5.99, quantity: 20 },
+	{ name: 'Product 3', price: 15.99, quantity: 10 }
+]
 
-  console.log(Player4);
-   
-  // prototyp plus property - musimy podawać to w sposób { property: {value: "wartość property"} }
-  let Player5 = Object.create(PlayerProto, {
-	nick: { value: "Joker" },
-	email: { value: "andrew@example.com" },
-  });
-  
+products.forEach(product => {
+	console.log(`Product name: ${product.name}`);
+	console.log(`Product price: ${product.price}`);
+	console.log(`Product quantity: ${product.quantity}`);
+})
