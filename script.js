@@ -11,3 +11,13 @@ products.forEach(product => {
 	console.log(`Product price: ${product.price}`);
 	console.log(`Product quantity: ${product.quantity}`);
 })
+
+const product3 = products.find(product => {
+	product.name === 'Product 3'
+	
+})
+product3.quantity = 5 + product3.quantity;
+
+// const product3 = products.find((product) => product.name === "Product 3");
+// product3.quantity += 5;
+// console.log("New quantity of Product 3:", product3.quantity);
