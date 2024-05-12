@@ -1,19 +1,20 @@
 'use strict'
 
-const userPrototype = {
-	introduce(){
-		console.log(`Hi, my name is ${this.name}. I am ${this.age} years old.`);
-	}
-}
+let PlayerProto = {
+	login: () => console.log("Jestem zalogowany!"),
+	logout: () => console.log("Jestem wylogowany!"),
+  };
+   
+  // tylko prototyp
+  let Player4 = Object.create(PlayerProto);
+  Player4.nick = "AngryBird";
+  Player4.mail = "max@example.com";
 
-function createUser(name, age){
-	const user = Object.create(userPrototype)
-	user.name = name
-	user.age = age
-	return user
-
-}
-
-const user1 = createUser('john', 25)
-user1.introduce()
-
+  console.log(Player4);
+   
+  // prototyp plus property - musimy podawać to w sposób { property: {value: "wartość property"} }
+  let Player5 = Object.create(PlayerProto, {
+	nick: { value: "Joker" },
+	email: { value: "andrew@example.com" },
+  });
+  
