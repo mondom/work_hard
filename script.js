@@ -10,17 +10,21 @@ let person = {
 	},
 }
 
-const cloneObject = (source, target) => {
-    Object.assign(target, source)
-}
+let copyObj = {}
 
-const clonePerson = {}
+Object.assign(copyObj, person)
 
-cloneObject(person, clonePerson)
+person.name = "Anita"
 
-person.name = "Jane Smith";
-person.age = 25;
-person.address.city = "New City";
 
-console.log("Original person:", person);
-console.log("Cloned person:", clonePerson);
+
+let copySubordinateObj = {}
+
+Object.assign(copySubordinateObj, person.address)
+
+
+copyObj.address = copySubordinateObj
+person.address.street = 'test'
+console.log(person);
+console.log(copySubordinateObj);
+console.log(copyObj);
