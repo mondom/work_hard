@@ -1,13 +1,30 @@
 'use strict'
 
-const user = {
-    name: 'Klaudia',
-    age: 25,
-    sex: 'female',
-    'hair-kolor':'blonde'
+const bookCollection = {
+	book1: {
+		author: 'Author 1',
+		year: 2000,
+        type: 'detective story'
+	},
+	book2: {
+		author: 'Autor 2',
+		year: 2005,
+        type: 'thriller'
+	},
+	book3: {
+		author: 'Autor 3',
+		year: 2010,
+        type: 'romance'
+	},
 }
 
-for(const data in user){
-    // console.log(data);
-    console.log(user[data]);
+const selectData = (arrOfObj) => {
+for(const book in arrOfObj){
+    console.log(book);
+    const bookDetails = arrOfObj[book]
+    console.log(bookDetails.type);
 }
+}
+
+selectData(bookCollection)
+
