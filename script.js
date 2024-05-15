@@ -27,10 +27,23 @@ const tasks = [
 	},
 ]
 
-const manageTasks = arrOfTasks => {
-	for (const task of arrOfTasks) {
-		console.log(task.name)
-	}
-}
+// const manageTasks = arrOfTasks => {
+// 	for (const task of arrOfTasks) {
+// 		console.log(`Zadanie: ${task.name} - ${task.completed ? 'jest' : 'nie jest'} wykonane`)
+// 	}
+// }
 
-manageTasks(tasks)
+// manageTasks(tasks)
+
+const inTime = tasks => {
+	for (const task of tasks) {
+		console.log(task.dueDate)
+	}
+	const today = new Date()
+	const year = today.getFullYear()
+	const month = String(today.getMonth() + 1).padStart(2, '0')
+	const day = String(today.getDate()).padStart(2, '0')
+	const fullDate = `${year}-${month}-${day}`
+	console.log(fullDate)
+}
+inTime(tasks)
