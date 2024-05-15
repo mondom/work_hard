@@ -1,30 +1,36 @@
 'use strict'
 
-const bookCollection = {
-	book1: {
-		author: 'Author 1',
-		year: 2000,
-        type: 'detective story'
+const tasks = [
+	{
+		name: 'Zakupy spozywcze',
+		completed: false,
+		priority: 1,
+		dueDate: '2024-05-20',
+		description: 'Kupić warzywa i owoce',
+		category: 'domowe',
 	},
-	book2: {
-		author: 'Autor 2',
-		year: 2005,
-        type: 'thriller'
+	{
+		name: 'Sprzatanie mieszkania',
+		completed: true,
+		priority: 2,
+		dueDate: '2024-05-15',
+		description: 'Odkurzyć i umyć podłogi',
+		category: 'domowe',
 	},
-	book3: {
-		author: 'Autor 3',
-		year: 2010,
-        type: 'romance'
+	{
+		name: 'Nauka JavaScript',
+		completed: false,
+		priority: 3,
+		dueDate: '2024-06-01',
+		description: 'Przerobić rozdziały 1-3',
+		category: 'nauka',
 	},
+]
+
+const manageTasks = arrOfTasks => {
+	for (const task of arrOfTasks) {
+		console.log(task.name)
+	}
 }
 
-const selectData = (arrOfObj) => {
-for(const book in arrOfObj){
-    console.log(book);
-    const bookDetails = arrOfObj[book]
-    console.log(bookDetails.type);
-}
-}
-
-selectData(bookCollection)
-
+manageTasks(tasks)
