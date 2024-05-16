@@ -5,7 +5,7 @@ const tasks = [
 		name: 'Zakupy spozywcze',
 		completed: false,
 		priority: 1,
-		dueDate: '2024-05-20',
+		dueDate: '2024-05-16',
 		description: 'Kupić warzywa i owoce',
 		category: 'domowe',
 	},
@@ -13,7 +13,7 @@ const tasks = [
 		name: 'Sprzatanie mieszkania',
 		completed: true,
 		priority: 2,
-		dueDate: '2024-01-15',
+		dueDate: '2024-10-15',
 		description: 'Odkurzyć i umyć podłogi',
 		category: 'domowe',
 	},
@@ -34,26 +34,28 @@ const tasks = [
 // }
 
 // manageTasks(tasks)
-let taskDate
-let fullDate
+let newTaskDate
+let newFullDate
 const inTime = tasks => {
 	const today = new Date()
 	const year = today.getFullYear()
 	const month = String(today.getMonth() + 1).padStart(2, '0')
 	const day = String(today.getDate()).padStart(2, '0')
-	fullDate = `${year}-${month}-${day}`
-	const newFullDate = new Date(fullDate)
-	console.log(newFullDate.getTime())
+	const fullDate = `${year}-${month}-${day}`
+	newFullDate = (new Date(fullDate)).getTime()
+	
 
 	for (const task of tasks) {
-		taskDate = task.dueDate
-		// console.log(taskDate);
+		const taskDate = task.dueDate
+		
+		newTaskDate = (new Date(taskDate)).getTime()
+		
 
-		if (taskDate === fullDate) {
+		if (newTaskDate === newFullDate) {
 			console.log(`Zadanie jest na dzisiaj!`)
-		} else if (taskDate < fullDate) {
+		} else if (newTaskDate < newFullDate) {
 			console.log(`Zadanie jest po terminie...`)
-		} else if (taskDate > fullDate) {
+		} else if (newTaskDate > newFullDate) {
 			console.log(`Masz jeszcze czas na wykonanie zadania :)`)
 		}
 	}
