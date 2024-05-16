@@ -1,65 +1,28 @@
 'use strict'
 
-const tasks = [
-	{
-		name: 'Zakupy spozywcze',
-		completed: false,
-		priority: 1,
-		dueDate: '2024-05-16',
-		description: 'Kupić warzywa i owoce',
-		category: 'domowe',
-	},
-	{
-		name: 'Sprzatanie mieszkania',
-		completed: true,
-		priority: 2,
-		dueDate: '2024-10-15',
-		description: 'Odkurzyć i umyć podłogi',
-		category: 'domowe',
-	},
-	{
-		name: 'Nauka JavaScript',
-		completed: false,
-		priority: 3,
-		dueDate: '2024-05-15',
-		description: 'Przerobić rozdziały 1-3',
-		category: 'nauka',
-	},
-]
+const objects = [
+	{ name: 'object1' },
+	{ name: 'object2' },
+	{ name: 'object3' }
+  ];
 
-// const manageTasks = arrOfTasks => {
-// 	for (const task of arrOfTasks) {
-// 		console.log(`Zadanie: ${task.name} - ${task.completed ? 'jest' : 'nie jest'} wykonane`)
-// 	}
-// }
+  // Definiowanie węzłów
+const node1 = { value: 'kotek', next: null };
+const node2 = { value: 'piesek', next: null };
+const node3 = { value: 'pszczółka', next: null };
 
-// manageTasks(tasks)
-let newTaskDate
-let newFullDate
-const inTime = tasks => {
-	const today = new Date()
-	const year = today.getFullYear()
-	const month = String(today.getMonth() + 1).padStart(2, '0')
-	const day = String(today.getDate()).padStart(2, '0')
-	const fullDate = `${year}-${month}-${day}`
-	newFullDate = (new Date(fullDate)).getTime()
-	
+// Łączenie węzłów w listę
+node1.next = node2;
+node2.next = node3;
 
-	for (const task of tasks) {
-		const taskDate = task.dueDate
-		
-		newTaskDate = (new Date(taskDate)).getTime()
-		
-
-		if (newTaskDate === newFullDate) {
-			console.log(`Zadanie jest na dzisiaj!`)
-		} else if (newTaskDate < newFullDate) {
-			console.log(`Zadanie jest po terminie...`)
-		} else if (newTaskDate > newFullDate) {
-			console.log(`Masz jeszcze czas na wykonanie zadania :)`)
-		}
-	}
-
-	// console.log(fullDate)
+// Teraz node1 to głowa listy jednokierunkowej
+let currentNode = node1;
+while (currentNode !== null) {
+    console.log(currentNode.value);
+    currentNode = currentNode.next;
 }
-inTime(tasks)
+
+// Output:
+// 1
+// 2
+// 3
