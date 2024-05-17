@@ -18,44 +18,30 @@
 
 // garbageCollage(objects)
 
-
 const objects = [
-	{ name: 'object1', ref: null },
-	{ name: 'object2', ref: null },
-	{ name: 'object3', ref: null }
-  ];
-  
-  // Łączenie obiektów referencjami
-  objects[0].ref = objects[1];
-  objects[1].ref = objects[2];
-  
-  // Tworzenie stosu i umieszczenie na nim głównego obiektu
-  const stack = [objects[0]];
+	{ name: 'object1' }, 
+	{ name: 'object2' }, 
+	{ name: 'object3' }
+]
 
-  
-  // Zbiór do śledzenia odwiedzonych obiektów
-  const visited = new Set();
-  
-  // Iteracja nad obiektami przy użyciu stosu
-  while (stack.length > 0) {
-	const currentObject = stack.pop();
-	
-	// Sprawdzamy, czy obiekt został już odwiedzony
+objects[0].ref = objects[1]
+objects[1].ref = objects[2]
+
+const stack = [objects[0]]
+const visited = new Set()
+
+while (stack.length > 0) {
+	const currentObject = stack.pop()
+
 	if (visited.has(currentObject)) {
-	  continue; // Przechodzimy do następnej iteracji, jeśli obiekt był już odwiedzony
+		continue
 	}
-	
-	// Dodajemy obiekt do odwiedzonych
-	visited.add(currentObject);
-	
-	// Przetwarzamy obiekt (np. wyświetlamy jego nazwę)
-	console.log(currentObject.name);
-	
-	// Dodajemy referencję obiektu do stosu, jeśli istnieje
-	if (currentObject.ref !== null) {
-	  stack.push(currentObject.ref);
-	  console.log(currentObject);
-	  console.log(stack);
-	}
-  }
 
+	visited.add(currentObject)
+
+	console.log(currentObject.name)
+
+	if (typeof currentObject.ref !== 'undefined') {
+		stack.push(currentObject.ref)
+	}
+}
