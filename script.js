@@ -30,9 +30,8 @@ const objects = [
   objects[1].ref = objects[2];
   
   // Tworzenie stosu i umieszczenie na nim głównego obiektu
-  const stack = [objects[0],objects[1]];
-  console.log(objects[0]);
-  console.log(...stack);
+  const stack = [objects[0]];
+
   
   // Zbiór do śledzenia odwiedzonych obiektów
   const visited = new Set();
@@ -55,6 +54,8 @@ const objects = [
 	// Dodajemy referencję obiektu do stosu, jeśli istnieje
 	if (currentObject.ref !== null) {
 	  stack.push(currentObject.ref);
+	  console.log(currentObject);
+	  console.log(stack);
 	}
   }
 
