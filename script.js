@@ -18,6 +18,9 @@ const playlist = {
 		if (this.currenrSongIndex >= this.songs.length) {
 			this.currenrSongIndex = 0
 		}
+		setTimeout(() => {
+			this.playCurrentSong()
+		}, 5000)
 	},
 }
 
