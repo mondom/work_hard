@@ -1,18 +1,15 @@
 'use strict'
 
-const user= {
-	name: 'John Doe',
-	address: {
-		street: 'Brodway',
-		city: 'New York',
-		country: 'USA'
+const person = {
+	setPrivateFields(value) {
+		const privateFieldValue = value
+		privateFields.privateFieldKey = privateFieldValue
+	},
+	getPrivateField(){
+		return this.privateFieldValue
 	}
 }
 
-console.log(user.address.country);
-console.log(user.address?.country);
+const privateFields = {}
 
-
-
-
-
+const privateFieldKey = Symbol()
