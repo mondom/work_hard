@@ -1,20 +1,19 @@
 'use strict'
 
-const book = {
-	title: 'JavaScript Cookbook',
-	author: 'John Doe',
-	year: 2022,
-	[Symbol.toPrimitive](hint) {
-		if (hint === 'string') {
-			return this.title
-		} else if (hint === 'number') {
-			return this.year
-		} else {
-			return this.author
+const portfolio = {
+	stocks: [
+		{ name: 'Company A', shares: 100, price: 10 },
+		{ name: 'Company B', shares: 50, price: 20 },
+		{ name: 'Company C', shares: 200, price: 5 },
+	],
+	cash: 1000,
+	toString() {
+		let fullString = `Portfolio: \n`
+		for(const stock of this.stocks){
+			const { name, shares, price } = stock
+			fullString += `${name}: ${shares} shares at ${price}$ per share \n`
 		}
+		console.log(fullString);
 	},
 }
-
-book[Symbol.toPrimitive]()
-console.log(String(book))
-console.log(Number(book))
+portfolio.toString()
