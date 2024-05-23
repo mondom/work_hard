@@ -1,27 +1,20 @@
 'use strict'
 
-let array = []
+const text = 'To jest przykladowy tekst. Zawiera on kilka zdan. Ktore bedziemy analizowac.'
 
-const genArr = (len, range) => {
-	for (let i = 0; i < len; i++) {
-		let num = Math.floor(Math.random() * range)
-		array.push(num)
+const countSentence = text => {
+	let sentences = 0
+	const sentenceArray = text.split('.')
+	for (let sentence of sentenceArray) {
+		sentence = sentence.trim()
+		console.log(sentence);
+		if (sentence.length > 0) {
+			sentences++
+		}
 	}
+	return sentences
 }
 
-const findMinMax = arr => {
-	let min = Infinity
-	let max = -Infinity
+const sentenceCount = countSentence(text)
 
-	for (const number of arr) {
-		min = Math.min(min, number)
-		max = Math.max(max, number)
-	}
-	return [min, max]
-}
-
-genArr(10, 100)
-console.log(array)
-const [min, max] = findMinMax(array)
-console.log('Najmniejsza liczba:', min)
-console.log('Najwieksza liczba:', max)
+console.log(`Liczba zdań: ${sentenceCount}`);
