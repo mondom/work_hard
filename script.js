@@ -11,5 +11,22 @@ const arrGenerator = (length, range) => {
 	}
 }
 
-arrGenerator(10, 200)
+const findMinMax = arr => {
+	let min = Infinity
+	let max = -Infinity
+
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] < min) {
+			min = arr[i]
+		} else if (arr[i] > max) {
+			max = arr[i]
+		}
+	}
+
+	return [min, max]
+}
+
+const generatedArr = arrGenerator(10, 200)
 console.log(randomArr)
+const [min, max] = findMinMax(randomArr)
+console.log(`Wartość max to: ${max}\nWartość min to: ${min}`)
