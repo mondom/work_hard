@@ -1,20 +1,29 @@
 'use strict'
 
-const text = 'To jest przykladowy tekst. Zawiera on kilka zdan. Ktore bedziemy analizowac.'
+const grades = [2, 4, 5, 4, 4, 3];
+ 
+const calculateAverage = (grades) => {
+	const sum = grades.reduce((total, grade) => total + grade, 0);
+	const average = sum / grades.length;
+	return average;
+};
 
-const countSentence = text => {
-	let sentences = 0
-	const sentenceArray = text.split('.')
-	for (let sentence of sentenceArray) {
-		sentence = sentence.trim()
-		console.log(sentence);
-		if (sentence.length > 0) {
-			sentences++
+const findTopStudent = (grades) => {
+	let maxGrade = 0;
+	let topStudent = "";
+
+	for (const grade of grades) {
+		if (grade > maxGrade) {
+			maxGrade = grade;
+			topStudent = `Uczen ${maxGrade}`;
 		}
 	}
-	return sentences
-}
 
-const sentenceCount = countSentence(text)
+	return topStudent;
+};
 
-console.log(`Liczba zdań: ${sentenceCount}`);
+const averageGrade = calculateAverage(grades);
+const topStudentName = findTopStudent(grades);
+
+console.log(`Srednia ocena: ${averageGrade.toFixed(2)}`);
+console.log(`Uczen z najwyzsza ocena: ${topStudentName}`);
