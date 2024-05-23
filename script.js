@@ -1,33 +1,15 @@
 'use strict'
 
-const randomArray = []
+const randomArr = []
 
-const generateRandomArray = (length, range) => {
-	for (let i = 0; i < length; i++) {
-		const number = Math.floor(Math.random() * range)
-		randomArray.push(number)
+const arrGenerator = (length, range) => {
+	let i = 0
+	while (i < length) {
+		let number = Math.floor(Math.random() * range)
+		randomArr.push(number)
+		i++
 	}
-	return randomArray
 }
 
-const findMinMax = arr => {
-	let max = -Infinity
-	let min = Infinity
-
-	let index = 0
-
-	while (index < arr.length) {
-		if (arr[index] < min) {
-			min = arr[index]
-		} else if (arr[index] > max) {
-			max = arr[index]
-		}
-		index++
-	}
-	return [min, max]
-}
-const generatedArray = generateRandomArray(10, 100)
-const [min, max] = findMinMax(randomArray)
-
-console.log(generatedArray);
-console.log(`Najmniejsza liczba: ${min} \nNajwiększa liczba: ${max}`)
+arrGenerator(10, 200)
+console.log(randomArr)
