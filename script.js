@@ -1,13 +1,11 @@
 'use strict'
 
-const randomArr = []
+let array = []
 
-const arrGenerator = (length, range) => {
-	let i = 0
-	while (i < length) {
-		let number = Math.floor(Math.random() * range)
-		randomArr.push(number)
-		i++
+const genArr = (len, range) => {
+	for (let i = 0; i < len; i++) {
+		let num = Math.floor(Math.random() * range)
+		array.push(num)
 	}
 }
 
@@ -15,18 +13,15 @@ const findMinMax = arr => {
 	let min = Infinity
 	let max = -Infinity
 
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] < min) {
-			min = arr[i]
-		} else if (arr[i] > max) {
-			max = arr[i]
-		}
+	for (const number of arr) {
+		min = Math.min(min, number)
+		max = Math.max(max, number)
 	}
-
 	return [min, max]
 }
 
-const generatedArr = arrGenerator(10, 200)
-console.log(randomArr)
-const [min, max] = findMinMax(randomArr)
-console.log(`Wartość max to: ${max}\nWartość min to: ${min}`)
+genArr(10, 100)
+console.log(array)
+const [min, max] = findMinMax(array)
+console.log('Najmniejsza liczba:', min)
+console.log('Najwieksza liczba:', max)
