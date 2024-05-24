@@ -1,11 +1,16 @@
 'use strict'
 
-let fragment1 = 'To jest pierwszy fragment tekstu.'
-let fragment2 = ' A to jest drugi fragment tekstu.'
+let sumaWydatków = 0
 
-const calytekst = fragment1.concat(fragment2)
+const wydatki = [
+	{ nazwa: 'Jedzenie', wartosc: 50 },
+	{ nazwa: 'Rachunki', wartosc: 100 },
+	{ nazwa: 'Transport', wartosc: 30 },
+	{ nazwa: 'Zakupy', wartosc: 70 },
+]
 
-console.log(calytekst)
+wydatki.forEach(kwota => {
+	sumaWydatków += kwota.wartosc
+})
 
-const wycinek = calytekst.slice(0, 10)
-console.log(wycinek)
+console.log(sumaWydatków);
