@@ -1,29 +1,20 @@
 'use strict'
 
-const grades = [2, 4, 5, 4, 4, 3];
- 
-const calculateAverage = (grades) => {
-	const sum = grades.reduce((total, grade) => total + grade, 0);
-	const average = sum / grades.length;
-	return average;
-};
-
-const findTopStudent = (grades) => {
-	let maxGrade = 0;
-	let topStudent = "";
-
-	for (const grade of grades) {
-		if (grade > maxGrade) {
-			maxGrade = grade;
-			topStudent = `Uczen ${maxGrade}`;
+const matrix = [
+	[1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9],
+]
+const calculateMatrix = matrix => {
+	let sum = 0
+	for (let i = 0; i < matrix.length; i++) {
+		for (let j = 0; j < matrix[i].length; j++) {
+			sum += matrix[i][j]
 		}
 	}
+	return sum
+}
 
-	return topStudent;
-};
+const result = calculateMatrix(matrix)
 
-const averageGrade = calculateAverage(grades);
-const topStudentName = findTopStudent(grades);
-
-console.log(`Srednia ocena: ${averageGrade.toFixed(2)}`);
-console.log(`Uczen z najwyzsza ocena: ${topStudentName}`);
+console.log(`Suma to: ${result}`)
