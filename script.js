@@ -1,13 +1,11 @@
 'use strict'
 
-const schedule = []
+let fragment1 = 'To jest pierwszy fragment tekstu.'
+let fragment2 = ' A to jest drugi fragment tekstu.'
 
-schedule.unshift('Spotkanie z klientem')
-schedule.unshift('Prezentacja projektu')
-schedule.unshift('Zespol stand-up')
-schedule.unshift('Lunch z kolegami')
+const calytekst = fragment1.concat(fragment2)
 
-console.log(schedule)
+console.log(calytekst)
 
-schedule.shift()
-console.log(schedule)
+const wycinek = calytekst.slice(0, 10)
+console.log(wycinek)
