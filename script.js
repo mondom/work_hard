@@ -6,30 +6,26 @@ const matrix = [
 	[7, 8, 9],
 ]
 
-const dest = (matrix)=>{
-	for (let i = 0; i < matrix.length; i++) {
-		const [one, two, three] = matrix[i]
-		
-		console.log(`Wiersz ${i + 1}: ${one}, ${two}, ${three}`);
+let students = new Array()
+
+students[0] = 'John'
+students[1] = 'Emma'
+students[2] = 'Michael'
+
+console.log(students)
+
+let grades = new Array()
+
+grades[0] = 4
+grades[1] = 3
+grades[2] = 5
+
+console.log(grades)
+
+const assignStudents = (students, grades) => {
+	for (let i = 0; i < students.length; i++) {
+		console.log(`Students:\n${students[i]} - ${grades[i]}`);
 	}
-	
 }
 
-dest(matrix)
-
-
-
-const sumRows = matrix => {
-	let sums = []
-	for (let i = 0; i < matrix.length; i++) {
-		let sumRows = 0
-		for (let j = 0; j < matrix[i].length; j++) {
-			sumRows += matrix[i][j]
-		}
-		sums.push(sumRows)
-	}
-	return sums
-}
-
-const result = sumRows(matrix)
-console.log(result)
+assignStudents(students, grades)
