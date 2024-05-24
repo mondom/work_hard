@@ -1,12 +1,15 @@
 'use strict'
 
-const myArray = ['jablko', 'banan', 'cytryna', 'pomarancza']
+let shoppingList = []
 
-const accessArrayElements = index => {
-	return myArray.at(index)
-}
+shoppingList.push('jabłka')
+shoppingList.push('mleko')
+shoppingList.push('chleb')
+shoppingList.push('jogurt')
+shoppingList.push('ser')
 
-console.log(accessArrayElements(0))
+console.log(shoppingList);
 
-console.log(accessArrayElements(2))
-console.log(accessArrayElements(3))
+shoppingList.pop()
+
+console.log(shoppingList);
