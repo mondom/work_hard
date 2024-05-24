@@ -6,17 +6,30 @@ const matrix = [
 	[7, 8, 9],
 ]
 
-const findMax = matrix => {
-	let max = -Infinity
+const dest = (matrix)=>{
 	for (let i = 0; i < matrix.length; i++) {
-		for (let j = 0; j < matrix[i].length; j++) {
-			if (matrix[i][j] > max) {
-				max = matrix[i][j]
-			}
-		}
+		const [one, two, three] = matrix[i]
+		
+		console.log(`Wiersz ${i + 1}: ${one}, ${two}, ${three}`);
 	}
-	return max
+	
 }
 
-const maxElement = findMax(matrix)
-console.log(`Największy element w macierzy: ${maxElement}`) // Największy element w macierzy: 9
+dest(matrix)
+
+
+
+const sumRows = matrix => {
+	let sums = []
+	for (let i = 0; i < matrix.length; i++) {
+		let sumRows = 0
+		for (let j = 0; j < matrix[i].length; j++) {
+			sumRows += matrix[i][j]
+		}
+		sums.push(sumRows)
+	}
+	return sums
+}
+
+const result = sumRows(matrix)
+console.log(result)
