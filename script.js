@@ -5,16 +5,18 @@ const matrix = [
 	[4, 5, 6],
 	[7, 8, 9],
 ]
-const calculateMatrix = matrix => {
-	let sum = 0
+
+const findMax = matrix => {
+	let max = -Infinity
 	for (let i = 0; i < matrix.length; i++) {
 		for (let j = 0; j < matrix[i].length; j++) {
-			sum += matrix[i][j]
+			if (matrix[i][j] > max) {
+				max = matrix[i][j]
+			}
 		}
 	}
-	return sum
+	return max
 }
 
-const result = calculateMatrix(matrix)
-
-console.log(`Suma to: ${result}`)
+const maxElement = findMax(matrix)
+console.log(`Największy element w macierzy: ${maxElement}`) // Największy element w macierzy: 9
