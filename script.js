@@ -1,15 +1,13 @@
 'use strict'
 
-let shoppingList = []
+const schedule = []
 
-shoppingList.push('jabłka')
-shoppingList.push('mleko')
-shoppingList.push('chleb')
-shoppingList.push('jogurt')
-shoppingList.push('ser')
+schedule.unshift('Spotkanie z klientem')
+schedule.unshift('Prezentacja projektu')
+schedule.unshift('Zespol stand-up')
+schedule.unshift('Lunch z kolegami')
 
-console.log(shoppingList);
+console.log(schedule)
 
-shoppingList.pop()
-
-console.log(shoppingList);
+schedule.shift()
+console.log(schedule)
