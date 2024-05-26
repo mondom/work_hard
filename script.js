@@ -18,4 +18,16 @@ const library = [
 
 const titleSought = 'Fantastic Beasts and Where to Find Them'
 
+const findBook = () =>{
+	const foundBook = library.find(book => {
+		book.tytul === titleSought
+	})
+
+	if(findBook){
+		console.log('ok');
+	}
+}
+
+findBook()
+
 
