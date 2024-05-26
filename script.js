@@ -10,6 +10,15 @@ const produkty = [
 
 const findAvailableProducts = () => {
 	const availableProducts = produkty.filter(product => product.dostepny === true)
+	console.log('Dostepne produkty:')
+	availableProducts.forEach(produkt => {
+		console.log('[Nazwa]', produkt.nazwa, '[Cena]', produkt.cena)
+	})
+
+	const cheapProducts = produkty.filter(produkt => produkt.cena <= 1500)
+
+	console.log('Produkty tansze niz 1500 PLN:')
+	cheapProducts.forEach(product => console.log('[Nazwa]', product.nazwa, '[Cena]', product.cena))
 }
 
 findAvailableProducts()
