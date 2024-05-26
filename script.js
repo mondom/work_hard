@@ -18,16 +18,29 @@ const library = [
 
 const titleSought = 'Fantastic Beasts and Where to Find Them'
 
-const findBook = () =>{
-	const foundBook = library.find(book =>
-		book.tytul === titleSought
-	)
-	
-	if(foundBook){
-		console.log(`Krok 1:\nTytuł: ${foundBook.tytul}\nAutor: ${foundBook.autor}\nRok wydania: ${foundBook.rok}`);
+const findBook = () => {
+	const foundBook = library.find(book => book.tytul === titleSought)
+
+	if (foundBook) {
+		console.log(`Krok 1:\nTytuł: ${foundBook.tytul}\nAutor: ${foundBook.autor}\nRok wydania: ${foundBook.rok}`)
+	} else {
+		console.log('Krok 1:')
+		console.log('Ksiazka o podanym tytule nie zostala znaleziona.')
+	}
+}
+const author = 'Harper Lee'
+const findIndex = () => {
+	const index = library.findIndex(book => book.autor === author)
+
+	if (index !== -1) {
+		console.log('Krok 2:')
+		console.log('Indeks ksiazki:', index)
+	} else {
+		console.log('Krok 2:')
+		console.log('Ksiazka o podanym autorze nie zostala znaleziona.')
 	}
 }
 
+
 findBook()
-
-
+findIndex()
