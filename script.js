@@ -40,7 +40,18 @@ const findIndex = () => {
 		console.log('Ksiazka o podanym autorze nie zostala znaleziona.')
 	}
 }
+const findLastIndex = () => {
+	const lastIndex = library.findLastIndex(book => book.autor === author)
 
+	if (lastIndex !== -1) {
+		console.log('Krok 3:')
+		console.log('Indeks ksiazki:', lastIndex)
+	} else {
+		console.log('Krok 3:')
+		console.log('Ksiazka o podanym autorze nie zostala znaleziona.')
+	}
+}
 
 findBook()
 findIndex()
+findLastIndex()
