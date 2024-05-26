@@ -19,12 +19,12 @@ const library = [
 const titleSought = 'Fantastic Beasts and Where to Find Them'
 
 const findBook = () =>{
-	const foundBook = library.find(book => {
+	const foundBook = library.find(book =>
 		book.tytul === titleSought
-	})
-
-	if(findBook){
-		console.log('ok');
+	)
+	
+	if(foundBook){
+		console.log(`Krok 1:\nTytuł: ${foundBook.tytul}\nAutor: ${foundBook.autor}\nRok wydania: ${foundBook.rok}`);
 	}
 }
 
