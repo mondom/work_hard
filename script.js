@@ -8,7 +8,7 @@ const produkty = [
 	{ nazwa: 'Sluchawki Sony', cena: 200, dostepny: true },
 ]
 
-const findAvailableProducts = () => {
+const findProducts = () => {
 	const availableProducts = produkty.filter(product => product.dostepny === true)
 	console.log('Dostepne produkty:')
 	availableProducts.forEach(produkt => {
@@ -19,6 +19,13 @@ const findAvailableProducts = () => {
 
 	console.log('Produkty tansze niz 1500 PLN:')
 	cheapProducts.forEach(product => console.log('[Nazwa]', product.nazwa, '[Cena]', product.cena))
+
+	const phones = produkty.filter(produkt => {
+		return produkt.nazwa.toLocaleLowerCase().includes('telefon')
+	})
+
+	console.log('Produkty zawierające słowo telefon:');
+	phones.forEach(phone => console.log(`[Nazwa] ${phone.nazwa} [Cena] ${phone.cena}`))
 }
 
-findAvailableProducts()
+findProducts()
