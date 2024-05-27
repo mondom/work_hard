@@ -27,12 +27,23 @@ const orders = [
 ]
 
 const mapOrders = () => {
+	const orderValue = orders.map(order => {
+		const value = order.produkty.reduce(function (accum, produkt) {
+			return accum + produkt.cena
+		}, 0)
 
-	
+		console.log(value)
+		return {
+			klient: order.klient,
+			wartoscZamowienia: value,
+		}
+	})
+
+	console.log(orderValue)
+
 	// orders.map(order => {
-	
+
 	// 	const  products = order.produkty
-		
 
 	// 	const cost = products.map(product => product.cena)
 	// 	console.log(cost)
