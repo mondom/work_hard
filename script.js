@@ -1,22 +1,12 @@
 'use strict'
 
 const map = new Map();
-map.set("kolor1", "red");
-map.set("kolor2", "blue");
+
+const ob1 = { name : "test1" }
+const ob2 = { name : "test2" }
+
+map.set(ob1, "koty");
+map.set(ob2, "psy");
+map.set("[object Object]", "świnki");
+
 console.log(map);
-
-//lub
-
-const map2 = new Map([
-    ["kolor1", "red"],
-    ["kolor2", "blue"],
-	[1,1],
-	[[1,2,3], 8]
-]);
-
-map2.set('miś', 'miód')
-console.log(map2.get('kolor1'));
-console.log(map2.has('kolor1'));
-console.log(map2.delete('kolor1'));
-console.log(map2.clear());
-console.log(map2);
