@@ -12,3 +12,9 @@ console.log('Krok 2: Sortowanie alfabetyczne')
 participantsSorted.forEach((participant, index) => {
 	console.log(`[${index + 1}] ${participant}`)
 })
+
+const participantsReverse = participants.reverse()
+console.log("Krok 3: Odwrocenie kolejnosci");
+participantsReverse.forEach((participant,index)=>{
+	console.log(`[${index + 1}] ${participant}`);
+})
