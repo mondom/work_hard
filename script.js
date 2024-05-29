@@ -1,20 +1,22 @@
 'use strict'
 
-const participants = ['Michal', 'Tomasz', 'Monika', 'Marcin', 'Anna']
+const map = new Map();
+map.set("kolor1", "red");
+map.set("kolor2", "blue");
+console.log(map);
 
-console.log(`Krok pierwszy - wyświetlenie tablicy:`)
-participants.forEach((participant, index) => {
-	console.log(`[${index + 1}] ${participant}`)
-})
+//lub
 
-const participantsSorted = participants.sort()
-console.log('Krok 2: Sortowanie alfabetyczne')
-participantsSorted.forEach((participant, index) => {
-	console.log(`[${index + 1}] ${participant}`)
-})
+const map2 = new Map([
+    ["kolor1", "red"],
+    ["kolor2", "blue"],
+	[1,1],
+	[[1,2,3], 8]
+]);
 
-const participantsReverse = participants.reverse()
-console.log("Krok 3: Odwrocenie kolejnosci");
-participantsReverse.forEach((participant,index)=>{
-	console.log(`[${index + 1}] ${participant}`);
-})
+map2.set('miś', 'miód')
+console.log(map2.get('kolor1'));
+console.log(map2.has('kolor1'));
+console.log(map2.delete('kolor1'));
+console.log(map2.clear());
+console.log(map2);
