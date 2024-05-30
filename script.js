@@ -1,25 +1,22 @@
 'use strict'
 
-const map = new Map();
+const map = new Map([
+	['kolor1', 'red'],
+	['kolor2', 'blue'],
+	['kolor3', 'yellow'],
+])
 
-const ob1 = { name : "test1" }
-const ob2 = { name : "test2" }
+for (const key of map.keys()) {
+	console.log(map.keys())
+	console.log(key)
+}
 
-map.set(ob1, "koty");
-map.set(ob2, "psy");
-map.set("[object Object]", "świnki");
+for (const value of map.values()) {
+	console.log(map.values())
+	console.log(value)
+}
 
-console.log(map);
-
-
-const map2 = {}
-
-const ob12 = { name : "test1" }
-const ob22 = { name : "test2" }
-
-map2[ob12] = "koty";
-map2[ob22] = "psy"; 
-map2["[object Object]"] = "świnki";
-
-console.log(map2); 
-
+for(const entry of map.entries()){
+    console.log(map.entries());
+    console.log(entry);
+}
