@@ -1,30 +1,17 @@
 'use strict'
 
-const students = [
-	{ id: 1, firstName: "John", lastName: "Doe" },
-	{ id: 2, firstName: "Jane", lastName: "Smith" },
-	{ id: 3, firstName: "David", lastName: "Johnson" },
-];
+const employee1 = { id: 1, firstName: 'John', lastName: 'Doe' }
+const employee2 = { id: 2, firstName: 'Jane', lastName: 'Smith' }
 
-const studentSet = new Set();
+const employeeMap = new WeakMap()
 
-for (const student of students) {
-	studentSet.add(student);
-}
+employeeMap.set(employee1, { position: 'Manager', salary: 5000 })
+employeeMap.set(employee2, { position: 'Developer', salary: 4000 })
 
-console.log("[Numer identyfikacyjny studentow]");
-for (const student of studentSet.keys()) {
-	console.log(student.id);
-}
-
-console.log("[Imiona i nazwiska studentow]");
-for (const student of studentSet.values()) {
-	console.log(student.firstName, student.lastName);
-}
-
-console.log("[Dane studentow]");
-for (const entry of studentSet) {
-	
-	console.log(entry.id, entry.firstName, entry.lastName);
+console.log(`Sprawdzanie danych pracownika:`)
+if (employeeMap.has(employee1)) {
+	console.log(`Mapa posiada dane pracownika nr 1`)
+} else {
+	console.log(`Mapa nie posiada danych pracownika nr 1`)
 }
 
