@@ -20,3 +20,11 @@ for(const entry of map.entries()){
     console.log(map.entries());
     console.log(entry);
 }
+for(const [key,value] of map.entries()){
+    console.log(map.entries());
+    console.log(key,value);
+}
+for(const entry of map){
+    console.log(map);
+    console.log(entry);
+}
