@@ -1,17 +1,30 @@
 'use strict'
 
-const favoriteMovies = new Set()
+const students = [
+	{ id: 1, firstName: "John", lastName: "Doe" },
+	{ id: 2, firstName: "Jane", lastName: "Smith" },
+	{ id: 3, firstName: "David", lastName: "Johnson" },
+];
 
-favoriteMovies.add("Incepcja");
-favoriteMovies.add("Interstellar");
-favoriteMovies.add("Prestiz");
+const studentSet = new Set();
 
-console.log('Moje ulubione filmy:');
-for(const movie of favoriteMovies){
-	console.log(movie);
+for (const student of students) {
+	studentSet.add(student);
 }
-favoriteMovies.clear('Incepcja')
-console.log('Brak:');
-for(const movie of favoriteMovies){
-	console.log(movie);
+
+console.log("[Numer identyfikacyjny studentow]");
+for (const student of studentSet.keys()) {
+	console.log(student.id);
 }
+
+console.log("[Imiona i nazwiska studentow]");
+for (const student of studentSet.values()) {
+	console.log(student.firstName, student.lastName);
+}
+
+console.log("[Dane studentow]");
+for (const entry of studentSet) {
+	
+	console.log(entry.id, entry.firstName, entry.lastName);
+}
+
