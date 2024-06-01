@@ -2,27 +2,28 @@
 
 let magazyn = new Map()
 
-
 magazyn.set('Telewizor', 5)
 magazyn.set('Laptop', 10)
 magazyn.set('Smartfon', 20)
 magazyn.set('Konsola', 15)
 
-console.log('Zawartość magazynu:');
+console.log('Zawartość magazynu:')
 
-magazyn.forEach((produkt, ilosc) => {
-console.log(produkt +':' + ilosc);
+magazyn.forEach((ilosc, produkt) => {
+	console.log(produkt + ': ' + ilosc)
 })
 
-let test = {
-	danie: 'bowl',
-	picie: 'woda'
-}
+magazyn.set('Telewizor', 3)
 
-let testConvert = Object.entries(test)
-console.log(testConvert);
+console.log('Zawartość magazynu:')
 
+magazyn.forEach((ilosc, produkt) => {
+	console.log(produkt + ': ' + ilosc)
+})
 
-testConvert.forEach((kategoria) => {
-	console.log(kategoria);
-	})
+magazyn.delete('Smartfon')
+
+console.log('Zawartość magazynu:');
+magazyn.forEach((ilosc,produkt)=>{
+	console.log(produkt + ': ' + ilosc);
+})
