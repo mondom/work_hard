@@ -1,23 +1,28 @@
 'use strict'
 
-// const set = new Set();
+let magazyn = new Map()
 
-// set.add(1);
-// set.add("text");
-// set.add({name: "kot"});
 
-// console.log(set); 
+magazyn.set('Telewizor', 5)
+magazyn.set('Laptop', 10)
+magazyn.set('Smartfon', 20)
+magazyn.set('Konsola', 15)
 
-// const set1 = new Set([1, 1, 2, 2, 3, 4]); 
+console.log('Zawartość magazynu:');
 
-// console.log(set1);
+magazyn.forEach((produkt, ilosc) => {
+console.log(produkt +':' + ilosc);
+})
 
-// const set2 = new Set("kajak"); 
+let test = {
+	danie: 'bowl',
+	picie: 'woda'
+}
 
-const tab = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 5];
+let testConvert = Object.entries(test)
+console.log(testConvert);
 
-const set = new Set(tab);
-console.log(set); //{1, 2, 3, 4, 5}
 
-const uniqueTab = [...set];
-console.log(uniqueTab); //[1, 2, 3, 4, 5]
+testConvert.forEach((kategoria) => {
+	console.log(kategoria);
+	})
