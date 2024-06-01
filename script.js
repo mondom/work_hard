@@ -1,47 +1,22 @@
 'use strict'
 
-let orders = new Map()
+let shoppingList = new Map()
 
-const order1 = {
-	id: 'order001',
-	customerName: 'John Doe',
-	items: ['Shirt', 'Pants', 'Shoes'],
+shoppingList.set('Jabłka', 5)
+shoppingList.set('Chleb', 2)
+shoppingList.set('Mleko', 1)
+
+console.log('Zawartość listy zakupów:')
+for (const [item, number] of shoppingList.entries()) {
+	console.log(item + ': ' + number)
 }
-
-const order2 = {
-	id: 'order002',
-	customerName: 'Jane Smith',
-	items: ['Dress', 'Hat'],
+shoppingList.delete('Chleb')
+console.log('Zawartość listy zakupów po usunięciu:')
+for (const [item, number] of shoppingList.entries()) {
+	console.log(item + ': ' + number)
 }
-
-orders.set(order1.id, order1)
-orders.set(order2.id, order2)
-
-console.log(`Liczba zamówień w systemie: ${orders.size}`)
-
-console.log('Zamówienia w systemie:')
-
-for (const [orderId, order] of orders.entries()) {
-	console.log(`[ID zamówienia: ${orderId}]`)
-	console.log(`Klient: ${order.customerName}`)
-	console.log(`Przedmioty: ${order.items.join(', ')}`)
+shoppingList.clear()
+console.log('Zawartość listy zakupów po zakupach:')
+for (const [item, number] of shoppingList.entries()) {
+	console.log(item + ': ' + number)
 }
-
-const orderIdToCheck = 'order002'
-
-if (orders.has(orderIdToCheck)) {
-	console.log(`Zamowienie o ID ${orderIdToCheck} istnieje w systemie.`)
-} else {
-	console.log(`Zamowienie o ID ${orderIdToCheck} nie istnieje w systemie.`);
-}
-
-
-const orderIdToGet = 'order001'
-
-const orderToGet = orders.get(orderIdToGet)
-
-if(orderToGet){
-	console.log(`Informacje o zamówieniu:\nID zamówienia: ${orderToGet.id}\nKlient: ${orderToGet.customerName}\nPrzedmioty: ${orderToGet.items.join(', ')}`);
-}
-
-
