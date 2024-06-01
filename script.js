@@ -1,13 +1,15 @@
 'use strict'
 
-const mySet = new Set();
+const programmingLanguages = new Set();
 
-mySet.add("jabłko");
-mySet.add("banan");
-mySet.add("pomarańcza");
-mySet.add("truskawka");
+programmingLanguages.add("JavaScript");
+programmingLanguages.add("Java");
+programmingLanguages.add("Python");
 
-console.log(`Zawartość zbioru:`);
-for(const item of mySet){
-	console.log(item);
+const searchingLanguage = 'JavaScript'
+
+if(programmingLanguages.has(searchingLanguage)){
+	console.log(`Element ${searchingLanguage} został znaleziony w zbiorze!`);
 }
+
+console.log(`Liczba elementów w zbiorze: ${programmingLanguages.size}`);
