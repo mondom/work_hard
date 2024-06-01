@@ -1,16 +1,13 @@
 'use strict'
 
-let myMap = new Map()
+const mySet = new Set();
 
-myMap.set("Jablka", 5);
-myMap.set("Chleb", 2);
-myMap.set("Mleko", 1);
+mySet.add("jabłko");
+mySet.add("banan");
+mySet.add("pomarańcza");
+mySet.add("truskawka");
 
-console.log(`Klucze z mapy:`);
-for(const key of myMap.keys()){
-	console.log(key);
-}
-console.log(`Wartości z mapy:`);
-for(const value of myMap.values()){
-	console.log(value);
+console.log(`Zawartość zbioru:`);
+for(const item of mySet){
+	console.log(item);
 }
