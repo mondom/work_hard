@@ -1,15 +1,17 @@
 'use strict'
 
-const programmingLanguages = new Set();
+const favoriteMovies = new Set()
 
-programmingLanguages.add("JavaScript");
-programmingLanguages.add("Java");
-programmingLanguages.add("Python");
+favoriteMovies.add("Incepcja");
+favoriteMovies.add("Interstellar");
+favoriteMovies.add("Prestiz");
 
-const searchingLanguage = 'JavaScript'
-
-if(programmingLanguages.has(searchingLanguage)){
-	console.log(`Element ${searchingLanguage} został znaleziony w zbiorze!`);
+console.log('Moje ulubione filmy:');
+for(const movie of favoriteMovies){
+	console.log(movie);
 }
-
-console.log(`Liczba elementów w zbiorze: ${programmingLanguages.size}`);
+favoriteMovies.clear('Incepcja')
+console.log('Brak:');
+for(const movie of favoriteMovies){
+	console.log(movie);
+}
