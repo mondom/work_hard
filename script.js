@@ -1,30 +1,23 @@
 'use strict'
 
-const map = new Map([
-	['kolor1', 'red'],
-	['kolor2', 'blue'],
-	['kolor3', 'yellow'],
-])
+// const set = new Set();
 
-for (const key of map.keys()) {
-	console.log(map.keys())
-	console.log(key)
-}
+// set.add(1);
+// set.add("text");
+// set.add({name: "kot"});
 
-for (const value of map.values()) {
-	console.log(map.values())
-	console.log(value)
-}
+// console.log(set); 
 
-for(const entry of map.entries()){
-    console.log(map.entries());
-    console.log(entry);
-}
-for(const [key,value] of map.entries()){
-    console.log(map.entries());
-    console.log(key,value);
-}
-for(const entry of map){
-    console.log(map);
-    console.log(entry);
-}
+// const set1 = new Set([1, 1, 2, 2, 3, 4]); 
+
+// console.log(set1);
+
+// const set2 = new Set("kajak"); 
+
+const tab = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 5];
+
+const set = new Set(tab);
+console.log(set); //{1, 2, 3, 4, 5}
+
+const uniqueTab = [...set];
+console.log(uniqueTab); //[1, 2, 3, 4, 5]
