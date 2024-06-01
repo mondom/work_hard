@@ -15,3 +15,19 @@ if (employeeMap.has(employee1)) {
 	console.log(`Mapa nie posiada danych pracownika nr 1`)
 }
 
+const employee1Data = employeeMap.get(employee1)
+console.log(`Informacje o pracowniku nr 1:`);
+console.log('ID: ' + employee1.id);
+console.log('Imię: ' + employee1.firstName);
+console.log('Nazwisko: ' + employee1.lastName);
+console.log('Stanowisko: ' + employee1Data.position);
+console.log('Wynagrodzenie: ' + employee1Data.salary);
+
+employeeMap.delete(employee2)
+
+console.log('Sprawdzanie danych dla usuniętego pracownika');
+if(employeeMap.has(employee2)){
+	console.log('to źle');
+}else{
+	console.log('Brak danych pracownika nr 2');
+}
