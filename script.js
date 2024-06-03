@@ -1,22 +1,22 @@
 'use strict'
 
-const usersSet = new WeakSet()
+function countDaysOfWeek() {
+	let currentDate = new Date();
+	let daysOfWeek = [];
 
-const user1 = { id: 1 }
-const user2 = { id: 2 }
-const user3 = { id: 3 }
-
-const trackUserActivity = (user, action) => {
-	if (!usersSet.has(user)) {
-		usersSet.add(user)
+	for (let i = 0; i < 7; i++) {
+		let dateCopy = new Date(currentDate.getTime());
+		
+		dateCopy.setDate(currentDate.getDate() + i);
+		let dayOfWeek = dateCopy.toLocaleDateString("pl-PL", {
+			weekday: "long",
+		});
+		daysOfWeek.push(dayOfWeek);
 	}
 
-	user.activityCount = (user.activityCount || 0) + 1
-
-	console.log(`Użytkownik o id ${user.id} wykonał ${user.activityCount} akcje: ${action}`);
+	daysOfWeek.forEach((day) => {
+		console.log(day);
+	});
 }
 
-trackUserActivity(user1, 'klikniecie na przycisk')
-trackUserActivity(user2, 'przesuniecie suwaka')
-trackUserActivity(user1, 'wyslanie formularza')
-trackUserActivity(user3, 'klikniecie na link')
+countDaysOfWeek();
