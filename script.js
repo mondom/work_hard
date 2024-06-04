@@ -1,20 +1,18 @@
 'use strict'
 
-function countDayOfWeek(){
+function displayCurrentDateTime() {
 	let currentDate = new Date()
-	let daysOfWeek = []
+	let year = currentDate.getFullYear()
+	let month = currentDate.getMonth()
+	let day = currentDate.getDate()
+	let hours = currentDate.getHours()
+	let minutes = currentDate.getMinutes()
+	let seconds = currentDate.getSeconds()
+	let miliseconds = currentDate.getMilliseconds()
 
-	for(let i = 0;i<7;i++){
-		let dateCopy = new Date(currentDate.getTime())
+	console.log(`Current date: ${day}/${month + 1}/${year}`)
 
-		dateCopy.setDate(currentDate.getDate() + i);
-
-		let dayOfWeek = dateCopy.toLocaleDateString("pl-PL", {
-			weekday: "long",
-		});
-		daysOfWeek.push(dayOfWeek);
-	}
-	console.log(daysOfWeek);
+	console.log(`Current time: ${hours}:${minutes}:${seconds}:${miliseconds}`)
 }
-countDayOfWeek()
 
+displayCurrentDateTime()
