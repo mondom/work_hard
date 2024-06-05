@@ -1,14 +1,15 @@
 'use strict'
 
-const person = {
-    name: "John",
-    age: 30,
-    city: "New York",
-};
+const jsonUser = '{"name":"John Doe","age":30,"email":"john@example.com"}';
 
-const convertToJSON = (obj) => {
-	const objJson = JSON.stringify(obj, null, 2)
-	console.log(objJson);
+const parseUser = (jsonUser) => {
+
+	const user = JSON.parse(jsonUser)
+	console.log(user.name);
+	console.log(user.age);
+	console.log(user.email);
 }
 
-convertToJSON(person)
+
+
+parseUser(jsonUser)
