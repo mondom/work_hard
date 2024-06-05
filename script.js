@@ -1,18 +1,23 @@
 'use strict'
 
-function calculateFutureDate() {
+function calculateElapsedTime() {
 
-	let currentDate = new Date()
+	let startTime = Date.now()
+	let sum = 0
+	for (let i = 0; i < 50000; i++) {
+		sum += i;
+		console.log(sum);
+	}
 
-	currentDate.setFullYear(currentDate.getFullYear())
-	console.log(currentDate.getFullYear() + 3);
-	currentDate.setMonth(currentDate.getMonth())
-	currentDate.setDate(15)
-	currentDate.setHours(18)
-	currentDate.setMinutes(30)
-	currentDate.setSeconds(45)
-	currentDate.setMilliseconds(500)
-	console.log(`Future Date: ${currentDate.toLocaleString()}`)
+	let endtime = Date.now()
+
+	const result = endtime - startTime
+
+	console.log(result);
 }
 
-calculateFutureDate()
+calculateElapsedTime()
+
+
+
+
