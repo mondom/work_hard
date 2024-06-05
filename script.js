@@ -1,23 +1,14 @@
 'use strict'
 
-function calculateElapsedTime() {
+const person = {
+    name: "John",
+    age: 30,
+    city: "New York",
+};
 
-	let startTime = Date.now()
-	let sum = 0
-	for (let i = 0; i < 50000; i++) {
-		sum += i;
-		console.log(sum);
-	}
-
-	let endtime = Date.now()
-
-	const result = endtime - startTime
-
-	console.log(result);
+const convertToJSON = (obj) => {
+	const objJson = JSON.stringify(obj, null, 2)
+	console.log(objJson);
 }
 
-calculateElapsedTime()
-
-
-
-
+convertToJSON(person)
