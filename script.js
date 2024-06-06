@@ -1,15 +1,13 @@
 'use strict'
 
-const jsonUser = '{"name":"John Doe","age":30,"email":"john@example.com"}';
-
-const parseUser = (jsonUser) => {
-
-	const user = JSON.parse(jsonUser)
-	console.log(user.name);
-	console.log(user.age);
-	console.log(user.email);
+const countDown = num => {
+    if (num <= 0) {
+        console.log('Liczenie zakończone!');
+        return;
+    } else {
+        console.log(num);
+        countDown(num - 1);
+    }
 }
 
-
-
-parseUser(jsonUser)
+countDown(5);
