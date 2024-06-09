@@ -19,8 +19,11 @@
 
 function collatz(n) {
 	if (n === 1) {
-		return 1
+		return 0
 	}
 
-	return n % 2 === 0 ? collatz(n / 2) : collatz(3n + 1)
+	return n % 2 === 0 ? collatz(n / 2) + 1 : collatz(3 * n + 1) + 1
 }
+
+const result = collatz(21)
+console.log(`Ilość kroków: ${result}`)
