@@ -1,12 +1,26 @@
 'use strict'
 
-function countDown(num) {
-	if (num <= 0) {
-		return console.log('Koniec liczenia')
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+function calculateSum(arr) {
+	if (arr.length === 0) {
+		return 0
 	}
 
-  console.log(num);
-	countDown(num - 1)
+	let firstElement = arr[0]
+	let sum = 0
+
+	if (firstElement > 5) {
+		sum += firstElement
+	}
+
+	let remainingArray = arr.slice(1)
+
+
+	let recursiveSum = calculateSum(remainingArray)
+	sum += recursiveSum
+  return sum
 }
 
-countDown(5)
+const result = calculateSum(arr)
+console.log(result);
