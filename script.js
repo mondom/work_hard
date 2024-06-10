@@ -17,13 +17,19 @@
 
 // console.log('Silnia liczby', num, 'to:', result)
 
-function collatz(n) {
-	if (n === 1) {
-		return 0
-	}
+function f1() {
+	console.log( 'f1' );
+  }
+	
+  function f2() {
+	f1();
+	console.log( 'f2' );
+  }
+	
+  f2();
 
-	return n % 2 === 0 ? collatz(n / 2) + 1 : collatz(3 * n + 1) + 1
-}
 
-const result = collatz(21)
-console.log(`Ilość kroków: ${result}`)
+  
+  
+
+
