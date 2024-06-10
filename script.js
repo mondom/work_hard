@@ -17,17 +17,20 @@
 
 // console.log('Silnia liczby', num, 'to:', result)
 
-function f1() {
-	console.log( 'f1' );
-  }
-	
-  function f2() {
-	f1();
-	console.log( 'f2' );
-  }
-	
-  f2();
+function three() {
+  return "txt";
+}
 
+function two() {
+  const result = three();
+  return result;
+}
+
+function one() {
+  const result = two();
+  return result;
+}
+one()
 
   
   
