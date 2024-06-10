@@ -17,20 +17,29 @@
 
 // console.log('Silnia liczby', num, 'to:', result)
 
-function three() {
-  return "txt";
+//setTimeout i click trafią do kolejki zadań
+setTimeout(() => {
+  console.log("Jestem tekstem z setTimeout A");
+}, 0);
+
+setTimeout(() => {
+  console.log("Jestem tekstem z setTimeout B");
+}, 0);
+
+//rejestruję klikanie na dokumencie
+document.addEventListener("click", () => {
+  console.log("klik");
+});
+
+//pętla trwająca 3 sekundy
+//kod synchroniczny - jako pierwszy trafi do Call Stack
+let start = new Date().getTime();
+let end = start;
+while(end < start + 3000) {
+  end = new Date().getTime();
 }
 
-function two() {
-  const result = three();
-  return result;
-}
-
-function one() {
-  const result = two();
-  return result;
-}
-one()
+console.log("Jestem tekstem ze zwykłego console.log");
 
   
   
