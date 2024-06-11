@@ -1,29 +1,53 @@
 'use strict'
 
-let stack = []
+// function checkSyntax(code) {
+// 	const stack = []
 
-function pushName(name) {
-  stack.push(name)
+// 	for (let i = 0; i < code.length; i++) {
+// 		const char = code[i]
+
+// 		if (char === '(' || char === '{' || char === '[') {
+// 			stack.push(char)
+// 		} else if (char === ')' || char === '}' || char === ']') {
+// 			if (stack.length === 0) {
+//         console.log('Brak otwierającego nawiasu');
+// 				return false
+// 			}
+
+// 			const top = stack.pop()
+
+// 			if ((char === ')' && top !== '(') || (char === '}' && top !== '{') || (char === ']' && top !== '[')) {
+// 				return false // Niepoprawne sparowanie nawiasów
+// 			}
+// 		}
+// 	}
+
+// 	return stack.length === 0 // Brak zamykającego nawiasu
+// }
+
+// const code = "(function() { console.log('Hello, world!'); })()"
+// const isSyntaxValid = checkSyntax(code)
+
+// console.log('Czy skladnia kodu jest poprawna?', isSyntaxValid)
+
+function checkSyntax(code) {
+	const stack = []
+
+	for (const char of code) {
+		if (char === '(' || char === '{' || char === '[') {
+			stack.push(char)
+		} else if (char === ')' || char === '}' || char === ']') {
+			if (stack.length === 0) return false
+
+			const top = stack.pop()
+			if ((char === ')' && top !== '(') || (char === '}' && top !== '{') || (char === ']' && top !== '[')) return false
+		}
+	}
+
+	return stack.length === 0
 }
 
-function popName() {
- return stack.pop()
-}
+const code = '(function() { console.log("Hello, world!"); })()'
+const isSyntaxValid = checkSyntax(code)
 
-function peekName() {
-  console.log(stack[stack.length -1]);
-}
-
-pushName('Monika')
-pushName('Hanna')
-pushName('Ewelina')
-
-console.log(stack);
-
-
-const result2 = popName()
-console.log(result2)
-const result3 = peekName()
-console.log(result3)
-
-
+console.log('Czy składnia kodu jest poprawna?', isSyntaxValid)
