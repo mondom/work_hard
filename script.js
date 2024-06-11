@@ -33,14 +33,22 @@
 function checkSyntax(code) {
 	const stack = []
 
-	for (const char of code) {
-		if (char === '(' || char === '{' || char === '[') {
-			stack.push(char)
-		} else if (char === ')' || char === '}' || char === ']') {
-			if (stack.length === 0) return false
+	for (const sign of code) {
+		if (sign === '(' || sign === '{' || sign === '[') {
+			stack.push(sign)
+		} else if (sign === ')' || sign === '}' || sign === ']') {
+			if (stack.length === 0) {
+				return false
+			}
+			const openBracket = stack.pop()
 
-			const top = stack.pop()
-			if ((char === ')' && top !== '(') || (char === '}' && top !== '{') || (char === ']' && top !== '[')) return false
+			if (
+				(sign === ')' && openBracket !== '(') ||
+				(sign === '}' && openBracket !== '{') ||
+				(sign === ']' && openBracket !== '[')
+			) {
+				return false
+			}
 		}
 	}
 
