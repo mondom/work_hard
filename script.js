@@ -1,14 +1,29 @@
 'use strict'
 
-function calculateFactorial(num) {
-	if (num === 0 || num === 1) return 1
+let stack = []
 
-	if (num > 1) {
-
-		let factorial = calculateFactorial(num - 1)
-		factorial *= num
-		return factorial
-	}
+function pushName(name) {
+  stack.push(name)
 }
-const result = calculateFactorial(5)
-console.log(result)
+
+function popName() {
+ return stack.pop()
+}
+
+function peekName() {
+  console.log(stack[stack.length -1]);
+}
+
+pushName('Monika')
+pushName('Hanna')
+pushName('Ewelina')
+
+console.log(stack);
+
+
+const result2 = popName()
+console.log(result2)
+const result3 = peekName()
+console.log(result3)
+
+
