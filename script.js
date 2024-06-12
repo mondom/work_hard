@@ -1,21 +1,22 @@
 'use strict'
 
-const products = ['Kawa', 'Herbata', 'Sok pomaranczowy']
+function gotujJajka() {
+	let czasGotowania = 0
 
-function addProduct(...newproducts) {
-	products.push(...newproducts)
-	products.forEach(el => {
-		console.log(el)
-	})
+	function sprawdxStanJajek() {
+		czasGotowania++
+
+		if (czasGotowania === 5) {
+			console.log('Jajka są na wpół ugotowane')
+		} else if (czasGotowania === 8) {
+			console.log('Jajka są prawie gotowe!')
+		} else if (czasGotowania === 10) {
+			console.log('Jajka są gotowe!')
+			return
+		}
+		setTimeout(sprawdxStanJajek, 1000)
+	}
+	sprawdxStanJajek()
 }
 
-addProduct('ciasto', 'mleko', 'jajka')
-
-function removeProduct(...indexy) {
-	indexy.forEach(index => {
-		products.splice(index, 1)
-	})
-	console.log(products)
-}
-
-removeProduct(3, 4)
+setTimeout(gotujJajka, 3000)
