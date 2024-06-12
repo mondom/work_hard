@@ -1,31 +1,18 @@
 'use strict'
 
-const trasa = [
-	{ x: 0, y: 0 },
-	{ x: 100, y: 50 },
-	{ x: 200, y: 100 },
-	{ x: 300, y: 150 },
-	{ x: 400, y: 200 },
+const obowiazki = [
+	{ czas: '08:00', tekst: 'Wstawanie' },
+	{ czas: '12:00', tekst: 'Obiad' },
+	{ czas: '18:00', tekst: 'Spacer' },
+	{ czas: '22:00', tekst: 'Odpoczynek' },
 ]
 
-const samochod = {
-	pozycja: 0,
-	predkosc: 10,
+function ustawPrzypomnienie(obowiazek) {
+	const currentDate = new Date()
+
+	const [godzina, minuta] = obowiazek.czas.split(':')
 }
 
-const przesunSamochod = () => {
-	let punkt = trasa[samochod.pozycja]
-
-	if (samochod.pozycja === trasa.length) {
-		console.log('Koniec trasy')
-    clearInterval(run)
-    return
-	}
-
-	console.log(`Samochod jest na pozycji x: ${punkt.x}, y: ${punkt.y}`)
-
-	samochod.pozycja++
+for (const obowiazek of obowiazki) {
+	ustawPrzypomnienie(obowiazek)
 }
-
-const run = setInterval(przesunSamochod, 1000)
-
