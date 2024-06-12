@@ -4,17 +4,18 @@ const products = ['Kawa', 'Herbata', 'Sok pomaranczowy']
 
 function addProduct(...newproducts) {
 	products.push(...newproducts)
-  products.forEach(el => {
-    console.log(el);
-  })
+	products.forEach(el => {
+		console.log(el)
+	})
 }
 
-const result = addProduct('ciasto', 'mleko', 'jajka')
+addProduct('ciasto', 'mleko', 'jajka')
 
-console.log(result)
-
-function removeProduct(...productsToRemove){
-
+function removeProduct(...indexy) {
+	indexy.forEach(index => {
+		products.splice(index, 1)
+	})
+	console.log(products)
 }
 
-
+removeProduct(3, 4)
