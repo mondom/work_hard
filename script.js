@@ -9,8 +9,21 @@ const obowiazki = [
 
 function ustawPrzypomnienie(obowiazek) {
 	const currentDate = new Date()
-
 	const [godzina, minuta] = obowiazek.czas.split(':')
+
+	const przypomnienie = new Date(
+		currentDate.getFullYear(),
+		currentDate.getMonth(),
+		currentDate.getDate(),
+		godzina,
+		minuta
+	)
+	const czasPrzypomnienia = przypomnienie.getTime() - currentDate.getTime()
+
+	const interwalId = setTimeout(() => {
+		console.log(obowiazek.tekst)
+		clearTimeout(interwalId)
+	}, czasPrzypomnienia) 
 }
 
 for (const obowiazek of obowiazki) {
