@@ -1,15 +1,13 @@
 'use strict'
 
-const car = {
-    model: 'Opel',
-    printModel: function() {
-      console.log('Your car is: ', this.model);
-    },
-  };
+const person = {
+	surname: 'Rambo',
+	print() {
+		console.log(this.surname)
+	},
+}
 
-  car.printModel()
-  
-  const print = car.printModel.bind(car);
-  print();
+setTimeout(person.print, 1000)
 
-
+const print3 = person.print.bind(person)
+setTimeout(print3, 1000)
