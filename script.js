@@ -1,18 +1,15 @@
 'use strict'
 
-function test() {
-	console.log(this)
-	console.log(this.name)
-}
+const car = {
+    model: 'Opel',
+    printModel: function() {
+      console.log('Your car is: ', this.model);
+    },
+  };
 
-const car1 = {
-	name: 'Audi',
-}
-const car2 = {
-	name: 'Dodge',
-}
-const car3 = {
-	name: 'Nissan',
-}
+  car.printModel()
+  
+  const print = car.printModel.bind(car);
+  print();
 
-test.bind(car1)()
+
