@@ -1,31 +1,18 @@
 'use strict'
 
-const obowiazki = [
-	{ czas: '08:00', tekst: 'Wstawanie' },
-	{ czas: '12:00', tekst: 'Obiad' },
-	{ czas: '12:57', tekst: 'Spacer' },
-	{ czas: '22:00', tekst: 'Odpoczynek' },
-]
-
-function ustawPrzypomnienie(obowiazek) {
-	const currentDate = new Date()
-	const [godzina, minuta] = obowiazek.czas.split(':')
-
-	const przypomnienie = new Date(
-		currentDate.getFullYear(),
-		currentDate.getMonth(),
-		currentDate.getDate(),
-		godzina,
-		minuta
-	)
-	const czasPrzypomnienia = przypomnienie.getTime() - currentDate.getTime()
-
-	const interwalId = setTimeout(() => {
-		console.log(obowiazek.tekst)
-		clearTimeout(interwalId)
-	}, czasPrzypomnienia) 
+function test() {
+	console.log(this)
+	console.log(this.name)
 }
 
-for (const obowiazek of obowiazki) {
-	ustawPrzypomnienie(obowiazek)
+const car1 = {
+	name: 'Audi',
 }
+const car2 = {
+	name: 'Dodge',
+}
+const car3 = {
+	name: 'Nissan',
+}
+
+test.bind(car1)()
