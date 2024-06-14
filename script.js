@@ -1,15 +1,27 @@
 'use strict'
 
-const product = {
-	price: 250,
+const order = {
+	products: ['Koszula', 'Spodnie', 'Buty'],
+	quantities: [2, 1, 1],
+	unitPrices: [50, 80, 120],
 }
 
-function calculateDiscount(percent) {
-	
-	return this.price * percent
-	// console.log(`Value of discount: ${result}`);
+function calculateTotal() {
+	const result = this.unitPrices.reduce((acc, curr, index) => acc + curr * this.quantities[index], 0)
+	console.log(result);
 }
 
-const calculateProductDiscount = calculateDiscount.bind(product)
-const discount = calculateProductDiscount(0.2)
-console.log(discount);
+calculateTotal.bind(order)()
+
+// function displayOrderDetails() {
+// 	console.log('Szczegoly zamowienia:')
+// 	this.products.forEach((product, index) => {
+// 		console.log(`${product} - ilosc: ${this.quantities[index]}, cena jednostkowa: ${this.unitPrices[index]}`)
+// 	})
+// 	const total = calculateTotal.call(this)
+// 	console.log('laczna wartosc zamowienia:', total)
+// }
+
+// const displayOrderDetailsForOrder = displayOrderDetails.bind(order)
+
+// displayOrderDetailsForOrder()
