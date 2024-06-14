@@ -1,13 +1,15 @@
 'use strict'
 
-const person = {
-	surname: 'Rambo',
-	print() {
-		console.log(this.surname)
+const dog = {
+	name: 'Reksio',
+}
+
+const cat = {
+	name: 'Alice',
+	run(speed) {
+		console.log(this.name + ' run ' + speed + ' km')
 	},
 }
 
-setTimeout(person.print, 1000)
-
-const print3 = person.print.bind(person)
-setTimeout(print3, 1000)
+cat.run.bind(dog)(34)
+cat.run.bind(dog, 34)()
