@@ -1,15 +1,15 @@
 'use strict'
 
-const dog = {
-	name: 'Reksio',
+const product = {
+	price: 250,
 }
 
-const cat = {
-	name: 'Alice',
-	run(speed) {
-		console.log(this.name + ' run ' + speed + ' km')
-	},
+function calculateDiscount(percent) {
+	
+	return this.price * percent
+	// console.log(`Value of discount: ${result}`);
 }
 
-cat.run.bind(dog)(34)
-cat.run.bind(dog, 34)()
+const calculateProductDiscount = calculateDiscount.bind(product)
+const discount = calculateProductDiscount(0.2)
+console.log(discount);
