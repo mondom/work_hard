@@ -1,26 +1,39 @@
 'use strict'
 
-const calculator = {
-	x: 5,
-	y: 3,
-	result: null,
+function zmienSwiatloPieszych(stan) {
+	console.log("Stan sygnalizatora dla pieszych:", stan);
 }
 
-function sum(a, b) {
-	return a + b
-}
-function multiply(a, b) {
-	return a * b
-}
-function substract(a, b) {
-	return a - b
+function zmienSwiatloPojazdow(stan) {
+	console.log("Stan sygnalizatora dla pojazdów:", stan);
 }
 
-calculator.result = sum.call(calculator, calculator.x, calculator.y)
-console.log(`Wynik dodawania: ${calculator.result}`)
+const czasZielonegoPojazdow = 5000;
+const czasCzerwonegoPieszych = 3000;
+const czasZielonegoPieszych = 2000;
 
-calculator.result = multiply.call(calculator, calculator.x, calculator.y)
-console.log(`Wynik dodawania: ${calculator.result}`)
+let stanSwiatlaPojazdow = "czerwony";
+let stanSwiatlaPieszych = "czerwony";
 
-calculator.result = substract.call(calculator, calculator.x, calculator.y)
-console.log(`Wynik dodawania: ${calculator.result}`)
+zmienSwiatloPojazdow.call(null, stanSwiatlaPojazdow);
+
+function zmienStanSwiatel() {
+	if (stanSwiatlaPojazdow === "czerwony") {
+		stanSwiatlaPojazdow = "zielony";
+	} else if (stanSwiatlaPojazdow === "zielony") {
+		stanSwiatlaPojazdow = "czerwony";
+	}
+
+	if (stanSwiatlaPieszych === "czerwony") {
+		stanSwiatlaPieszych = "zielony";
+	} else if (stanSwiatlaPieszych === "zielony") {
+		stanSwiatlaPieszych = "żółty";
+	} else if (stanSwiatlaPieszych === "żółty") {
+		stanSwiatlaPieszych = "czerwony";
+	}
+
+	zmienSwiatloPojazdow.call(null, stanSwiatlaPojazdow);
+	zmienSwiatloPieszych.call(null, stanSwiatlaPieszych);
+}
+
+// setInterval(zmienStanSwiatel, czasZielonegoPojazdow);
