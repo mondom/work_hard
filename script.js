@@ -1,31 +1,26 @@
 'use strict'
 
-const order = {
-	products: ['Koszula', 'Spodnie', 'Buty'],
-	quantities: [2, 1, 1],
-	unitPrices: [50, 80, 120],
+const calculator = {
+	x: 5,
+	y: 3,
+	result: null,
 }
 
-function calculateTotal() {
-	const result = this.unitPrices.reduce((acc, curr, index) => {
-		return acc + curr * this.quantities[index]
-	}, 0)
-
-	return result
+function sum(a, b) {
+	return a + b
+}
+function multiply(a, b) {
+	return a * b
+}
+function substract(a, b) {
+	return a - b
 }
 
-const totalValue = calculateTotal.bind(order)()
+calculator.result = sum.call(calculator, calculator.x, calculator.y)
+console.log(`Wynik dodawania: ${calculator.result}`)
 
-function displayOrderDetails() {
-	console.log('Szczegóły zamówienia:');
-	this.products.forEach((product, index) => {
-		console.log(product + ' - ilość: ' +this.quantities[index] + ' cena jednostkowa: ' + this.unitPrices[index] + 'zł');
-	});
-	
-	console.log('laczna wartosc zamowienia: '+ totalValue + 'zł'
-	)
-}
+calculator.result = multiply.call(calculator, calculator.x, calculator.y)
+console.log(`Wynik dodawania: ${calculator.result}`)
 
-displayOrderDetails.bind(order)()
-
-
+calculator.result = substract.call(calculator, calculator.x, calculator.y)
+console.log(`Wynik dodawania: ${calculator.result}`)
