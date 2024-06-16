@@ -7,8 +7,11 @@ const order = {
 }
 
 function calculateTotal() {
-	const result = this.unitPrices.reduce((acc, curr, index) => acc + curr * this.quantities[index], 0)
-	console.log(result);
+	const result = this.unitPrices.reduce((acc, curr, index) => {
+		return acc + curr * this.quantities[index]
+	}, 0)
+
+	console.log(result)
 }
 
 calculateTotal.bind(order)()
