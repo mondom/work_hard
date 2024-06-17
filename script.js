@@ -1,29 +1,15 @@
 'use strict'
+const transactions = [
+	{ name: 'Product A', price: 10, cost: 5, quantity: 20 },
+	{ name: 'Product B', price: 8, cost: 4, quantity: 30 },
+	{ name: 'Product C', price: 12, cost: 6, quantity: 15 },
+]
 
-const arr = [12, 6, 8, 17, 3, 10]
-
-function findMin(arr) {
-	const result = arr.reduce((min, current) => {
-		return current < min ? current : min
-	}, arr[0])
-	console.log(result)
-}
-
-function findMax(arr) {
-	const result = arr.reduce((max, current) => {
-		return current > max ? current : max
-	}, arr[0])
-	console.log(result)
-}
-
-function calculateAverage(arr) {
-	const average = arr.reduce(function (accumulator, currentValue, currentIndex) {
-		accumulator += currentValue
-		return currentIndex === arr.length - 1 ? accumulator / arr.length : accumulator
+function calculateTotalRevenue(transactions) {
+	const total = transactions.reduce((acc, obj) => {
+		return acc + obj.price * obj.quantity
 	}, 0)
-	console.log(average.toFixed(2))
+	console.log(total)
 }
 
-const max = findMax.apply(null, [arr])
-const min = findMin.apply(null, [arr])
-const average = calculateAverage.apply(null, [arr])
+calculateTotalRevenue.apply(null, [transactions])
