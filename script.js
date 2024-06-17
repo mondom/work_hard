@@ -36,4 +36,4 @@ function zmienStanSwiatel() {
 	zmienSwiatloPieszych.call(null, stanSwiatlaPieszych);
 }
 
-// setInterval(zmienStanSwiatel, czasZielonegoPojazdow);
+setInterval(zmienStanSwiatel, czasZielonegoPojazdow);
