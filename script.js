@@ -1,39 +1,29 @@
 'use strict'
 
-function zmienSwiatloPieszych(stan) {
-	console.log("Stan sygnalizatora dla pieszych:", stan);
+const arr = [12, 6, 8, 17, 3, 10]
+
+function findMin(arr) {
+	const result = arr.reduce((min, current) => {
+		return current < min ? current : min
+	}, arr[0])
+	console.log(result)
 }
 
-function zmienSwiatloPojazdow(stan) {
-	console.log("Stan sygnalizatora dla pojazdów:", stan);
+function findMax(arr) {
+	const result = arr.reduce((max, current) => {
+		return current > max ? current : max
+	}, arr[0])
+	console.log(result)
 }
 
-const czasZielonegoPojazdow = 5000;
-const czasCzerwonegoPieszych = 3000;
-const czasZielonegoPieszych = 2000;
-
-let stanSwiatlaPojazdow = "czerwony";
-let stanSwiatlaPieszych = "czerwony";
-
-zmienSwiatloPojazdow.call(null, stanSwiatlaPojazdow);
-
-function zmienStanSwiatel() {
-	if (stanSwiatlaPojazdow === "czerwony") {
-		stanSwiatlaPojazdow = "zielony";
-	} else if (stanSwiatlaPojazdow === "zielony") {
-		stanSwiatlaPojazdow = "czerwony";
-	}
-
-	if (stanSwiatlaPieszych === "czerwony") {
-		stanSwiatlaPieszych = "zielony";
-	} else if (stanSwiatlaPieszych === "zielony") {
-		stanSwiatlaPieszych = "żółty";
-	} else if (stanSwiatlaPieszych === "żółty") {
-		stanSwiatlaPieszych = "czerwony";
-	}
-
-	zmienSwiatloPojazdow.call(null, stanSwiatlaPojazdow);
-	zmienSwiatloPieszych.call(null, stanSwiatlaPieszych);
+function calculateAverage(arr) {
+	const average = arr.reduce(function (accumulator, currentValue, currentIndex) {
+		accumulator += currentValue
+		return currentIndex === arr.length - 1 ? accumulator / arr.length : accumulator
+	}, 0)
+	console.log(average.toFixed(2))
 }
 
-setInterval(zmienStanSwiatel, czasZielonegoPojazdow);
+const max = findMax.apply(null, [arr])
+const min = findMin.apply(null, [arr])
+const average = calculateAverage.apply(null, [arr])
