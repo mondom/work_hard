@@ -15,7 +15,7 @@ function calculateTotalRevenue(transactions) {
 }
 
 const resultTotal = calculateTotalRevenue.apply(null, [transactions])
-console.log(resultTotal)
+console.log("Calkowite przychody:",resultTotal)
 
 function findBestSellingProduct(transactions) {
 	const bestSelling = transactions.reduce((max, curr) => {
@@ -25,4 +25,17 @@ function findBestSellingProduct(transactions) {
 }
 
 const resultBestSelling = findBestSellingProduct.apply(null, [transactions])
-console.log(resultBestSelling)
+console.log("Najlepiej sprzedajacy sie produkt:",resultBestSelling)
+
+function findMostProfitableProduct(transactions) {
+	const mostProfitable = transactions.reduce((maxProduct, currProduct) => {
+		const maxProfit = (maxProduct.price - maxProduct.cost) * maxProduct.quantity
+		const currProfit = (currProduct.price - currProduct.cost) * currProduct.quantity
+		return currProfit > maxProfit ? currProduct : maxProduct;
+	}, transactions[0])
+	return mostProfitable.name
+
+}
+
+const mostProfitable = findMostProfitableProduct.apply(null, [transactions])
+console.log("Najbardziej dochodowy produkt:",mostProfitable)
