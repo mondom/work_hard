@@ -7,9 +7,16 @@ const transactions = [
 
 function calculateTotalRevenue(transactions) {
 	const total = transactions.reduce((acc, obj) => {
-		return acc + obj.price * obj.quantity
+		const count = obj.price * obj.quantity
+		acc+=count
+		return acc
 	}, 0)
-	console.log(total)
+	return total;
 }
 
-calculateTotalRevenue.apply(null, [transactions])
+const result = calculateTotalRevenue.apply(null, [transactions])
+console.log(result);
+
+function findBestSellingProduct(transactions){
+	
+}
