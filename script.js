@@ -1,28 +1,30 @@
 'use strict'
 
-const person = {
-	name: 'John',
-	age: 30,
-	city: 'New York',
-}
+const car = {}
+console.log("Poczatkowy obiekt 'car':", car)
 
-Object.defineProperty(person, 'name', { enumerable: true })
-Object.defineProperty(person, 'age', {
-	enumerable: false,
-})
-Object.defineProperty(person, 'city', {
+Object.defineProperty(car, 'brand', {
+	value: 'Toyota',
+	writable: false,
 	enumerable: true,
+	configurable: false,
 })
 
-// function printProperties(obj) {
-// 	console.log(obj.name);
-// 	console.log(obj.age);
-// 	console.log(obj.city);
-// }
+Object.defineProperty(car, 'model', {
+	value: 'Camry',
+	writable: false,
+	enumerable: true,
+	configurable: false,
+})
+console.log("Zmodyfikowany obiekt 'car':", car)
 
-function printProperties(obj) {
-	for (let prop in obj) {
-		console.log(prop + ": " + obj[prop]);
-	}
-}
-printProperties(person)
+car.brand = "Honda";
+console.log("Obiekt 'car' po probie zmiany wlasciwosci 'brand':", car);
+
+delete car.model;
+console.log("Obiekt 'car' po probie usuniecia wlasciwosci 'model':", car);
+
+
+
+
+
