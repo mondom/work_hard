@@ -1,19 +1,28 @@
 'use strict'
 
-const person = {
-    _name: 'John',
-    _age: 30,
-    get name() {
-        return this._name;
-    },
-    set name(newName) {
-        if (typeof newName === 'string') {
-            this._name = newName;
-        } else {
-            console.log('Invalid name');
-        }
-    }
-};
+const person1 = {
+	firstName: 'John',
+	get name() {
+		return this.firstName
+	},
+	set name(name) {
+		this.firstName = name
+	},
+}
 
-person.name = 123; // Invalid name
-console.log(person.name); // 'John'
+person1.name = 'Rambo'
+console.log(person1.name) // 'Rambo'
+
+const person2 = {
+	_name: 'Rambo ma kota',
+	get name() {
+		console.log(this._name.split(' ').reverse()); 
+	},
+	set name(name) {
+		this._name = name.toUpperCase()
+	},
+}
+
+person2.name
+person2.name = 'Oliwia'
+person2.name
