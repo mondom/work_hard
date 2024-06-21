@@ -1,42 +1,42 @@
 'use strict'
 
-const shoppingList = []
+// function Animal(name, type) {
+// 	;(this.name = name), (this.type = type)
+// }
 
-const shoppingApp = {
-	set list(item) {
-		shoppingList.push(item)
-	},
-	set removeItem(item) {
-		const number = shoppingList.indexOf(item)
-		if (number !== -1) {
-			shoppingList.splice(number, 1)
-		}
-	},
+// Animal.prototype.getDescription = function () {
+// 	return `To jest ${this.type} o imieniu ${this.name}.`
+// }
 
-	get count() {
-		return shoppingList.length
-	},
-	get items() {
-		return shoppingList.join(', ')
-	},
-}
+// const animal1 = new Animal('Burek', 'Pies')
+// console.log(animal1.getDescription())
 
-shoppingApp.list = 'Buty'
-shoppingApp.list = 'Ciasto'
-shoppingApp.list = 'Kawa'
-shoppingApp.list = 'Kapelusz'
-shoppingApp.list = 'Mydło'
 
-console.log('[Lista zakupow na poczatku]');
-console.log('Produkty: '+ shoppingApp.items);
-console.log('Ilość produktów: ' + shoppingApp.count);
-shoppingApp.removeItem = 'Ciasto'
-console.log('[Lista zakupow po modyfikacji]');
-console.log('Produkty: '+ shoppingApp.items);
-console.log('Ilość produktów: ' + shoppingApp.count);
-// [Lista zakupow na poczatku]
-// Produkty: Jablka, Chleb, Mleko
-// Ilosc produktow: 3
-// [Lista zakupow po modyfikacji]
-// Produkty: Jablka, Mleko
-// Ilosc produktow: 2
+const animal = {
+	type: 'Animal',
+	displayType: function() {
+	  console.log(this.type);
+	console.log(this);
+	}
+  };
+  
+  const dog = Object.create(animal, {
+	name: {
+	  value: 'Rex',
+	  writable: true,
+	  enumerable: true,
+	  configurable: true
+	},
+	bark: {
+	  value: function() {
+		console.log('Woof!');
+	  },
+	  writable: false,
+	  enumerable: false,
+	  configurable: false
+	}
+  });
+  
+  console.log(dog.name); // Output: Rex
+  dog.bark(); // Output: Woof!
+  dog.displayType(); // Output: Animal
