@@ -10,6 +10,16 @@ const TemperatureTracker = {
 		}, 0)
 		return total / this.temperatures.length
 	},
+	get max(){
+		const max = Math.max(...this.temperatures)
+		return max
+		
+	},
+	get min(){
+		const min = Math.min(...this.temperatures)
+		return min
+		
+	},
 
 	addTemperature(temp) {
 		this.temperatures.push(temp)
@@ -24,5 +34,5 @@ TemperatureTracker.addTemperature(35)
 console.log(TemperatureTracker.temperatures)
 
 console.log('Srednia temperatura:', TemperatureTracker.average)
-// console.log('Najwyzsza temperatura:', TemperatureTracker.max)
-// console.log('Najnizsza temperatura:', TemperatureTracker.min)
+console.log('Najwyzsza temperatura:', TemperatureTracker.max)
+console.log('Najnizsza temperatura:', TemperatureTracker.min)
