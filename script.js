@@ -4,8 +4,11 @@ const TemperatureTracker = {
 	temperatures: [],
 
 	get average() {
-		const sum = this.temperatures.reduce((acc, cur) => acc + cur, 0)
-		return sum / this.temperatures.length
+		const total = this.temperatures.reduce((acc, cur) => {
+			return acc + cur
+			
+		}, 0)
+		return total / this.temperatures.length
 	},
 
 	addTemperature(temp) {
