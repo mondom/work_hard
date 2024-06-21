@@ -20,3 +20,5 @@ Dog.prototype = Object.create(Animal.prototype)
 
 const dog1 = new Dog('Reksio');
 console.log(dog1.getDescription());
+
+
