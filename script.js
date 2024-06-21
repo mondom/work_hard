@@ -1,38 +1,42 @@
 'use strict'
 
-const TemperatureTracker = {
-	temperatures: [],
+const shoppingList = []
 
-	get average() {
-		const total = this.temperatures.reduce((acc, cur) => {
-			return acc + cur
-			
-		}, 0)
-		return total / this.temperatures.length
+const shoppingApp = {
+	set list(item) {
+		shoppingList.push(item)
 	},
-	get max(){
-		const max = Math.max(...this.temperatures)
-		return max
-		
-	},
-	get min(){
-		const min = Math.min(...this.temperatures)
-		return min
-		
+	set removeItem(item) {
+		const number = shoppingList.indexOf(item)
+		if (number !== -1) {
+			shoppingList.splice(number, 1)
+		}
 	},
 
-	addTemperature(temp) {
-		this.temperatures.push(temp)
+	get count() {
+		return shoppingList.length
+	},
+	get items() {
+		return shoppingList.join(', ')
 	},
 }
 
-TemperatureTracker.addTemperature(25)
-TemperatureTracker.addTemperature(30)
-TemperatureTracker.addTemperature(20)
-TemperatureTracker.addTemperature(35)
+shoppingApp.list = 'Buty'
+shoppingApp.list = 'Ciasto'
+shoppingApp.list = 'Kawa'
+shoppingApp.list = 'Kapelusz'
+shoppingApp.list = 'Mydło'
 
-console.log(TemperatureTracker.temperatures)
-
-console.log('Srednia temperatura:', TemperatureTracker.average)
-console.log('Najwyzsza temperatura:', TemperatureTracker.max)
-console.log('Najnizsza temperatura:', TemperatureTracker.min)
+console.log('[Lista zakupow na poczatku]');
+console.log('Produkty: '+ shoppingApp.items);
+console.log('Ilość produktów: ' + shoppingApp.count);
+shoppingApp.removeItem = 'Ciasto'
+console.log('[Lista zakupow po modyfikacji]');
+console.log('Produkty: '+ shoppingApp.items);
+console.log('Ilość produktów: ' + shoppingApp.count);
+// [Lista zakupow na poczatku]
+// Produkty: Jablka, Chleb, Mleko
+// Ilosc produktow: 3
+// [Lista zakupow po modyfikacji]
+// Produkty: Jablka, Mleko
+// Ilosc produktow: 2
