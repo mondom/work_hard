@@ -1,65 +1,31 @@
 'use strict'
 
-// function Animal(name, type) {
-// 	this.name = name,
-// 	this.type = type
-// }
-
-// Animal.prototype.getDescription = function () {
-// 	return `To jest ${this.type} o imieniu ${this.name}.`
-// }
-
-// const animal1 = new Animal('Burek', 'Pies')
-// console.log(animal1.getDescription())
-
-// function Dog(name) {
-// 	Animal.call(this, name, 'Maltańczyk')
-// }
-
-// Dog.prototype = Object.create(Animal.prototype)
-
-// Dog.prototype.bark = function(){
-// 	console.log('Hau hau!');
-// }
-// const dog1 = new Dog('Reksio');
-// console.log(dog1.getDescription());
-// dog1.bark();
-
-function Plant(name, type, color) {
-	this.name = name,
-	this.type = type, 
-	this.color = color
+function Employee(name, age, position) {
+	this.name = name
+	this.age = age
+	this.position = position
 }
 
-Plant.prototype.showInfo = function(){
-	console.log(`Ta roślina to ${this.name}. Jej nazwa gatunku to ${this.type}. Dominującym kolorem jest ${this.color}.`);
+Employee.prototype.introduce = function () {
+	console.log(`Czesc, jestem ${this.name}, mam ${this.age} lat i pracuje jako ${this.position}.`)
 }
 
-const plant1 = new Plant('Lipa', 'drzewo', 'zielony')
+const employee1 = new Employee('Jan Kowalski', 30, 'Programista')
+employee1.introduce()
 
-plant1.showInfo()
+const employee2 = new Employee('Anna Nowak', 25, 'Analityk')
+employee2.introduce()
 
-
-function Flower(name,type,color, smell){
-	this.smell = smell
-	Plant.call(this, name, type, color)
+function Manager(name, age, position, department) {
+	Employee.call(this, name, age, position, this.manage)
+	this.department = department
 }
+Manager.prototype = Object.create(Employee.prototype)
+Manager.prototype.constructor = Manager
 
-Flower.prototype = Object.create(Plant.prototype)
-
-Flower.prototype.constructor = Flower
-
-Flower.prototype.showSmell = function(){
-	console.log(`Zapach ma ${this.smell}`);
+Manager.prototype.manage = function () {
+	console.log(`Jestem ${this.name}, pracuje jako ${this.position} i zarzadzam dzialem ${this.department}.`)
 }
-
-const plant2 = new Flower('Stokrotka', 'kwiat', 'biel', 'kwiatowy')
-
-plant2.showInfo()
-plant2.showSmell()
-
-console.log(plant1.constructor);
-console.log(Object.getPrototypeOf(plant1));
-
-console.log(plant2.constructor);
-console.log(Object.getPrototypeOf(plant2));
+const manager1 = new Manager('Kamil Wisniewski', 35, 'Kierownik', 'IT')
+manager1.introduce()
+manager1.manage()

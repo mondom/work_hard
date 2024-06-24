@@ -1,26 +1,37 @@
 'use strict'
 
-function Animal(name, type) {
-	this.name = name
-	this.type = type
+function Employee(name, age, position) {
+	this.name = name;
+	this.age = age;
+	this.position = position;
 }
 
-Animal.prototype.getDescription = function () {
-	return `To jest ${this.type} o imieniu ${this.name}.`
+Employee.prototype.introduce = function () {
+	console.log(
+		`Czesc, jestem ${this.name}, mam ${this.age} lat i pracuje jako ${this.position}.`
+	);
+};
+
+const employee1 = new Employee("Jan Kowalski", 30, "Programista");
+employee1.introduce();
+
+const employee2 = new Employee("Anna Nowak", 25, "Analityk");
+employee2.introduce();
+
+function Manager(name, age, position, department) {
+	Employee.call(this, name, age, position);
+	this.department = department;
 }
 
-const animal1 = new Animal('Burek', 'Pies')
-console.log(animal1.getDescription())
+Manager.prototype = Object.create(Employee.prototype);
+Manager.prototype.constructor = Manager;
 
-function Dog(name) {
-	Animal.call(this, name, 'Pies')
-}
-Dog.prototype = Object.create(Animal.prototype)
+Manager.prototype.manage = function () {
+	console.log(
+		`Jestem ${this.name}, pracuje jako ${this.position} i zarzadzam dzialem ${this.department}.`
+	);
+};
 
-Dog.prototype.bark = function () {
-	console.log('Hau hau!')
-}
-
-const dog1 = new Dog('Reksio')
-console.log(dog1.getDescription())
-dog1.bark()
+const manager1 = new Manager("Kamil Wisniewski", 35, "Kierownik", "IT");
+manager1.introduce();
+manager1.manage();
