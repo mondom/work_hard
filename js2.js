@@ -1,28 +1,26 @@
 'use strict'
 
-function gotujJajka() {
-	let czasGotowania = 0
-
-	function sprawdzStanJajek() {
-		czasGotowania++
-
-		if (czasGotowania === 5) {
-			console.log('Jajka sa na wpol gotowane!')
-		}
-
-		if (czasGotowania === 8) {
-			console.log('Jajka sa prawie gotowe!')
-		}
-
-		if (czasGotowania === 10) {
-			console.log('Jajka sa gotowe!')
-			return
-		}
-
-		setTimeout(sprawdzStanJajek, 1000)
-	}
-
-	sprawdzStanJajek()
+function Animal(name, type) {
+	this.name = name
+	this.type = type
 }
 
-setTimeout(gotujJajka, 3000)
+Animal.prototype.getDescription = function () {
+	return `To jest ${this.type} o imieniu ${this.name}.`
+}
+
+const animal1 = new Animal('Burek', 'Pies')
+console.log(animal1.getDescription())
+
+function Dog(name) {
+	Animal.call(this, name, 'Pies')
+}
+Dog.prototype = Object.create(Animal.prototype)
+
+Dog.prototype.bark = function () {
+	console.log('Hau hau!')
+}
+
+const dog1 = new Dog('Reksio')
+console.log(dog1.getDescription())
+dog1.bark()

@@ -10,7 +10,6 @@ Animal.prototype.getDescription = function () {
 }
 
 const animal1 = new Animal('Burek', 'Pies')
-console.log(animal1);
 console.log(animal1.getDescription())
 
 function Dog(name) {
@@ -19,8 +18,17 @@ function Dog(name) {
 
 Dog.prototype = Object.create(Animal.prototype)
 
+Dog.prototype.bark = function(){
+	console.log('Hau hau!');
+}
 const dog1 = new Dog('Reksio');
 console.log(dog1.getDescription());
+dog1.bark();
+
+
+
+
+
 
 
 
