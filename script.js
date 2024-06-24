@@ -1,31 +1,34 @@
 'use strict'
 
-class Animal {
-	constructor(name, noise) {
-		this.name = name
-		this.noise = noise
+class Book {
+	constructor(title, author) {
+		this.title = title
+		this.author = author
 	}
-	sound() {
-		console.log(`${this.name} doing ${this.noise}.`)
+
+	getTitle() {
+		console.log(`Title of book is ${this.title}.`)
+	}
+	getAuthor() {
+		console.log(`Author of book is ${this.author}.`)
+	}
+	set setDescription(description) {
+		this.description = description
+	}
+
+	get getDescription() {
+		console.log(`A book about love and adventure.`)
+	}
+
+	printDetails() {
+		console.log(`Title: ${this.title}`)
+		console.log(`Author: ${this.author}`)
+		this.getDescription
 	}
 }
 
-const cat = new Animal('Cat', 'miau miau')
-
-cat.sound()
-
-class Dog extends Animal {
-	constructor(name,noise,favToy){
-		super(name, noise)
-		this.favToy = favToy
-		
-	}
-	play(){
-		console.log(`The ${this.favToy} was thrown.`);
-	}
-}
-
-const newAnimal = new Dog('Ciapek', 'hau hau', 'ball')
-
-newAnimal.sound()
-newAnimal.play()
+const newBook = new Book('Wladca Pierscieni', 'J.R.R. Tolkien')
+newBook.getTitle()
+newBook.getAuthor()
+newBook.getDescription
+newBook.printDetails()
