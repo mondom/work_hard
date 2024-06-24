@@ -1,26 +1,37 @@
 'use strict'
 
-function Animal(name, type) {
-	this.name = name, 
-	this.type = type
-}
+// function Animal(name, type) {
+// 	this.name = name, 
+// 	this.type = type
+// }
 
-Animal.prototype.getDescription = function () {
-	return `To jest ${this.type} o imieniu ${this.name}.`
-}
+// Animal.prototype.getDescription = function () {
+// 	return `To jest ${this.type} o imieniu ${this.name}.`
+// }
 
-const animal1 = new Animal('Burek', 'Pies')
-console.log(animal1);
-console.log(animal1.getDescription())
+// const animal1 = new Animal('Burek', 'Pies')
+// console.log(animal1);
+// console.log(animal1.getDescription())
 
-function Dog(name) {
-	Animal.call(this, name, 'Maltańczyk')
+// function Dog(name) {
+// 	Animal.call(this, name, 'Maltańczyk')
 	
-}
-Dog.prototype = Object.create(Animal.prototype)
+// }
+// Dog.prototype = Object.create(Animal.prototype)
 
-const dog1 = new Dog('Reksio');
-console.log(dog1.getDescription());
+// const dog1 = new Dog('Reksio');
+// console.log(dog1.getDescription());
+
+const person = {
+    name: 'John',
+    age: 30,
+    greet() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    }
+};
+
+console.log(person);
+console.dir(person)
 
 
 
