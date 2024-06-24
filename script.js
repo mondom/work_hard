@@ -1,36 +1,59 @@
 'use strict'
 
-function Animal(name, type) {
-	this.name = name, 
-	this.type = type
+// function Animal(name, type) {
+// 	this.name = name,
+// 	this.type = type
+// }
+
+// Animal.prototype.getDescription = function () {
+// 	return `To jest ${this.type} o imieniu ${this.name}.`
+// }
+
+// const animal1 = new Animal('Burek', 'Pies')
+// console.log(animal1.getDescription())
+
+// function Dog(name) {
+// 	Animal.call(this, name, 'Maltańczyk')
+// }
+
+// Dog.prototype = Object.create(Animal.prototype)
+
+// Dog.prototype.bark = function(){
+// 	console.log('Hau hau!');
+// }
+// const dog1 = new Dog('Reksio');
+// console.log(dog1.getDescription());
+// dog1.bark();
+
+function Plant(name, type, color) {
+	this.name = name,
+	this.type = type, 
+	this.color = color
 }
 
-Animal.prototype.getDescription = function () {
-	return `To jest ${this.type} o imieniu ${this.name}.`
+Plant.prototype.showInfo = function(){
+	console.log(`Ta roślina to ${this.name}. Jej nazwa gatunku to ${this.type}. Dominującym kolorem jest ${this.color}.`);
 }
 
-const animal1 = new Animal('Burek', 'Pies')
-console.log(animal1.getDescription())
+const plant1 = new Plant('Lipa', 'drzewo', 'zielony')
 
-function Dog(name) {
-	Animal.call(this, name, 'Maltańczyk')
+plant1.showInfo()
+
+
+function Flower(name,type,color, smell){
+	this.smell = smell
+	Plant.call(this, name, type, color)
 }
 
-Dog.prototype = Object.create(Animal.prototype)
+Flower.prototype = Object.create(Plant.prototype)
 
-Dog.prototype.bark = function(){
-	console.log('Hau hau!');
+Flower.prototype.constructor = Flower
+
+Flower.prototype.showSmell = function(){
+	console.log(`Zapach ma ${this.smell}`);
 }
-const dog1 = new Dog('Reksio');
-console.log(dog1.getDescription());
-dog1.bark();
 
+const plant2 = new Flower('Stokrotka', 'kwiat', 'biel', 'kwiatowy')
 
-
-
-
-
-
-
-
-
+plant2.showInfo()
+plant2.showSmell()
