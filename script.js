@@ -57,3 +57,9 @@ const plant2 = new Flower('Stokrotka', 'kwiat', 'biel', 'kwiatowy')
 
 plant2.showInfo()
 plant2.showSmell()
+
+console.log(plant1.constructor);
+console.log(Object.getPrototypeOf(plant1));
+
+console.log(plant2.constructor);
+console.log(Object.getPrototypeOf(plant2));
