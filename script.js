@@ -1,35 +1,31 @@
 'use strict'
 
-// function Person(name, age) {
-//     this.name = name
-//     this.age = age
-// }
-// // =================================
-
-// Person.prototype.sayHi = function () {
-//     console.log(`Hi, I'm 	${this.name}`)
-// }
-
-// Person.prototype.showAge = function () {
-//     console.log(`I'm ${this.age} 	years old`)
-// }
-
-class Person{
-	constructor(name, age){
+class Animal {
+	constructor(name, noise) {
 		this.name = name
-		this.age = age
+		this.noise = noise
 	}
-
-	sayHi(){
-		console.log(`Hi, I'm ${this.name}.`);
-	}
-
-	showAge(){
-		console.log(`I'm ${this.age} years old.`);
+	sound() {
+		console.log(`${this.name} doing ${this.noise}.`)
 	}
 }
 
-const me = new Person('Monika', '35')
+const cat = new Animal('Cat', 'miau miau')
 
-me.sayHi()
-me.showAge()
+cat.sound()
+
+class Dog extends Animal {
+	constructor(name,noise,favToy){
+		super(name, noise)
+		this.favToy = favToy
+		
+	}
+	play(){
+		console.log(`The ${this.favToy} was thrown.`);
+	}
+}
+
+const newAnimal = new Dog('Ciapek', 'hau hau', 'ball')
+
+newAnimal.sound()
+newAnimal.play()
