@@ -1,43 +1,49 @@
 'use strict'
 
-class KontoBankowe {
-	constructor(numer, saldo) {
-		this.numer = numer
-		this.saldo = saldo
+class Produkt {
+	constructor(nazwa, cena, opis) {
+		this.nazwa = nazwa
+		this.cena = cena
+		this.opis = opis
 	}
-
-	wplac(kwota) {
-		this.saldo += kwota
-		console.log(`Wplacono ${kwota} zl na konto ${this.numer}. Aktualne saldo: ${this.saldo} zl`)
-	}
-	wyplac(kwota) {
-		if (kwota < this.saldo) {
-			this.saldo -= kwota
-			console.log(`Wyplacono ${kwota} zl z konta ${this.numer}. Aktualne saldo: ${this.saldo} zl`)
-		} else {
-			console.log(`Brak wystarczających srodkow na koncie ${this.numer}.`)
-		}
+	informacje() {
+		console.log(`Produkt: ${this.nazwa}`)
+		console.log(`Cena: ${this.cena} zl`)
+		console.log(`Opis: ${this.opis}`)
 	}
 }
 
-class KontoOszczednosciowe extends KontoBankowe {
-	constructor(numer, saldo, oprocentowanie) {
-		super(numer, saldo)
-		this.oprocentowanie = oprocentowanie
+class Elektronika extends Produkt {
+	constructor(nazwa, cena, opis, marka) {
+		super(nazwa, cena, opis)
+
+		this.marka = marka
 	}
-	obliczOdsetki() {
-		const odsetki = this.saldo * this.oprocentowanie
-		this.saldo += odsetki
-		console.log(`Obliczono odsetki dla konta oszczednosciowego ${this.numer}. Aktualne saldo: ${this.saldo} zl`)
+	informacje() {
+		super.informacje()
+		console.log(`Marka: ${this.marka}`)
 	}
 }
 
-const mojeKonto = new KontoBankowe("123456789", 1000)
+class Odziez extends Produkt {
+	constructor(nazwa, cena, opis, rozmiar) {
+		super(nazwa, cena, opis)
+		this.rozmiar = rozmiar
+	}
+	informacje() {
+		super.informacje()
+		console.log(`Rozmiar: ${this.rozmiar}`)
+	}
+}
 
-mojeKonto.wplac(500)
-mojeKonto.wyplac(200)
+const laptop = new Produkt('Laptop', 2500, 'Wydajny laptop do pracy i rozrywki.')
 
-const mojeKontoOszczednosciowe = new KontoOszczednosciowe("987654321", 2000, 0.05)
-mojeKontoOszczednosciowe.wplac(1000)
-mojeKontoOszczednosciowe.wyplac(500)
-mojeKontoOszczednosciowe.obliczOdsetki()
+const telewizor = new Elektronika('Telewizor', 1500, 'Duzy telewizor z rozdzielczoscia 4K.', 'Samsung')
+
+const spodnie = new Odziez('Spodnie', 100, 'Czarne spodnie z wysokim stanem.', 'M')
+
+laptop.informacje()
+
+telewizor.informacje()
+
+spodnie.informacje()
