@@ -7,28 +7,31 @@ class Book {
 	}
 
 	getTitle() {
-		console.log(`Title of book is ${this.title}.`)
+		return this.title
 	}
 	getAuthor() {
-		console.log(`Author of book is ${this.author}.`)
+		return this.author
 	}
-	set setDescription(description) {
+	setDescription(description) {
 		this.description = description
 	}
 
-	get getDescription() {
-		console.log(`A book about love and adventure.`)
+	getDescription() {
+		return this.description
 	}
 
 	printDetails() {
 		console.log(`Title: ${this.title}`)
 		console.log(`Author: ${this.author}`)
-		this.getDescription
+		console.log(`Opis: ${this.description}`)
 	}
 }
 
-const newBook = new Book('Wladca Pierscieni', 'J.R.R. Tolkien')
-newBook.getTitle()
-newBook.getAuthor()
-newBook.getDescription
-newBook.printDetails()
+const myBook = new Book('Wladca Pierscieni', 'J.R.R. Tolkien')
+myBook.setDescription('Ksiazka przygodowa o przyjazni, zaufaniu, lojalnosci...')
+console.log(myBook.getTitle());
+console.log(myBook.getAuthor());
+console.log(myBook.getDescription());
+myBook.printDetails()
+
+
