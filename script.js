@@ -1,39 +1,37 @@
 'use strict'
 
-class Telewizor {
-	constructor(marka) {
-		this.marka = marka
-		this.wlaczony = false
-		this.glosnosc = 50
-		this.kanal = 1
+class listaZakupow {
+	constructor() {
+		this.zakupy = []
 	}
 
-	wlacz() {
-		 this.wlaczony = true
-		 console.log(`Telewizor zostal wlaczony.`);
+	dodajElement(nazwa) {
+		this.zakupy.push(nazwa)
+		console.log(`Dodano ${nazwa} do listy zakupów`)
 	}
-	wylacz() {
-		this.wlaczony = false
-		console.log('Telewizor zostal wylaczony.');
-	}
-	zmienGlosnosc(glosnosc) {
-		if (glosnosc >= 0 && glosnosc <= 100) {
-			this.glosnosc = glosnosc
-			console.log(`Glosnosc zostala zmieniona na ${glosnosc}`);
-		} else{
-			console.log('Podaj wartość od 0 - 100');
+	usunElement(nazwa) {
+		if (this.zakupy.length !== 0) {
+			const itemToRemove = this.zakupy.indexOf(nazwa)
+			console.log(`Usunięto ${nazwa} z listy zakupów.`)
+			this.zakupy.splice(itemToRemove, 1)
+		} else {
+			console.log('Lista zakupów jest pusta')
 		}
 	}
-	zmienKanal(kanal){
-		this.kanal = kanal
-		console.log(`Kanal zostal zmieniony na ${kanal}`);
+	wyswietlListe() {
+		console.log('Lista Zakupów')
+		this.zakupy.forEach(item => {
+			console.log(`${this.zakupy.indexOf(item) + 1}. ${item}`)
+		})
 	}
 }
 
-console.dir(Telewizor);
+const mojaListaZakupow = new listaZakupow()
 
-const mojTelewizor = new Telewizor('Samsung')
-mojTelewizor.wlacz()
-mojTelewizor.zmienGlosnosc(100)
-mojTelewizor.zmienKanal(3)
-mojTelewizor.wylacz()
+mojaListaZakupow.dodajElement('Jablka')
+mojaListaZakupow.dodajElement('Chleb')
+mojaListaZakupow.dodajElement('Mleko')
+
+mojaListaZakupow.usunElement('Chleb')
+
+mojaListaZakupow.wyswietlListe()
