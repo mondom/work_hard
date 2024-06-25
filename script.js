@@ -1,37 +1,43 @@
 'use strict'
 
-class listaZakupow {
-	constructor() {
-		this.zakupy = []
+class KontoBankowe {
+	constructor(numer, saldo) {
+		this.numer = numer
+		this.saldo = saldo
 	}
 
-	dodajElement(nazwa) {
-		this.zakupy.push(nazwa)
-		console.log(`Dodano ${nazwa} do listy zakupów`)
+	wplac(kwota) {
+		this.saldo += kwota
+		console.log(`Wplacono ${kwota} zl na konto ${this.numer}. Aktualne saldo: ${this.saldo} zl`)
 	}
-	usunElement(nazwa) {
-		if (this.zakupy.length !== 0) {
-			const index = this.zakupy.indexOf(nazwa)
-			console.log(`Usunięto ${nazwa} z listy zakupów.`)
-			this.zakupy.splice(index, 1)
+	wyplac(kwota) {
+		if (kwota < this.saldo) {
+			this.saldo -= kwota
+			console.log(`Wyplacono ${kwota} zl z konta ${this.numer}. Aktualne saldo: ${this.saldo} zl`)
 		} else {
-			console.log('Lista zakupów jest pusta')
+			console.log(`Brak wystarczających srodkow na koncie ${this.numer}.`)
 		}
-	}
-	wyswietlListe() {
-		console.log('Lista Zakupów')
-		this.zakupy.forEach((item, index) => {
-			console.log(index + '. ' + item)
-		})
 	}
 }
 
-const mojaListaZakupow = new listaZakupow()
+class KontoOszczednosciowe extends KontoBankowe {
+	constructor(numer, saldo, oprocentowanie) {
+		super(numer, saldo)
+		this.oprocentowanie = oprocentowanie
+	}
+	obliczOdsetki() {
+		const odsetki = this.saldo * this.oprocentowanie
+		this.saldo += odsetki
+		console.log(`Obliczono odsetki dla konta oszczednosciowego ${this.numer}. Aktualne saldo: ${this.saldo} zl`)
+	}
+}
 
-mojaListaZakupow.dodajElement('Jablka')
-mojaListaZakupow.dodajElement('Chleb')
-mojaListaZakupow.dodajElement('Mleko')
+const mojeKonto = new KontoBankowe("123456789", 1000)
 
-mojaListaZakupow.usunElement('Chleb')
+mojeKonto.wplac(500)
+mojeKonto.wyplac(200)
 
-mojaListaZakupow.wyswietlListe()
+const mojeKontoOszczednosciowe = new KontoOszczednosciowe("987654321", 2000, 0.05)
+mojeKontoOszczednosciowe.wplac(1000)
+mojeKontoOszczednosciowe.wyplac(500)
+mojeKontoOszczednosciowe.obliczOdsetki()
