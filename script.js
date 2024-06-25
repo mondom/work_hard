@@ -1,37 +1,39 @@
 'use strict'
 
-class Book {
-	constructor(title, author) {
-		this.title = title
-		this.author = author
+class Telewizor {
+	constructor(marka) {
+		this.marka = marka
+		this.wlaczony = false
+		this.glosnosc = 50
+		this.kanal = 1
 	}
 
-	getTitle() {
-		return this.title
+	wlacz() {
+		 this.wlaczony = true
+		 console.log(`Telewizor zostal wlaczony.`);
 	}
-	getAuthor() {
-		return this.author
+	wylacz() {
+		this.wlaczony = false
+		console.log('Telewizor zostal wylaczony.');
 	}
-	setDescription(description) {
-		this.description = description
+	zmienGlosnosc(glosnosc) {
+		if (glosnosc >= 0 && glosnosc <= 100) {
+			this.glosnosc = glosnosc
+			console.log(`Glosnosc zostala zmieniona na ${glosnosc}`);
+		} else{
+			console.log('Podaj wartość od 0 - 100');
+		}
 	}
-
-	getDescription() {
-		return this.description
-	}
-
-	printDetails() {
-		console.log(`Title: ${this.title}`)
-		console.log(`Author: ${this.author}`)
-		console.log(`Opis: ${this.description}`)
+	zmienKanal(kanal){
+		this.kanal = kanal
+		console.log(`Kanal zostal zmieniony na ${kanal}`);
 	}
 }
 
-const myBook = new Book('Wladca Pierscieni', 'J.R.R. Tolkien')
-myBook.setDescription('Ksiazka przygodowa o przyjazni, zaufaniu, lojalnosci...')
-console.log(myBook.getTitle());
-console.log(myBook.getAuthor());
-console.log(myBook.getDescription());
-myBook.printDetails()
+console.dir(Telewizor);
 
-
+const mojTelewizor = new Telewizor('Samsung')
+mojTelewizor.wlacz()
+mojTelewizor.zmienGlosnosc(100)
+mojTelewizor.zmienKanal(3)
+mojTelewizor.wylacz()
