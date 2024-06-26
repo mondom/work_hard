@@ -1,45 +1,22 @@
 'use strict'
 
-class Produkt {
-	constructor(nazwa, cena, opis) {
-		this.nazwa = nazwa
-		this.cena = cena
-		this.opis = opis
+class Car {
+	constructor(model) {
+	  this.model = model;
 	}
-	informacje() {
-		console.log(`Produkt: ${this.nazwa}`)
-		console.log(`Cena: ${this.cena} zl`)
-		console.log(`Opis: ${this.opis}`)
+  
+	static info() {
+	  console.log('Class to create cars');
+	  console.log(this.model); // undefined
+	  console.dir(this); // Carr class
 	}
-}
-
-
-
-class Elektronika extends Produkt {
-	constructor(nazwa, cena, opis, marka) {
-		super(nazwa, cena, opis)
-
-		this.marka = marka
-	}
-	informacje() {
-		super.informacje()
-		console.log(`Marka: ${this.marka}`)
-	}
-}
-
-
-
-const laptop = new Produkt('Laptop', 2500, 'Wydajny laptop do pracy i rozrywki.')
-
-const telewizor = new Elektronika('Telewizor', 1500, 'Duzy telewizor z rozdzielczoscia 4K.', 'Samsung')
-
-
-
-laptop.informacje()
-
-console.log('-----------------')
-
-telewizor.informacje()
+  }
+  
+  const carObject = new Car('Opel');
+  Car.info();
+  
+  carObject.info() // error
+  
 
 
 
