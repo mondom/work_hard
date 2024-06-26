@@ -1,22 +1,33 @@
 'use strict'
 
-class Car {
-	constructor(model) {
-	  this.model = model;
+class Produkt {
+	constructor(nazwa, cena) {
+		this.nazwa = nazwa
+		this.cena = cena
 	}
-  
-	static info() {
-	  console.log('Class to create cars');
-	  console.log(this.model); // undefined
-	  console.dir(this); // Carr class
+
+	pobierzNazwę(){
+		return this.nazwa
 	}
-  }
-  
-  const carObject = new Car('Opel');
-  Car.info();
-  
-  carObject.info() // error
-  
 
+	pobierzCenę(){
+		return this.cena
+	}
+}
 
+class Klient{
+	constructor(){
+		this.koszyk = []
+	}
+	static licznikProduktow = 0
 
+	dodajProdukt(produkt){
+		this.koszyk.push(produkt)
+		Klient.licznikProduktow++
+	}
+
+	usunProdukt(index){
+		this.koszyk.splice(index,1)
+		Klient.licznikProduktow--
+	}
+}
