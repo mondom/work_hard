@@ -16,6 +16,7 @@ class Produkt {
 }
 
 class Klient{
+	
 	constructor(){
 		this.koszyk = []
 	}
