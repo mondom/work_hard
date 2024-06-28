@@ -6,11 +6,11 @@ class Produkt {
 		this.cena = cena
 	}
 
-	pobierzNazwę() {
+	pobierzNazwe() {
 		return this.nazwa
 	}
 
-	pobierzCenę() {
+	pobierzCene() {
 		return this.cena
 	}
 }
@@ -31,8 +31,9 @@ class Klient {
 		Klient.licznikProduktow--
 	}
 	obliczWartoscKoszyka() {
-		const suma = 0
+		let suma = 0
 		for (let produkt of this.koszyk) {
+			
 			suma += produkt.pobierzCene()
 		}
 		return suma
@@ -46,5 +47,7 @@ const produkt1 = new Produkt("Telewizor", 1999.99);
 const produkt2 = new Produkt("Smartfon", 1299.99);
 
 klient1.dodajProdukt(produkt1)
-klient1.dodajProdukt(produkt2)
+klient2.dodajProdukt(produkt2)
 console.log("Wartosc koszyka klienta 1:", klient1.obliczWartoscKoszyka());
+console.log("Wartosc koszyka klienta 2:", klient2.obliczWartoscKoszyka());
+console.log("Liczba produktow we wszystkich koszykach:", Klient.licznikProduktow);
