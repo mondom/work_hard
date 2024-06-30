@@ -48,6 +48,8 @@ const produkt2 = new Produkt("Smartfon", 1299.99);
 
 klient1.dodajProdukt(produkt1)
 klient2.dodajProdukt(produkt2)
+
 console.log("Wartosc koszyka klienta 1:", klient1.obliczWartoscKoszyka());
 console.log("Wartosc koszyka klienta 2:", klient2.obliczWartoscKoszyka());
+
 console.log("Liczba produktow we wszystkich koszykach:", Klient.licznikProduktow);
