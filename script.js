@@ -108,5 +108,9 @@ basket1.addFruit(fruit3)
 basket1.addFruit(fruit4)
 basket1.addFruit(fruit5)
 
+basket1.removeFruit(2)
+
+console.log(Basket.fruitCount);
+
 const finalWeight = basket1.countWeightOfBasket()
 console.log(`Ostateczna waga koszyka to: ${finalWeight} gram.`);
