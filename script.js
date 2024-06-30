@@ -60,28 +60,53 @@ class Fruit {
 		this.weight = weight
 	}
 
-	returnName(){
+	returnName() {
 		return this.name
 	}
 
-	returnWeight(){
+	returnWeight() {
 		return this.weight
 	}
 }
 
-const fruit1 = new Fruit ("apple", 300)
-const fruit2 = new Fruit ("banana", 250)
-const fruit3 = new Fruit ("strawberry", 80)
-const fruit4 = new Fruit ("pear", 280)
-const fruit5 = new Fruit ("watermelon", 1000)
+const fruit1 = new Fruit('apple', 300)
+const fruit2 = new Fruit('banana', 250)
+const fruit3 = new Fruit('strawberry', 80)
+const fruit4 = new Fruit('pear', 280)
+const fruit5 = new Fruit('watermelon', 1000)
 
-class Basket{
+class Basket {
 	static fruitCount = 0
-	constructor(){
+	constructor() {
 		this.fruitBasket = []
 	}
 
-	addFruit(fruit){
+	addFruit(fruit) {
 		this.fruitBasket.push(fruit)
+		Basket.fruitCount++
+	}
+
+	removeFruit(index) {
+		this.fruitBasket.splice(index, 1)
+		Basket.fruitCount--
+	}
+
+	countWeightOfBasket() {
+		let sum = 0
+		for (const fruit of this.fruitBasket) {
+			sum += fruit.returnWeight()
+		}
+		return sum
 	}
 }
+
+const basket1 = new Basket()
+
+basket1.addFruit(fruit1)
+basket1.addFruit(fruit2)
+basket1.addFruit(fruit3)
+basket1.addFruit(fruit4)
+basket1.addFruit(fruit5)
+
+const finalWeight = basket1.countWeightOfBasket()
+console.log(`Ostateczna waga koszyka to: ${finalWeight} gram.`);
