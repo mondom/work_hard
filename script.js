@@ -16,10 +16,11 @@ class Produkt {
 }
 
 class Klient {
+	static licznikProduktow = 0
+
 	constructor() {
 		this.koszyk = []
 	}
-	static licznikProduktow = 0
 
 	dodajProdukt(produkt) {
 		this.koszyk.push(produkt)
@@ -33,7 +34,6 @@ class Klient {
 	obliczWartoscKoszyka() {
 		let suma = 0
 		for (let produkt of this.koszyk) {
-			
 			suma += produkt.pobierzCene()
 		}
 		return suma
@@ -43,13 +43,13 @@ class Klient {
 const klient1 = new Klient()
 const klient2 = new Klient()
 
-const produkt1 = new Produkt("Telewizor", 1999.99);
-const produkt2 = new Produkt("Smartfon", 1299.99);
+const produkt1 = new Produkt('Telewizor', 1999.99)
+const produkt2 = new Produkt('Smartfon', 1299.99)
 
 klient1.dodajProdukt(produkt1)
 klient2.dodajProdukt(produkt2)
 
-console.log("Wartosc koszyka klienta 1:", klient1.obliczWartoscKoszyka());
-console.log("Wartosc koszyka klienta 2:", klient2.obliczWartoscKoszyka());
+console.log('Wartosc koszyka klienta 1:', klient1.obliczWartoscKoszyka())
+console.log('Wartosc koszyka klienta 2:', klient2.obliczWartoscKoszyka())
 
-console.log("Liczba produktow we wszystkich koszykach:", Klient.licznikProduktow);
+console.log('Liczba produktow we wszystkich koszykach:', Klient.licznikProduktow)
