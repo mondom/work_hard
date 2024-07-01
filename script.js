@@ -96,7 +96,7 @@ class Basket {
 		for (const fruit of this.fruitBasket) {
 			sum += fruit.returnWeight()
 		}
-		return sum
+		return (sum/1000).toFixed(2)
 	}
 }
 
@@ -108,9 +108,9 @@ basket1.addFruit(fruit3)
 basket1.addFruit(fruit4)
 basket1.addFruit(fruit5)
 
-basket1.removeFruit(2)
+basket1.removeFruit(1)
 
 console.log(Basket.fruitCount);
 
 const finalWeight = basket1.countWeightOfBasket()
-console.log(`Ostateczna waga koszyka to: ${finalWeight} gram.`);
+console.log(`Ostateczna waga koszyka to: ${finalWeight} kg.`);
