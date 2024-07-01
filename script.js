@@ -1,44 +1,30 @@
 'use strict'
 
-class Stock {
-	constructor(symbol, price, quantity) {
-		this.symbol = symbol
-		this.price = price
-		this.quantity = quantity
+class Person {
+	constructor(name, age, address) {
+		this._name = name
+		this._age = age
+		this._address = address
 	}
 
-	static formatPrice(price) {
-		return price.toLocaleString('en-US', {
-			style: 'currency',
-			currency: 'USD',
-		})
+	introduce() {
+		console.log(`Cześć, nazywam się ${this._name}, mam ${this._age} lat i mieszkam w ${this._address}`)
 	}
 
-	getValue() {
-		return this.price * this.quantity
+	changeAddress(newAddress) {
+		this._address = newAddress
 	}
 }
 
-class DividendStock extends Stock {
-	constructor(symbol, price, quantity, divident) {
-		super(symbol, price, quantity)
-		this.divident = divident
-	}
+const person1 = new Person('Jan Kowalski', 30, 'ul. Kwiatowa 1')
 
-	static calculateDividendYield(divident, price) {
-		return divident / price
-	}
+console.log(person1._name);
 
-	getDividendValue() {
-		return this.divident * this.quantity
-	}
-}
+person1.introduce()
 
-const myStock = new Stock("AAPL", 150.25, 100)
+person1.changeAddress('ul. Sloneczna 10')
 
-console.log("Wartosc moich akcji:", myStock.getValue());
+person1.introduce()
 
-const myDividendStock = new DividendStock("GOOGL", 1200.75, 50, 2.5)
-console.log("Wartosc moich akcji z dywidenda:", myDividendStock.getValue());
 
-console.log("Wartosc dywidendy:", myDividendStock.getDividendValue());
+
