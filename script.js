@@ -34,13 +34,19 @@ class TaskList {
 			task.status = 'finish'
 		}
 		console.log(this.#tasks)
-		// zrobić to samo za pomocą metody find()
+		
+	}
+	showTasks(){
+		for(const task of this.#tasks){
+			console.log(`Tytuł: ${task.title} | Status: ${task.status}`);
+		}
 	}
 }
 
 const test = new TaskList()
-test.addTask('hej')
-test.addTask('ho')
-test.addTask('hu')
-test.markTaskAsDone('ho')
-test.removeTask('hu')
+test.addTask('Zadanie 1')
+test.addTask('Zadanie 2')
+test.addTask('Zadanie 3')
+test.markTaskAsDone('Zadanie 2')
+test.removeTask('Zadanie 3')
+test.showTasks()
