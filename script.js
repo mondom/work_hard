@@ -1,52 +1,41 @@
 'use strict'
 
-class TaskList {
-	#tasks
+class ShoppingList {
+	#items
 	constructor() {
-		this.#tasks = []
+		this.#items = []
+	}
+	#isDuplicate(item) {
+		const result = this.#items.includes(item)
+		return result
 	}
 
-	addTask(title) {
-		const task = {
-			title: title,
-			status: 'unfinish',
+	addItem(item) {
+		if (this.#isDuplicate(item)) {
+			console.log('Produkt już istnieje na liście')
+		} else {
+			this.#items.push(item)
 		}
 
-		this.#tasks.push(task)
+		console.log(this.#items)
 	}
 
-	removeTask(title) {
-		const index = this.#tasks.findIndex(obj => {
-			return obj.title === title
-		})
-		if (index !== -1) {
-			this.#tasks.splice(index, 1)
-		}
-	}
+	removeItem(item) {
+		const index = this.#items.findIndex(it => it === item)
 
-	markTaskAsDone(title) {
-		// const index = this.#tasks.findIndex(obj => obj.title === title)
-
-		// this.#tasks.at(index).status = 'finish'
-
-		const task = this.#tasks.find(obj => obj.title === title)
-		if(task){
-			task.status = 'finish'
+		if(index !== -1){
+			this.#items.splice(index, 1)
+		}else{
+			console.log('Produkt nie istnieje na liście');
 		}
-		console.log(this.#tasks)
-		
-	}
-	showTasks(){
-		for(const task of this.#tasks){
-			console.log(`Tytuł: ${task.title} | Status: ${task.status}`);
-		}
+		console.log(this.#items)
 	}
 }
 
-const test = new TaskList()
-test.addTask('Zadanie 1')
-test.addTask('Zadanie 2')
-test.addTask('Zadanie 3')
-test.markTaskAsDone('Zadanie 2')
-test.removeTask('Zadanie 3')
-test.showTasks()
+const test = new ShoppingList()
+
+test.addItem('item 1')
+test.addItem('item 2')
+test.addItem('item 3')
+test.addItem('item 1')
+test.removeItem('item 5')
