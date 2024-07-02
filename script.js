@@ -15,9 +15,10 @@ class ShoppingList {
 			console.log('Produkt już istnieje na liście')
 		} else {
 			this.#items.push(item)
+			console.log('Produkt został dodany do listy');
 		}
 
-		console.log(this.#items)
+		
 	}
 
 	removeItem(item) {
@@ -28,14 +29,26 @@ class ShoppingList {
 		}else{
 			console.log('Produkt nie istnieje na liście');
 		}
-		console.log(this.#items)
+		
+	}
+
+	showItems(){
+		if(this.#items.length !== 0){
+			console.log(`Lista Zakupów:`)
+			this.#items.forEach(item => {
+				console.log(`- ${item}\n`);
+			})
+		}
 	}
 }
 
 const test = new ShoppingList()
 
-test.addItem('item 1')
-test.addItem('item 2')
-test.addItem('item 3')
-test.addItem('item 1')
-test.removeItem('item 5')
+test.addItem('mleko')
+test.addItem('jajka')
+test.addItem('kakao')
+test.addItem('chleb')
+test.showItems()
+test.removeItem('kakao')
+test.showItems()
+
