@@ -25,11 +25,15 @@ class TaskList {
 	}
 
 	markTaskAsDone(title) {
-		const index = this.#tasks.findIndex(obj => obj.title === title)
+		// const index = this.#tasks.findIndex(obj => obj.title === title)
 
-		this.#tasks.at(index).status = 'finish'
+		// this.#tasks.at(index).status = 'finish'
+
+		const task = this.#tasks.find(obj => obj.title === title)
+		if(task){
+			task.status = 'finish'
+		}
 		console.log(this.#tasks)
-
 		// zrobić to samo za pomocą metody find()
 	}
 }
