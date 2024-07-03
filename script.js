@@ -1,56 +1,35 @@
 'use strict'
 
-class Vehicle {
-	constructor(brand, year, numberOfWheels) {
-		this.brand = brand
-		this.year = year
-		this.numberOfWheels = numberOfWheels
-	}
-
-	honk() {
-		console.log('Dzwiek klaksonu: Beep beep!')
-	}
-	getAge() {
-		const currentDate = new Date()
-		const currentYear = currentDate.getFullYear()
-		return currentYear - this.year
-	
+function divideNumbers(a, b) {
+	try {
+		if (b === 0) {
+			throw new Error('Nie mozna dzielic przez zero!')
+		}
+		return a / b
+	} catch (error) {
+		console.error(error.message)
 	}
 }
 
-class Car extends Vehicle {
-	constructor(brand, year, numberOfWheels, engineCapacity) {
-		super(brand, year, numberOfWheels)
-		this.engineCapacity = engineCapacity
-	}
-	startEngine() {
-		console.log('Silnik uruchomiony!')
-	}
-}
+console.log(divideNumbers(10, 2))
+console.log(divideNumbers(8, 0))
+console.log(divideNumbers(12, 4))
 
-class Bicycle extends Vehicle {
-	constructor(brand, year, numberOfWheels, gearCount) {
-		super(brand, year, numberOfWheels)
-		this.gearCount = gearCount
-	}
-	ringBell() {
-		console.log('Ding ding!')
+function substract(x, y) {
+	try {
+		if (x < y) {
+			throw new Error('Liczba nie może być ujemna.')
+		}
+		return x - y
+	} catch (error) {
+		console.error(error.message)
 	}
 }
 
-const vehicle = new Vehicle('Fiat', 2005, 4)
-vehicle.honk()
-console.log('Wiek pojazdu: ' + vehicle.getAge())
+console.log('---------------------')
+
+console.log(substract(10, 9))
+console.log(substract(10, 12))
 
 
-const car = new Car("Ford", 2018, 4, "2.0L")
-car.startEngine()
-console.log('Wiek pojazdu: ' + car.getAge())
 
-const bicycle = new Bicycle("Trek", 2020, 2, 7);
-bicycle.ringBell()
-console.log(`Wiek pojazdu ${bicycle.getAge()}`);
-
-console.log("Czy car jest instancja Vehicle?", car instanceof Vehicle);
-
-console.log("Czy bicycle jest instancja Vehicle?", bicycle instanceof Vehicle);
