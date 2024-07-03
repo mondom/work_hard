@@ -1,15 +1,20 @@
 'use strict'
 
-function divideNumbers(a, b) {
-	try {
-		if (b === 0) {
-			throw new Error('Nie można podzielić przez zero.')
+class Product {
+	constructor(name, price) {
+		this.name = name
+		this.price = price
+	}
+
+	calculateDiscount(discountPercentage) {
+		if (discountPercentage < 0 || discountPercentage > 100) {
+			throw new Error('Niewłaściwy procent zniżki')
 		}
-		return a / b
-	} catch (error) {
-		console.error(error.message)
+		const discountAmount = discountPercentage * this.price
+		const discountedPrice = this.price - discountAmount
+		return discountedPrice
 	}
 }
 
-console.log(divideNumbers(10,2));
-console.log(divideNumbers(10,0));
+const product = new Product()
+
