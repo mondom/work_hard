@@ -1,54 +1,46 @@
 'use strict'
 
-class ShoppingList {
-	#items
-	constructor() {
-		this.#items = []
-	}
-	#isDuplicate(item) {
-		const result = this.#items.includes(item)
-		return result
+class Animal {
+	constructor(name, age) {
+		this.name = name
+		this.age = age
 	}
 
-	addItem(item) {
-		if (this.#isDuplicate(item)) {
-			console.log('Produkt już istnieje na liście')
-		} else {
-			this.#items.push(item)
-			console.log('Produkt został dodany do listy');
-		}
-
-		
-	}
-
-	removeItem(item) {
-		const index = this.#items.findIndex(it => it === item)
-
-		if(index !== -1){
-			this.#items.splice(index, 1)
-		}else{
-			console.log('Produkt nie istnieje na liście');
-		}
-		
-	}
-
-	showItems(){
-		if(this.#items.length !== 0){
-			console.log(`Lista Zakupów:`)
-			this.#items.forEach(item => {
-				console.log(`- ${item}\n`);
-			})
-		}
+	eat(){
+		console.log(`Zwierzę ${this.name} je.`);
 	}
 }
 
-const test = new ShoppingList()
+class Cat extends Animal {
+	constructor(name,age){
+		super(name,age)
+	}
+	meow(){
+		console.log(`Kot ${this.name} miauczy.`);
+	}
+}
+class Dog extends Animal {
+	constructor(name,age){
+		super(name,age)
+	}
+	bark(){
+		console.log(`Pies ${this.name} szczeka.`);
+	}
+}
 
-test.addItem('mleko')
-test.addItem('jajka')
-test.addItem('kakao')
-test.addItem('chleb')
-test.showItems()
-test.removeItem('kakao')
-test.showItems()
 
+const animal1 = new Animal("Rex", 3);
+const cat1 = new Cat("Mruczek", 5);
+const dog1 = new Dog("Kajtek", 2);
+
+animal1.eat()
+cat1.eat()
+cat1.meow()
+dog1.eat()
+dog1.bark()
+
+console.log(animal1 instanceof Animal);
+console.log(cat1 instanceof Cat);
+console.log(dog1 instanceof Dog);
+console.log(animal1 instanceof Cat);
+console.log(dog1 instanceof Animal);
