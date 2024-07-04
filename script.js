@@ -6,8 +6,12 @@ const foo = new Promise(function(resolve, reject) {
     }, 3000);
   });
 
-  console.log(foo);
-  console.log(foo);
+ console.log(foo);
+
+ foo
+  .then(result => console.log(result))
+  .catch(err => console.error(err));
+
 
 
 
