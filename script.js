@@ -1,12 +1,14 @@
 'use strict'
 
-function fetchData(callback) {
-	setTimeout(function () {
-		const data = "Witaj, swiecie!";
-		callback(data);
-	}, 2000);
+function kupieniePsa(callback){
+    console.log('Pies został kupiony');
+
+    setTimeout(()=>{
+        const bark ='Pies pierwszy raz zaszczekał'
+        callback(bark)
+    },2000)
 }
 
-fetchData(function (response) {
-	console.log(response);
-});
+kupieniePsa((result)=>{
+console.log(result);
+})
