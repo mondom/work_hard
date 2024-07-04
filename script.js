@@ -21,11 +21,11 @@ function getEmail(userID, callback) {
 function mainFunction() {
 	getUsersFromDatabase(users => {
 		console.log(users)
-        users.forEach(user => {
-            getEmail(user.id, (email)=>{
-                console.log(`Uzytkownik ${user.name} ma adres e-mail: ${email}`);
-            })
-        })
+		users.forEach(user => {
+			getEmail(user.id, email => {
+				console.log(`Uzytkownik ${user.name} ma adres e-mail: ${email}`)
+			})
+		})
 	})
 }
 
