@@ -1,20 +1,16 @@
 'use strict'
 
-const foo = new Promise(function(resolve, reject) {
-    setTimeout(function() {
-      resolve('bar');
-    }, 3000);
-    reject('error')
-  });
+function fetchData() {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			const data = [1, 2, 3, 4, 5]
+			resolve(data)
+		},800)
+	})
+}
 
- console.log(foo);
+const data = fetchData()
 
- foo
-  .then(result => console.log(result))
-  .catch(err => console.error(err));
-
-
-
-
-  
-  
+data
+	.then(dat => console.log('Dane z serwera: ' + dat))
+	.catch(err => console.error('Blad podczas pobierania danych: ' + err))
