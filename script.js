@@ -86,6 +86,7 @@ function showResult(result) {
 					console.log(`Otrzymany wynik to: ${result}`)
 					
 				)
+				
 			} else {
 				reject(new Error('Wynik jest nieprawidłowy - zmień zakres.'))
 			}
