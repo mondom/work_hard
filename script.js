@@ -84,7 +84,6 @@ function showResult(result) {
 			if (result >= 0 && result <= 12) {
 				resolve(
 					console.log(`Otrzymany wynik to: ${result}`)
-					
 				)
 				
 			} else {
