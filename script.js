@@ -93,10 +93,11 @@ function showResult(result) {
 	})
 }
 
-fetchNumbers().then(num => {
+fetchNumbers()
+.then(num => {
 	return count(num)
-}).then(result => {
-  return showResult(result)
+}).then(mleko => {
+  return showResult(mleko)
 }).catch(err => {
   console.error(err);
 })
