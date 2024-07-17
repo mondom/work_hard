@@ -105,7 +105,7 @@
 const fetchNumer = () => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			let data
+			let data = [1, 2, 3, 4, 5, 6]
 			if (data !== undefined) {
 				console.log("Pobieranie danych do analizy")
 				resolve(data)
@@ -116,4 +116,31 @@ const fetchNumer = () => {
 	})
 }
 
-fetchNumer()
+const processingData = data => {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			console.log("Przetwarzam pobrane dane")
+			resolve(
+				data.reduce((acc, curr) => {
+					return acc += curr
+				})
+			)
+		})
+	})
+}
+
+const showResult = result => {
+	return new Promise((resolve, reject) => {
+		if (result !== undefined) {
+			resolve(console.log(result))
+		} else {
+			reject(console.log("Wystąpił nieoczekiwany błąd"))
+		}
+	})
+}
+
+fetchNumer().then(data => {
+	return processingData(data)
+}).then(result => {
+    return showResult(result)
+})
