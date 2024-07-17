@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 // function fetchData() {
 //   return new Promise((resolve, reject) => {
@@ -57,47 +57,56 @@
 //       console.error('Błąd:', error.message);
 //   });
 
-function fetchNumbers() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			console.log('Podaję liczby do analizy')
-			resolve([2, 4, 6])
-		}, 1000)
-	})
-}
+// function fetchNumbers() {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			console.log('Podaję liczby do analizy')
+// 			resolve([2, 4, 6])
+// 		}, 1000)
+// 	})
+// }
 
-function count(numbers) {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			console.log('Wykonuję obliczenia')
-			resolve(
-				numbers.reduce((acc, curr) => {
-					return acc + curr
-				})
-			)
-		}, 1000)
-	})
-}
-function showResult(result) {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			if (result >= 0 && result <= 12) {
-				resolve(
-					console.log(`Otrzymany wynik to: ${result}`)
-				)
-				
-			} else {
-				reject(new Error('Wynik jest nieprawidłowy - zmień zakres.'))
-			}
-		}, 1000)
-	})
-}
+// function count(numbers) {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			console.log('Wykonuję obliczenia')
+// 			resolve(
+// 				numbers.reduce((acc, curr) => {
+// 					return acc + curr
+// 				})
+// 			)
+// 		}, 1000)
+// 	})
+// }
+// function showResult(result) {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			if (result >= 0 && result <= 12) {
+// 				resolve(
+// 					console.log(`Otrzymany wynik to: ${result}`)
+// 				)
 
-fetchNumbers()
-.then(num => {
-	return count(num)
-}).then(mleko => {
-  return showResult(mleko)
-}).catch(err => {
-  console.error(err);
-})
+// 			} else {
+// 				reject(new Error('Wynik jest nieprawidłowy - zmień zakres.'))
+// 			}
+// 		}, 1000)
+// 	})
+// }
+
+// fetchNumbers()
+// .then(num => {
+// 	return count(num)
+// }).then(res => {
+//   return showResult(res)
+// }).catch(err => {
+//   console.error(err);
+// })
+
+const fetchNumer = () => {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			console.log("Pobieranie licz do analizy")
+			resolve([1, 2, 3, 4, 5, 6])
+		})
+	})
+}
