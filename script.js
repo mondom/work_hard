@@ -105,8 +105,15 @@
 const fetchNumer = () => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			console.log("Pobieranie licz do analizy")
-			resolve([1, 2, 3, 4, 5, 6])
-		})
+			let data
+			if (data !== undefined) {
+				console.log("Pobieranie danych do analizy")
+				resolve(data)
+			} else {
+				reject(console.log("Nie pobrano żadnych danych"))
+			}
+		}, 1000)
 	})
 }
+
+fetchNumer()
