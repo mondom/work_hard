@@ -13,21 +13,27 @@ function getMenu() {
 	})
 }
 
-function selectDish(menu, index) {
+function selectDish(menu, indexs) {
 	return new Promise((resolve, reject) => {
-		if (index <= menu.length && index >= 0) {
-			resolve(menu[index])
-		} else {
-			reject("Nieprawidlowy indeks dania")
+		const arrOfIndex = []
+		for (const index of indexs) {
+			if (index <= menu.length && index >= 0) {
+				arrOfIndex.push(menu[index])
+				resolve(arrOfIndex)
+			} else {
+				reject("Nieprawidlowy indeks dania")
+			}
 		}
 	})
 }
 
 function calculateTotal(selectedDishes) {
 	return new Promise(resolve => {
+		console.log(selectedDishes)
 		const total = selectedDishes.reduce((acc, dish) => {
 			return acc + dish.price
 		}, 0)
+		console.log(total)
 
 		resolve(total)
 	})
@@ -45,12 +51,14 @@ function confirmOrder(total) {
 
 getMenu()
 	.then(menu => {
-		return selectDish(menu, 0)
+		const arr = [0, 1]
+		return selectDish(menu, arr)
 	})
 	.then(result => {
-		return calculateTotal([result])
+		return calculateTotal(result)
 	})
 	.then(tot => {
-		console.log("Laczna cena zamowienia:", tot, "zl")
+		console.log("Łaczna cena zamówienia:", tot, "zl")
 		return confirmOrder(tot)
 	})
+	.catch(err => console.error(err))
