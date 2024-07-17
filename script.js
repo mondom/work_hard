@@ -9,17 +9,17 @@ function getMenu() {
 				{ name: "Caesar Salad", price: 10 },
 			]
 			resolve(menu)
-		}, 1000)
+		}, 2000)
 	})
 }
 
 function selectDish(menu, indexs) {
 	return new Promise((resolve, reject) => {
-		const arrOfIndex = []
+		const arrOfDishes = []
 		for (const index of indexs) {
-			if (index <= menu.length && index >= 0) {
-				arrOfIndex.push(menu[index])
-				resolve(arrOfIndex)
+			if (index >= 0 && index < menu.length) {
+				arrOfDishes.push(menu[index])
+				resolve(arrOfDishes)
 			} else {
 				reject("Nieprawidlowy indeks dania")
 			}
@@ -29,12 +29,7 @@ function selectDish(menu, indexs) {
 
 function calculateTotal(selectedDishes) {
 	return new Promise(resolve => {
-		console.log(selectedDishes)
-		const total = selectedDishes.reduce((acc, dish) => {
-			return acc + dish.price
-		}, 0)
-		console.log(total)
-
+		const total = selectedDishes.reduce((acc, dish) => acc + dish.price, 0)
 		resolve(total)
 	})
 }
@@ -42,23 +37,27 @@ function calculateTotal(selectedDishes) {
 function confirmOrder(total) {
 	return new Promise(resolve => {
 		setTimeout(() => {
-			resolve(
-				console.log("Zamowienie potwierdzone. Laczna kwota: " + total + " zl")
-			)
-		}, 1000)
+			resolve("Zamowienie potwierdzone. Laczna kwota: " + total + " zl")
+		}, 1500)
 	})
 }
 
 getMenu()
 	.then(menu => {
-		const arr = [0, 1]
-		return selectDish(menu, arr)
+		const indexs = [0, 2]
+		return selectDish(menu, indexs)
 	})
-	.then(result => {
-		return calculateTotal(result)
+	.then(selectedDish => {
+		console.log("Wybrane danie:", selectedDish)
+		return calculateTotal(selectedDish)
 	})
-	.then(tot => {
-		console.log("Łaczna cena zamówienia:", tot, "zl")
-		return confirmOrder(tot)
+	.then(total => {
+		console.log("Laczna cena zamowienia:", total, "zl")
+		return confirmOrder(total)
 	})
-	.catch(err => console.error(err))
+	.then(confirmation => {
+		console.log(confirmation)
+	})
+	.catch(error => {
+		console.log("Blad:", error)
+	})
