@@ -33,7 +33,6 @@
 // 	results.forEach((result, index) => {
 // 		if (result.status === "fulfilled") {
 // 			console.log(`Wynik dla obietnicy nr ${index + 1} jest poprawny:`)
-// 			console.log(Object.entries(result.value));
 // 			Object.entries(result.value).forEach(([key, value]) => {
 // 				console.log(`${key}: ${value}`)
 // 			})
@@ -43,6 +42,15 @@
 // 	})
 // })
 
+// const user = {
+// 	name: 'John',
+// 	age: 30,
+// 	city: 'New York'
+//   };
+  
+//   const entries = Object.entries(user);
+//   console.log(entries);
+  
 const user = {
 	name: 'John',
 	age: 30,
@@ -51,4 +59,9 @@ const user = {
   
   const entries = Object.entries(user);
   console.log(entries);
+
+  entries.forEach(([key,value])=> {
+	console.log(`To jest klucz: ${key}, a to wartość: ${value}`);
+  })
+  // [['name', 'John'], ['age', 30], ['city', 'New York']]
   
