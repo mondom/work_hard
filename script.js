@@ -1,29 +1,54 @@
 "use strict"
 
-const promise1 = new Promise((resolve, reject) => {
-	setTimeout(resolve, 1000, "Obietnica 1 spełniona")
-})
+// function fetchUserData() {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			const userData = { name: "John", age: 30 }
+// 			resolve(userData)
+// 		}, 1000)
+// 	})
+// }
+// function fetchOrderData() {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			const orderData = { id: 123, total: 50 }
+// 			resolve(orderData)
+// 		}, 1500)
+// 	})
+// }
+// function fetchProductData() {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			const productData = { name: "Phone", price: 500 }
+// 			resolve(productData)
+// 		}, 1500)
+// 	})
+// }
 
-const promise2 = new Promise((resolve, reject) => {
-	setTimeout(reject, 2000, "Błąd serwera")
-})
+// Promise.allSettled([
+// 	fetchUserData(),
+// 	fetchOrderData(),
+// 	fetchProductData(),
+// ]).then(results => {
+// 	results.forEach((result, index) => {
+// 		if (result.status === "fulfilled") {
+// 			console.log(`Wynik dla obietnicy nr ${index + 1} jest poprawny:`)
+// 			console.log(Object.entries(result.value));
+// 			Object.entries(result.value).forEach(([key, value]) => {
+// 				console.log(`${key}: ${value}`)
+// 			})
+// 		} else if (result.status === "rejected") {
+// 			console.log(`Wynik dla obietnicy nr ${index + 1} jest nieprawidłowy: ${result.reason}`)
+// 		}
+// 	})
+// })
 
-const promise3 = new Promise((resolve, reject) => {
-	setTimeout(resolve, 3000, "Obietnica 3 spełniona")
-})
-
-Promise.allSettled([promise1, promise2, promise3]).then(results => {
-	results.forEach((result, index) => {
-		if (result.status === "fulfilled") {
-			console.log(
-				`Obietnica nr ${index + 1} została spełniona. Jej wartość to: ${result.value}`
-			)
-		} else if (result.status === "rejected") {
-			console.log(
-				`Obietnica nr ${
-					index + 1
-				} nie została spełniona. Powód jej odrzucenia to: ${result.reason}`
-			)
-		}
-	})
-})
+const user = {
+	name: 'John',
+	age: 30,
+	city: 'New York'
+  };
+  
+  const entries = Object.entries(user);
+  console.log(entries);
+  
