@@ -4,12 +4,11 @@ function downloadFile(URL) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			const fileContent = URL
-			const success = true
+			const success = false
 
 			if (success === true) {
 				resolve(fileContent)
 			} else if (success === false) {
-				console.error("fuck")
 				reject("Błąd podczas pobierania pliku")
 			}
 		}, 2000)
@@ -23,5 +22,5 @@ downloadFile(URL)
 		console.log("Zawartosc pliku:", content)
 	})
 	.catch(error => {
-		console.log("Blad:", error)
+		console.log("Błąd:", error)
 	})
