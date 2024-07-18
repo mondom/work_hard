@@ -1,26 +1,13 @@
 "use strict"
 
-function checkUsernameAvailability(username) {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			const takenUsernames = ["john", "emma", "alex"]
-			if (!takenUsernames.includes(username)) {
-				resolve(true)
-			} else {
-				reject("Nazwa uzytkownika jest juz zajeta.")
-			}
-		}, 2000)
-	})
-}
+const promise1 = new Promise((resolve,reject)=>{
+	setTimeout(resolve, 500, 'Pierwsza')
+})
+const promise2 = new Promise((resolve,reject)=>{
+	setTimeout(reject, 1500, 'Błąd w drugiej')
+})
+const promise3 = new Promise((resolve,reject)=>{
+	setTimeout(resolve, 1000, 'Trzecia')
+})
 
-checkUsernameAvailability("monika")
-	.then(available => {
-		console.log(`Czy nazwa (monika) jest dostępna? : ${available}`)
-	})
-	.catch(err => console.log(err))
-
-checkUsernameAvailability("john")
-	.then(available => {
-		console.log(`Czy nazwa (john) jest dostępna? : ${available}`)
-	})
-	.catch(err => console.log(err))
+Promise.all([promise1,promise2,promise3]).then(values => console.log(values)).catch(err => {console.log(err)})
