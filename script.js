@@ -1,41 +1,29 @@
 "use strict"
 
-function getUserData() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			const userData = {
-				name: "John",
-				age: 30,
-			}
-			resolve(userData)
-		}, 1000)
-	})
-}
+const promise1 = new Promise((resolve, reject) => {
+	setTimeout(resolve, 1000, "Obietnica 1 spełniona")
+})
 
-function getOrderData() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			const orderData = { id: 123, total: 50 }
-			resolve(orderData)
-		}, 2000)
-	})
-}
-function getProductData() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			const productData = { name: "Phone", price: 500 }
-			resolve(productData)
-		}, 1500)
-	})
-}
+const promise2 = new Promise((resolve, reject) => {
+	setTimeout(reject, 2000, "Błąd serwera")
+})
 
-Promise.all([getUserData(), getOrderData(), getProductData()]).then(result => {
-	const userData = result[0]
-	const orderData = result[1]
-	const productData = result[2]
-	console.log("Dane uzytkownika:", userData)
-	console.log("Dane zamowienia:", orderData)
-	console.log("Dane produktu:", productData)
-}).catch(err => {
-	console.error(err);
+const promise3 = new Promise((resolve, reject) => {
+	setTimeout(resolve, 3000, "Obietnica 3 spełniona")
+})
+
+Promise.allSettled([promise1, promise2, promise3]).then(results => {
+	results.forEach((result, index) => {
+		if (result.status === "fulfilled") {
+			console.log(
+				`Obietnica nr ${index + 1} została spełniona. Jej wartość to: ${result.value}`
+			)
+		} else if (result.status === "rejected") {
+			console.log(
+				`Obietnica nr ${
+					index + 1
+				} nie została spełniona. Powód jej odrzucenia to: ${result.reason}`
+			)
+		}
+	})
 })
