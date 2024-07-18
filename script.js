@@ -1,13 +1,41 @@
 "use strict"
 
-const promise1 = new Promise((resolve,reject)=>{
-	setTimeout(resolve, 500, 'Pierwsza')
-})
-const promise2 = new Promise((resolve,reject)=>{
-	setTimeout(reject, 1500, 'Błąd w drugiej')
-})
-const promise3 = new Promise((resolve,reject)=>{
-	setTimeout(resolve, 1000, 'Trzecia')
-})
+function getUserData() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const userData = {
+				name: "John",
+				age: 30,
+			}
+			resolve(userData)
+		}, 1000)
+	})
+}
 
-Promise.all([promise1,promise2,promise3]).then(values => console.log(values)).catch(err => {console.log(err)})
+function getOrderData() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const orderData = { id: 123, total: 50 }
+			resolve(orderData)
+		}, 2000)
+	})
+}
+function getProductData() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const productData = { name: "Phone", price: 500 }
+			resolve(productData)
+		}, 1500)
+	})
+}
+
+Promise.all([getUserData(), getOrderData(), getProductData()]).then(result => {
+	const userData = result[0]
+	const orderData = result[1]
+	const productData = result[2]
+	console.log("Dane uzytkownika:", userData)
+	console.log("Dane zamowienia:", orderData)
+	console.log("Dane produktu:", productData)
+}).catch(err => {
+	console.error(err);
+})
