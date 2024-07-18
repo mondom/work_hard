@@ -1,26 +1,26 @@
 "use strict"
 
-function downloadFile(URL) {
+function checkUsernameAvailability(username) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			const fileContent = URL
-			const success = false
-
-			if (success === true) {
-				resolve(fileContent)
-			} else if (success === false) {
-				reject("Błąd podczas pobierania pliku")
+			const takenUsernames = ["john", "emma", "alex"]
+			if (!takenUsernames.includes(username)) {
+				resolve(true)
+			} else {
+				reject("Nazwa uzytkownika jest juz zajeta.")
 			}
 		}, 2000)
-	}).finally(() => console.log("Pobieranie zakończone"))
+	})
 }
-const URL =
-	"https://cdn.pixabay.com/photo/2023/08/19/13/42/flowers-8200510_1280.jpg"
 
-downloadFile(URL)
-	.then(content => {
-		console.log("Zawartosc pliku:", content)
+checkUsernameAvailability("monika")
+	.then(available => {
+		console.log(`Czy nazwa (monika) jest dostępna? : ${available}`)
 	})
-	.catch(error => {
-		console.log("Błąd:", error)
+	.catch(err => console.log(err))
+
+checkUsernameAvailability("john")
+	.then(available => {
+		console.log(`Czy nazwa (john) jest dostępna? : ${available}`)
 	})
+	.catch(err => console.log(err))
