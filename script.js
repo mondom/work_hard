@@ -47,16 +47,15 @@
 // 	age: 30,
 // 	city: 'New York'
 //   };
-  
+
 //   const entries = Object.entries(user);
 //   console.log(entries);
-  
-const user = {
-	name: 'John',
-	age: 30,
-	city: 'New York'
-  };
-  
-const {name,city} = user
 
-console.log(`Wartość name to ${name}, a wartość city to ${city}`);
+const person = {
+	name: "Alice",
+	age: 25,
+}
+const test = Object.entries(person).forEach(([key,value])=>{
+  console.log(key, value);
+})
+
