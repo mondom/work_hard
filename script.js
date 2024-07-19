@@ -57,11 +57,6 @@ const user = {
 	city: 'New York'
   };
   
-  const entries = Object.entries(user);
-  console.log(entries);
+const {name,city} = user
 
-  entries.forEach(([key,value])=> {
-	console.log(`To jest klucz: ${key}, a to wartość: ${value}`);
-  })
-  // [['name', 'John'], ['age', 30], ['city', 'New York']]
-  
+console.log(`Wartość name to ${name}, a wartość city to ${city}`);
