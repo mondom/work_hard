@@ -61,5 +61,5 @@ Promise.allSettled([fetchUserData(), fetchOrderData(), fetchProductData()])
 		}
 	})
 	.catch(err => {
-		console.log(`Wystąpił błąd: ${err}`)
+		console.log(`Wystąpił nieoczekiwany błąd: ${err}`)
 	})
