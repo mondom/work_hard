@@ -22,4 +22,21 @@ function checkWeatherInCityC() {
 	})
 }
 
-Promise.any([checkWeatherInCityA(), checkWeatherInCityB(), checkWeatherInCityC()])
+Promise.any([
+	checkWeatherInCityA(),
+	checkWeatherInCityB(),
+	checkWeatherInCityC(),
+]).then(result => {
+	switch (result) {
+		case "Słonecznie":
+			console.log("W mieście A jest: " + result)
+			break
+			case'Pochmurno':
+			console.log("W mieście B jest: " + result)
+			break
+			case'Śnieżyca':
+			console.log("W mieście C jest: " + result)
+	}
+}).catch(err => {
+	console.log('Wystąpił błąd: ' + err);
+})
