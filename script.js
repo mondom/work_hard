@@ -1,30 +1,25 @@
 "use strict"
 
-function getDeliveryTimeFromSupplierA() {
-	return new Promise(resolve => {
+function checkWeatherInCityA() {
+	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			resolve(2000)
+			resolve("Słonecznie")
 		}, 2000)
 	})
 }
-function getDeliveryTimeFromSupplierB() {
-	return new Promise(resolve => {
+function checkWeatherInCityB() {
+	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			resolve(1500)
-		}, 1500)
+			resolve("Pochmurno")
+		}, 3000)
 	})
 }
-function raceBetweenSuppliers() {
-	Promise.race([getDeliveryTimeFromSupplierA(), getDeliveryTimeFromSupplierB()])
-		.then(result => {
-			if (result === 2000) {
-				console.log('"Zwyciezca jest dostawca A!"')
-			} else if (result === 1500) {
-				console.log("Zwyciezca jest dostawca B!")
-			}
-		})
-		.catch(err => {
-			console.log(err)
-		})
+function checkWeatherInCityC() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve("Śnieżyca")
+		}, 1000)
+	})
 }
-raceBetweenSuppliers()
+
+Promise.any([checkWeatherInCityA(), checkWeatherInCityB(), checkWeatherInCityC()])
