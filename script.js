@@ -1,42 +1,31 @@
 "use strict"
 
-function checkWeatherInCityA() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			resolve("Słonecznie")
-		}, 2000)
-	})
-}
-function checkWeatherInCityB() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			resolve("Pochmurno")
-		}, 3000)
-	})
-}
-function checkWeatherInCityC() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			resolve("Śnieżyca")
-		}, 1000)
-	})
+const checkAge = age => {
+    return new Promise((resolve, reject) => {
+        if (age >= 18) {
+            resolve()
+        } else {
+            reject('Masz za mało lat')
+        }
+    })
 }
 
-Promise.any([
-	checkWeatherInCityA(),
-	checkWeatherInCityB(),
-	checkWeatherInCityC(),
-]).then(result => {
-	switch (result) {
-		case "Słonecznie":
-			console.log("W mieście A jest: " + result)
-			break
-			case'Pochmurno':
-			console.log("W mieście B jest: " + result)
-			break
-			case'Śnieżyca':
-			console.log("W mieście C jest: " + result)
-	}
-}).catch(err => {
-	console.log('Wystąpił błąd: ' + err);
-})
+const doubleCheck = () => {
+    return new Promise((resolve, reject) => {
+        console.log('Sprawdzam jeszcze raz...')
+        setTimeout(() => {
+            resolve('Faktycznie, wiek się zgadza.')
+        }, 1000)
+    })
+}
+
+checkAge(50)
+    .then(() => {
+        console.log('Chyba możesz wejść...')
+        return doubleCheck()
+    })
+    .then(res => console.log(res))
+    .then(() => {
+        console.log('Sprawdzanie zakończone!')
+    })
+    .catch(error => console.error(error))
