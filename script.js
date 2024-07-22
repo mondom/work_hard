@@ -1,16 +1,30 @@
 "use strict"
 
-function fetchDataWithTimeout(url, timeout) {
-	const fetchPromise = fetch(url).then(response => response.json());
-	const timeoutPromise = new Promise((resolve, reject) => {
-	  setTimeout(() => {
-		reject(new Error('Request timed out'));
-	  }, timeout);
-	});
-  
-	return Promise.race([fetchPromise, timeoutPromise]);
-  }
-  
-  fetchDataWithTimeout('https://jsonplaceholder.typicode.com/todos/1', 3000)
-	.then(data => console.log(data))
-	.catch(error => console.error(error));
+function getDeliveryTimeFromSupplierA() {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			resolve(2000)
+		}, 2000)
+	})
+}
+function getDeliveryTimeFromSupplierB() {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			resolve(1500)
+		}, 1500)
+	})
+}
+function raceBetweenSuppliers() {
+	Promise.race([getDeliveryTimeFromSupplierA(), getDeliveryTimeFromSupplierB()])
+		.then(result => {
+			if (result === 2000) {
+				console.log('"Zwyciezca jest dostawca A!"')
+			} else if (result === 1500) {
+				console.log("Zwyciezca jest dostawca B!")
+			}
+		})
+		.catch(err => {
+			console.log(err)
+		})
+}
+raceBetweenSuppliers()
