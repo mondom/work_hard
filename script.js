@@ -52,7 +52,7 @@ function fetchData() {
 		  const moreData = await anotherFetch();
 		  console.log(moreData);
 		} catch (error) {
-		  console.error("Wystąpił błąd:", error);
+		  console.log("Wystąpił błąd:", error);
 		}
 	  }
 	  
