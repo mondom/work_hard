@@ -1,7 +1,17 @@
 "use strict"
 
-async function test(){}
+function delay(ms){
+    return new Promise(resolve => {
+        setTimeout(()=>{
+            resolve()
+        },ms)
+    })
+}
 
-const test = async(params)=>{}
-
-
+const tasks = [
+    "Przygotuj sniadanie",
+    "Umyj naczynia",
+    "Posprzataj pokoj",
+    "Obejrzyj ulubiony film",
+    "Przeczytaj ksiazke",
+];
