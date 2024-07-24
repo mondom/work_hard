@@ -1,29 +1,25 @@
 "use strict"
 
-function delay(ms) {
-	return new Promise(resolve => {
-		setTimeout(() => {
-			resolve()
-		}, ms)
-	})
+function doThings1() {
+	return Promise.resolve("ok")
 }
 
-const tasks = [
-	"Przygotuj sniadanie",
-	"Umyj naczynia",
-	"Posprzataj pokoj",
-	"Obejrzyj ulubiony film",
-	"Przeczytaj ksiazke",
-]
+doThings1().then(res => {
+	console.log(res)
+})
 
-async function processTasks() {
-	for (const task of tasks) {
-        await delay(1000)
-		console.log(`Rozpoczynam zadanie: ${task}`)
-		await delay(2000)
-		console.log(`Zadanie zakonczone: ${task}`)
-	}
+async function myTest() {
+	return "sprawdźmy"
 }
 
-processTasks()
+async function runTest(){
+    try{
+        const result = await myTest()
+        console.log(result);
+    }
+    catch{
+        err=> console.log(err);
+    }
+}
 
+runTest()
