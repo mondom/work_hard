@@ -1,37 +1,17 @@
 "use strict"
 
-function loadUserData() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => { resolve("A"); }, 1000)
-    });
-}
+function test(){}
 
-function loadBooks() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => { resolve("B"); }, 1500)
-    });
-}
-
-function loadPets() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => { resolve("C"); }, 2000)
-    });
-}
-
-async function render() {
-    const user = await loadUserData();
-    const books = await loadBooks();
-    const pets = await loadPets();
-   
-    return {user, books, pets}
-}
-
-
-async function showResult(){
-    const result = await render()
-    console.log(result);
-}
-
-showResult()
+(async () => {
+    //próbuję wykonać jakieś operacje
+    try {
+        const request = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+        const json = await request.json();
+        console.log(json)
+    //jeżeli się nie uda, zwracam błąd
+    } catch(err) {
+        console.log(err);
+    }
+})();
 
 
