@@ -1,17 +1,10 @@
 "use strict"
 
-function* randomNumberGenerator() {
-    while (true) {
-        yield Math.floor(Math.random()*10);
+function* productCodeGenerator(length, prefix = ''){
+    let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    let codeLength = length - prefix.length
+    while(true){
+        let code = prefix
     }
 }
-
-const generator = randomNumberGenerator();
-
-
-
-for (let i = 0; i < 5; i++) {
-    console.log(generator.next());
-}
-
 
