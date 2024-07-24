@@ -22,8 +22,10 @@ async function render() {
     const user = await loadUserData();
     const books = await loadBooks();
     const pets = await loadPets();
+   
     return {user, books, pets}
 }
+
 
 async function showResult(){
     const result = await render()
