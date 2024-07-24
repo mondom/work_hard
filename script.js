@@ -1,25 +1,35 @@
 "use strict"
 
-function doThings1() {
-	return Promise.resolve("ok")
+function loadUserData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => { resolve("A"); }, 1000)
+    });
 }
 
-doThings1().then(res => {
-	console.log(res)
-})
-
-async function myTest() {
-	return "sprawdźmy"
+function loadBooks() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => { resolve("B"); }, 1500)
+    });
 }
 
-async function runTest(){
-    try{
-        const result = await myTest()
-        console.log(result);
-    }
-    catch{
-        err=> console.log(err);
-    }
+function loadPets() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => { resolve("C"); }, 2000)
+    });
 }
 
-runTest()
+async function render() {
+    const user = await loadUserData();
+    const books = await loadBooks();
+    const pets = await loadPets();
+    return {user, books, pets}
+}
+
+async function showResult(){
+    const result = await render()
+    console.log(result);
+}
+
+showResult()
+
+
