@@ -7,6 +7,7 @@ function* productCodeGenerator(length, prefix = "") {
 		let code = prefix
 		for (let i = 0; i < codeLength; i++) {
 			const randomIndex = Math.floor(Math.random() * characters.length)
+            console.log('----'+ randomIndex);
 			code += characters.charAt(randomIndex)
 		}
 
@@ -18,4 +19,12 @@ const generator = productCodeGenerator(8,'LED')
 
 console.log(generator.next().value)
 console.log(generator.next().value)
-console.log(generator.next().value)
+// console.log(generator.next().value)
+// console.log(generator.next().value)
+// console.log(generator.next().value)
+
+
+
+
+
+
