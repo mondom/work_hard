@@ -5,6 +5,7 @@ body {
     align-items: center;
     flex-direction: column;
     background-color: #216fdb;
+    font-weight: bold;
 }
 
 input {
@@ -15,6 +16,7 @@ input {
 .btn {
     padding: 10px 15px;
     margin: 20px;
+    font-weight: bold;
     cursor: pointer;
 }
 
@@ -26,4 +28,5 @@ input,
 
 p {
     color: white;
+    
 }
