@@ -1,3 +1,5 @@
 "use strict"
 
-import { calculateTotalOrder } from "./order"
+import { calculateTotalOrder } from "./order.js"
+
+calculateTotalOrder()

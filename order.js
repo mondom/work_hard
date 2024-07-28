@@ -5,6 +5,16 @@ const orders = [
 	{ produkt: "Słuchawki", cena: 150 },
 ]
 
-function calculateTotalOrder() {}
+function calculateTotalOrder() {
+	let sum = 0
+	for (const order of orders) {
+		const price = order.cena
+		sum = sum + price
+	}
+	return sum
+}
 
 export { calculateTotalOrder }
+
+
+
