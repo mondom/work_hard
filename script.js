@@ -2,4 +2,6 @@
 
 import { calculateTotalOrder } from "./order.js"
 
-calculateTotalOrder()
+const result = calculateTotalOrder()
+
+console.log("Suma zamówień: ", result);
