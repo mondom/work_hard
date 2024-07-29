@@ -22,6 +22,8 @@ function calculateTotalOrder() {
     // orders.map(order => {
     //     sum+=order.cena
     // })
+
+	
 	console.log(sum)
 	return sum
 }
