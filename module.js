@@ -9,16 +9,23 @@ function addOrder(orderNumber, productName, unitPrice, quantity) {
 	}
 	orders.push(order)
 }
-addOrder(1, "ponczo", 499, 2)
+
 
 function getTotalOrderValue() {
 	let sum = 0
 	orders.forEach(order => {
 		sum = order.unitPrice * order.quantity
+		console.log('Total Order Value:', sum);
 	})
-	console.log(sum)
+	
 }
 
-getTotalOrderValue()
 
-export { addOrder, getTotalOrderValue }
+
+function displayOrders(){
+	orders.forEach(order => {
+		console.log(`Order Number: ${order.orderNumber}, Product: ${order.productName}, Quantity: ${order.quantity}, Total Value: ${order.unitPrice * order.quantity}`);
+	})
+}
+
+export { addOrder, getTotalOrderValue, displayOrders }
