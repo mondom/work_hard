@@ -1,7 +1,6 @@
 "use strict"
 
-import { calculateTotalOrder } from "./order.js"
+import { addOrder, getTotalOrderValue } from "./module.js"
 
-const result = calculateTotalOrder()
 
-console.log("Suma zamówień: ", result);
+
