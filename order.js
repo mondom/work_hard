@@ -12,23 +12,21 @@ function calculateTotalOrder() {
 	// 	sum = sum + price
 	// }
 	// for (let i = 0; i < orders.length; i++) {
-    //    sum += orders[i].cena
-    // }
+	//    sum += orders[i].cena
+	// }
 
-    // orders.forEach(order => {
-    //     sum+=order.cena
-    // })
+	// orders.forEach(order => {
+	//     sum+=order.cena
+	// })
 
-    // orders.map(order => {
-    //     sum+=order.cena
-    // })
+	// orders.map(order => {
+	//     sum+=order.cena
+	// })
 
-	
+	const [firstOrder, secondOrder, thirdOrder, fourthOrder] = orders
+	sum = firstOrder.cena + secondOrder.cena + thirdOrder.cena + fourthOrder.cena
 	console.log(sum)
 	return sum
 }
 
 export { calculateTotalOrder }
-
-
-
