@@ -1,72 +1,21 @@
 "use strict"
 
-const celsiusValue = 25
-const fahrenheitValue = 77
-const kelvinValue = 298.15
+function calculateTax(income) {
+	let tax = 0
 
-function celsiusToFahrenheit(celsius) {
-	const celToFahr = (celsius * 9) / 5 + 32
-	return celToFahr
+	if (income <= 50000) {
+		tax = income * 0.15
+	} else if (income > 50000 && income <= 100000) {
+		tax = income * 0.2
+	} else if (income > 100000) {
+		tax = income * 0.3
+	}
+    return tax
 }
 
-function celsiusToKelvin(celsius) {
-	const celToKel = celsius + 273.15
-	return celToKel
-}
+const income = 75000
 
-function fahrenheitToCelsius(fahrenheit) {
-	const fahrToCel = ((fahrenheit - 32) * 5) / 9
-	return fahrToCel
-}
 
-function fahrenheitToKelvin(fahrenheit) {
-	const fahrToKel = (((fahrenheit + 459.67) * 5) / 9).toFixed(2)
+const taxAmount = calculateTax(income)
 
-	return fahrToKel
-}
-
-function kelvinToCelsius(kelvin) {
-	const kelToCel = kelvin - 273.15
-	return kelToCel
-}
-
-function kelvinToFahrenheit(kelvin) {
-	const kelToFahr = ((kelvin * 9) / 5 - 459.67).toFixed(2)
-	return kelToFahr
-}
-
-console.log(
-	`${celsiusValue} stopni Celsiusza = ${celsiusToFahrenheit(
-		celsiusValue
-	)} stopni Fahrenheita`
-)
-
-console.log(
-	`${celsiusValue} stopni Celsiusza = ${celsiusToKelvin(
-		celsiusValue
-	)} stopni Kelvina`
-)
-
-console.log(
-	`${fahrenheitValue} stopni Fahrenheita = ${fahrenheitToCelsius(
-		fahrenheitValue
-	)} stopni Celsiusza`
-)
-
-console.log(
-	`${fahrenheitValue} stopni Fahrenheita = ${fahrenheitToKelvin(
-		fahrenheitValue
-	)} stopni Kelvina`
-)
-
-console.log(
-	`${kelvinValue} stopni Kelvina = ${kelvinToCelsius(
-		kelvinValue
-	)} stopni Celsiusza`
-)
-
-console.log(
-	`${kelvinValue} stopni Kelvina = ${kelvinToFahrenheit(
-		kelvinValue
-	)} stopni Fahrenheita`
-)
+console.log(`Podatek dla dochodu ${income}zł wynosi: ${taxAmount}zł`);
