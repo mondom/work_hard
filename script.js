@@ -1,10 +1,13 @@
 "use strict"
 
-import { dodaj,usun,wyswietl } from "./module.js"
+function rollDice() {
+	const min = 1
+	const max = 6
 
-dodaj('Jan', 'Kowalski', 123456789);
-dodaj('Anna', 'Nowak', 987654321);
+    const diceThrow = Math.floor(Math.random() * (max - min + 1)) + min
+    return diceThrow
+}
 
-usun(123456789)
 
-wyswietl()
+const result = rollDice()
+console.log('Wynik rzutu kostką: ', result);
