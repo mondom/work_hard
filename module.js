@@ -1,14 +1,31 @@
-const listaZadan = []
+let listaKontaktow = []
 
-function dodajZadanie(tekstZadania) {
-	listaZadan.push(tekstZadania)
-}
-
-function wyswietlZadania() {
-	console.log("Lista zadań:")
-	for (let i = 0; i < listaZadan.length; i++) {
-		console.log(`${i + 1}. ${listaZadan[i]}`)
+function dodajKontakt(imie, nazwisko, nrTel) {
+	const kontakt = {
+		imie: imie,
+		nazwisko: nazwisko,
+		nrTel: nrTel,
 	}
+	listaKontaktow.push(kontakt)
 }
 
-export { dodajZadanie, wyswietlZadania }
+function usunKontakt(nrTel) {
+	listaKontaktow = listaKontaktow.filter(kontakt =>{ return kontakt.nrTel !== nrTel})
+}
+
+function wyswietlKontakty() {
+	console.log("Lista kontaktów")
+	listaKontaktow.forEach((kontakt, index) => {
+		console.log(
+			`${index + 1}. Imię: ${kontakt.imie}, Nazwisko: ${
+				kontakt.nazwisko
+			}, Nr telefonu: ${kontakt.nrTel}`
+		)
+	})
+}
+
+export {
+	dodajKontakt as dodaj,
+	usunKontakt as usun,
+	wyswietlKontakty as wyswietl,
+}

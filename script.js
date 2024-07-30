@@ -1,10 +1,10 @@
 "use strict"
 
-import * as zadania from './module.js'
+import { dodaj,usun,wyswietl } from "./module.js"
 
-zadania.dodajZadanie('Umyć naczynia')
-zadania.dodajZadanie('Zrobic zakupy');
-zadania.dodajZadanie('Napisac raport');
-zadania.dodajZadanie('Odwiedzic przyjaciela');
+dodaj('Jan', 'Kowalski', 123456789);
+dodaj('Anna', 'Nowak', 987654321);
 
-zadania.wyswietlZadania()
+usun(123456789)
+
+wyswietl()
