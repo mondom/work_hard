@@ -18,4 +18,4 @@ const income = 75000
 
 const taxAmount = calculateTax(income)
 
-console.log(`Podatek dla dochodu ${income}zł wynosi: ${taxAmount}zł`);
+console.log(`Podatek dla dochodu ${income}zł wynosi: ${taxAmount}zł`); 
