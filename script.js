@@ -1,35 +1,22 @@
 "use strict"
 
-function generateRandomNumbers() {
-	let randomNumbers = []
-	while (randomNumbers.length < 6) {
-		const min = 1
-		const max = 49
-		const number = Math.floor(Math.random() * max - min + 1)
-		if (!randomNumbers.includes(number)) {
-			randomNumbers.push(number)
-		}
-	}
-	return randomNumbers
+function generateRandomNumber() {
+	const num = Math.floor(Math.random() * 100) + 1
+	console.log(num);
+	return num
 }
 
-const randomNumbers = generateRandomNumbers()
-
-function checkResults(userNumbers, randomNumbers) {
-	let matches = 0
-	for (let i = 0; i < userNumbers.length; i++) {
-		if (randomNumbers.includes(userNumbers[i])) {
-			matches++
-		}
+function guessNumber(userGuess, randomNumber) {
+	if (userGuess === randomNumber) {
+		console.log("Gratulacje, zgadłeś!")
+	} else if (userGuess < randomNumber) {
+		console.log("Wylosowana liczba jest wieksza.")
+	} else if (userGuess > randomNumber) {
+		console.log("Wylosowana liczba jest mniejsza.")
 	}
-	return matches
 }
 
-const userNumbers = [2, 7, 15, 23, 30, 31]
+const randomNumber = generateRandomNumber()
+const userGuess = 55
 
-const result = checkResults(userNumbers, randomNumbers)
-
-console.log("Wylosowane liczby: " + randomNumbers.join(", "));
-console.log("Twoje liczby: " + userNumbers.join(", "));
-
-console.log("Liczba trafień: " + result);
+guessNumber(userGuess, randomNumber)
