@@ -1,21 +1,20 @@
 "use strict"
 
-function calculateTax(income) {
-	let tax = 0
-
-	if (income <= 50000) {
-		tax = income * 0.15
-	} else if (income > 50000 && income <= 100000) {
-		tax = income * 0.2
-	} else if (income > 100000) {
-		tax = income * 0.3
+function generateRandomNumbers() {
+	let randomNumbers = []
+	while (randomNumbers.length < 6) {
+		const min = 1
+		const max = 49
+		const number = Math.floor(Math.random() * max - min + 1)
+		if (!randomNumbers.includes(number)) {
+			randomNumbers.push(number)
+		}
 	}
-    return tax
+	return randomNumbers
 }
 
-const income = 75000
+generateRandomNumbers()
 
+function checkResults(userNumbers, randomNumbers){
 
-const taxAmount = calculateTax(income)
-
-console.log(`Podatek dla dochodu ${income}zł wynosi: ${taxAmount}zł`); 
+}
