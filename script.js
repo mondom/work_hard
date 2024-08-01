@@ -1,22 +1,22 @@
 "use strict"
 
-function generateRandomNumber() {
-	const num = Math.floor(Math.random() * 100) + 1
-	console.log(num);
-	return num
-}
+function calculateParkingFee(hours) {
+	const baseRate = 10
+	const hourlyRate = 5
 
-function guessNumber(userGuess, randomNumber) {
-	if (userGuess === randomNumber) {
-		console.log("Gratulacje, zgadłeś!")
-	} else if (userGuess < randomNumber) {
-		console.log("Wylosowana liczba jest wieksza.")
-	} else if (userGuess > randomNumber) {
-		console.log("Wylosowana liczba jest mniejsza.")
+	if (hours <= 0) {
+		return 0
+	} else if (hours === 1) {
+		return 10
+	} else {
+		const additionalHours = hours - 1
+		const result = additionalHours * hourlyRate + baseRate
+		return result
 	}
 }
 
-const randomNumber = generateRandomNumber()
-const userGuess = 55
+const parkedHours = 10
 
-guessNumber(userGuess, randomNumber)
+const result = calculateParkingFee(parkedHours)
+
+console.log(`Oplata parkingowa za ${parkedHours} godzin(y) wynosi ${result} zl`)
