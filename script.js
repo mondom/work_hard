@@ -1,22 +1,25 @@
 "use strict"
 
-function calculateParkingFee(hours) {
-	const baseRate = 10
-	const hourlyRate = 5
+const centimetersToInchesRatio = 0.393701
+const inchesToCentimetersRatio = 2.54
 
-	if (hours <= 0) {
-		return 0
-	} else if (hours === 1) {
-		return 10
-	} else {
-		const additionalHours = hours - 1
-		const result = additionalHours * hourlyRate + baseRate
-		return result
-	}
+const centimetersValue = 30
+const inchesValue = 10
+
+function convertCentimetersToInches(cen) {
+	const result = cen * centimetersToInchesRatio
+	return result.toFixed(2)
 }
 
-const parkedHours = 10
+function convertInchesToCentimeters(inches){
+	const result = inches * inchesToCentimetersRatio
+	return result
+}
 
-const result = calculateParkingFee(parkedHours)
 
-console.log(`Oplata parkingowa za ${parkedHours} godzin(y) wynosi ${result} zl`)
+
+const resultCen = convertCentimetersToInches(centimetersValue)
+console.log(`${centimetersValue} centymetrów to równowartość ${resultCen} cali.`)
+
+const resultInches = convertInchesToCentimeters(inchesValue)
+console.log(`${inchesValue} cali to równowartość ${resultInches} centymetrów.`);
